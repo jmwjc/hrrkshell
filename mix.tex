@@ -1,0 +1,78 @@
+\section{Mixed formulation}
+\begin{equation}
+\begin{split}
+&\Pi(\varepsilon_{\alpha\beta},\kappa_{\alpha\beta},N^{\alpha\beta},M^{\alpha\beta}) \\
+= &\int_\Omega \frac{h}{2}\varepsilon_{\alpha\beta} C^{\alpha\beta\gamma\eta}\varepsilon_{\gamma\eta}d\Omega 
++ \int_\Omega \frac{h^3}{24}\kappa_{\alpha\beta} C^{\alpha\beta\gamma\eta}\kappa_{\gamma\eta}d\Omega \\
++& \int_\Omega \varepsilon_{\alpha\beta} (N^{\alpha\beta} - h C^{\alpha\beta\gamma\eta} \varepsilon_{\gamma\eta}) d\Omega
++ \int_\Omega \kappa_{\alpha\beta} (M^{\alpha\beta} - \frac{h^3}{12} C^{\alpha\beta\gamma\eta} \kappa_{\gamma\eta}) d\Omega \\
+-& \int_{\Gamma_v} \boldsymbol t \cdot \bar{\boldsymbol v} d\Gamma 
++ \int_{\Gamma_\theta} M_{\boldsymmbol{nn}} \bar \theta_{\boldsymbol n} d\Gamma - (P \boldsymbol a_3 \cdot \bar{\boldsymbol v})_{\boldsymbol x \in C_w}
+\end{split}
+\end{equation}
+\begin{equation}
+\begin{split}
+&\bar \Pi(\varepsilon_{\alpha\beta},\kappa_{\alpha\beta},N^{\alpha\beta},M^{\alpha\beta},\boldsymbol v) \\
+    =& \Pi(\varepsilon_{\alpha\beta},\kappa_{\alpha\beta},N^{\alpha\beta},M^{\alpha\beta}) \\
+    &+ \int_\Omega \boldsymbol v \cdot ((\boldsymbol a_\alpha N^{\alpha\beta})\vert_\beta + (\boldsymbol a_3 M^{\alpha\beta})\vert_{\alpha\beta} + \bar{\boldsymbol b}) d\Omega \\
+&+ \int_{\Gamma_M} \boldsymbol v_{,\boldsymbol n} \cdot \boldsymbol a_3 (M_{\boldsymbol{nn}} - \bar M_{\boldsymbol{nn}}) d\Gamma \\
+&- \int_{\Gamma_t} \boldsymbol v \cdot (\boldsymbol t - \bar{\boldsymbol t})d\Gamma - \boldsymbol v \cdot \boldsymbol a_3 (P - \bar{P})_{\boldsymbol x \in C_P}
+\end{split}
+\end{equation}
+
+\begin{equation}
+\delta \Pi(\varepsilon_{\alpha\beta},\kappa_{\alpha\beta},N^{\alpha\beta},M^{\alpha\beta},\boldsymbol v) = 0
+\end{equation}
+
+\begin{subequations}
+\begin{equation}
+- \int_\Omega h \delta \varepsilon_{\alpha\beta} C^{\alpha\beta\gamma\eta}\varepsilon_{\gamma\eta}d\Omega 
++ \int_\Omega \delta \varepsilon_{\alpha\beta} N^{\alpha\beta} d\Omega = 0
+\end{equation}
+\begin{equation}
+- \int_\Omega \frac{h^3}{12} \delta \kappa_{\alpha\beta} C^{\alpha\beta\gamma\eta}\kappa_{\gamma\eta}d\Omega 
++ \int_\Omega \delta \kappa_{\alpha\beta} M^{\alpha\beta} d\Omega = 0
+\end{equation}
+\begin{multline}
+\int_\Omega \delta N^{\alpha\beta} \varepsilon_{\alpha\beta} d\Omega
+- \int_\Gamma \boldsymbol a_\alpha \delta N^{\alpha\beta} \cdot \boldsymbol v n_\beta d\Gamma 
++ \int_\Omega \boldsymbol v \cdot (\boldsymbol a_\alpha \delta N^{\alpha\beta})\vert_\beta d\Omega \\
++ \int_{\Gamma_v} \boldsymbol a_\alpha \delta N^{\alpha\beta} \cdot \boldsymbol v n_\beta d\Gamma 
+= \int_{\Gamma_v} \boldsymbol a_\alpha \delta N^{\alpha\beta} \cdot \bar{\boldsymbol v} n_\beta d\Gamma 
+\end{multline}
+\begin{multline}
+\int_\Omega \delta M^{\alpha\beta} \kappa_{\alpha\beta} d\Omega 
+- \int_\Gamma \delta M_{\boldsymbol{nn}} \theta_{\boldsymbol n}d\Gamma
++ \int_\Gamma \delta \boldsymbol t \cdot \boldsymbol v d\Gamma
++ (\delta P \boldsymbol a_3 \cdot \boldsymbol v)_{\boldsymbol x \in c}
+- \int_\Omega (\boldsymbol a_3 \delta M^{\alpha\beta})\vert_{\alpha\beta} \cdot \boldsymbol v d\Omega \\
++ \int_{\Gamma_\theta} \delta M_{\boldsymbol{nn}} \theta_{\boldsymbol n}d\Gamma
+- \int_{\Gamma_t} \delta \boldsymbol t \cdot \boldsymbol v d\Gamma
+- (\delta P \boldsymbol a_3 \cdot \boldsymbol v)_{\boldsymbol x \in c_w} \\ =
+\int_{\Gamma_\theta} \delta M_{\boldsymbol{nn}} \bar{\theta}_{\boldsymbol n}d\Gamma
+- \int_{\Gamma_t} \delta \boldsymbol t \cdot \bar{\boldsymbol v} d\Gamma
+- (\delta P \boldsymbol a_3 \cdot \bar{\boldsymbol v})_{\boldsymbol x \in c_w} \\
+\end{multline}
+\begin{equation}
+    - \int_\Gamma \delta \boldsymbol v \cdot \boldsymbol t d\Gamma + \int_\Omega \delta \boldsymbol v \cdot \boldsymbol b d\Omega + \int_{\Gamma_t} \delta v \cdot \boldsymbol t d\Gamma = \int_{\Gamma_t} \delta \cdot \bar{\boldsymbol t} d\Gamma + \int_\Omega \delta \boldsymbol v \cdot \bar{\boldsymbol b} d\Omega
+\end{equation}
+\end{subequations}
+\begin{equation}
+    \boldsymbol v_{,\alpha}(\boldsymbol x) = \boldsymbol p^T(\boldsymbol x) \boldsymbol d_{\alpha}^\varepsilon, \quad
+    \varepsilon_{\alpha\beta}(\boldsymbol x) = \boldsymbol p^T(\boldsymbol x) \frac{1}{2}(\boldsymbol a_\alpha \cdot \boldsymbol d_{\beta}^\varepsilon + \boldsymbol a_\beta \cdot \boldsymbol d_{\alpha}^\varepsilon)
+\end{equation}
+\begin{equation}
+    (\boldsymbol v_{,\alpha})\vert_\beta(\boldsymbol x) = \boldsymbol p^T(\boldsymbol x) \boldsymbol d_{\alpha\beta}^\kappa , \quad
+    \kappa^{\alpha\beta}(\boldsymbol x) = - \boldsymbol p^T(\boldsymbol x) \boldsymbol a_3 \cdot \boldsymbol d_{\alpha\beta}^\kappa
+\end{equation}
+\begin{equation}
+N^{\alpha\beta}(\boldsymbol x) = \boldsymbol p^T(\boldsymbol x) \boldsymbol a^\alpha \cdot \boldsymbol d_{\beta}^N,\quad
+\boldsymbol a_\alpha N^{\alpha\beta} = \boldsymbol p^T(\boldsymbol x) \boldsymbol d^N_\beta
+\end{equation}
+\begin{equation}
+    M^{\alpha\beta}(\boldsymbol x) = \boldsymbol p^T(\boldsymbol x) \boldsymbol a_3 \cdot \boldsymbol d_{\alpha\beta}^M,\quad
+    \boldsymbol a_3 M^{\alpha\beta} = \boldsymbol p^T(\boldsymbol x) \boldsymbol d_{\alpha\beta}^M
+\end{equation}
+\begin{equation}
+\boldsymbol v(\boldsymbol x) = \sum_{I=1}^{n_p} \Psi_I(\boldsymbol x) \boldsymbol d_I
+\end{equation}
