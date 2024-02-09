@@ -1,0 +1,13 @@
+\begin{thebibliography}{1}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\href#1#2{#2} \def\path#1{#1}\fi
+
+\bibitem{dah-wei1985}
+H.~Dah-wei, \href{http://link.springer.com/10.1007/BF01876390}{A method for establishing generalized variational principle} 6~(6)  501--509.
+\newblock \href {https://doi.org/10.1007/BF01876390} {\path{doi:10.1007/BF01876390}}.
+\newline\urlprefix\url{http://link.springer.com/10.1007/BF01876390}
+
+\end{thebibliography}
