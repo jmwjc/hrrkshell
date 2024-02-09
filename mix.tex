@@ -3,20 +3,29 @@
 In this study, the displacement is approximated by traditional reproducing kernel approximation. As shown in Fig, 
 
 \begin{equation}
-\boldsymbol v(\boldsymbol x) = \sum_{I=1}^{n_p} \Psi_I(\boldsymbol x) \boldsymbol d_I
-\end{equation}
-
-\begin{equation}
-    \boldsymbol v_{,\alpha}(\boldsymbol x) = \boldsymbol p^T(\boldsymbol x) \boldsymbol d_{\alpha}^\varepsilon, \quad
-    \varepsilon_{\alpha\beta}(\boldsymbol x) = \boldsymbol p^T(\boldsymbol x) \frac{1}{2}(\boldsymbol a_\alpha \cdot \boldsymbol d_{\beta}^\varepsilon + \boldsymbol a_\beta \cdot \boldsymbol d_{\alpha}^\varepsilon)
+\boldsymbol v(\boldsymbol \xi) = \sum_{I=1}^{n_p} \Psi_I(\boldsymbol \xi) \boldsymbol d_I
 \end{equation}
 
 \subsection{Reproducing kernel gradient smoothing approximation for effective stress and strain}
-For the inspiration 
+In Galerkin meshfree formulation, the mid-plane of thin shell $\Omega$ is split by a set of integration cells $\Omega_C$'s, $\cup_{C=1}^{n_e}\Omega_C\approx \Omega$. With the inspiration of reproducing kernel smoothing framework, the Cartesian and covariant derivatives of displacement, $\boldsymbol v_{,\alpha}$ and $-\boldsymbol v_{,\alpha}\vert_\beta$, in strains $\varepsilon_{\alpha\beta}$, $\kappa_{\alpha\beta}$ are approximated by $(p-1)$-th order polynomials in each integration cells. The approximated derivatives and strains denoted by $\boldsymbol v^h_{,\alpha}$, $\varepsilon_{\alpha\beta}$ and $-\boldsymbol v_{,\alpha}\vert_\beta$, $\kappa_{\alpha\beta}$ can be expressed by:
+
 \begin{equation}
-    -(\boldsymbol v_{,\alpha})\vert_\beta(\boldsymbol x) = \boldsymbol p^T(\boldsymbol x) \boldsymbol d_{\alpha\beta}^\kappa , \quad
-    \kappa^{\alpha\beta}(\boldsymbol x) = - \boldsymbol p^T(\boldsymbol x) \boldsymbol a_3 \cdot \boldsymbol d_{\alpha\beta}^\kappa
+    \boldsymbol v_{,\alpha}(\boldsymbol \xi) = \boldsymbol q^T(\boldsymbol \xi) \boldsymbol d_{\alpha}^\varepsilon, \quad
+    \varepsilon_{\alpha\beta}(\boldsymbol \xi) = \boldsymbol q^T(\boldsymbol \xi) \frac{1}{2}(\boldsymbol a_\alpha \cdot \boldsymbol d_{\beta}^\varepsilon + \boldsymbol a_\beta \cdot \boldsymbol d_{\alpha}^\varepsilon)
 \end{equation}
+
+\begin{equation}
+    -\boldsymbol v_{,\alpha}\vert_\beta(\boldsymbol \xi) = \boldsymbol q^T(\boldsymbol \xi) \boldsymbol d_{\alpha\beta}^\kappa , \quad
+    \kappa^{\alpha\beta}(\boldsymbol \xi) = - \boldsymbol q^T(\boldsymbol \xi) \boldsymbol a_3 \cdot \boldsymbol d_{\alpha\beta}^\kappa
+\end{equation}
+
+where $\boldsymbol q$ is the $(p-1)$th order polynomial vector and has the following form:
+
+\begin{equation}
+\boldsymbol q = \{ 1,\; \xi^1,\; \xi^2,\; \dots, (\xi^2)^{p-1}\}^T
+\end{equation}
+
+and the 
 \begin{equation}
 N^{\alpha\beta}(\boldsymbol x) = \boldsymbol p^T(\boldsymbol x) \boldsymbol a^\alpha \cdot \boldsymbol d_{\beta}^N,\quad
 \boldsymbol a_\alpha N^{\alpha\beta} = \boldsymbol p^T(\boldsymbol x) \boldsymbol d^N_\beta
