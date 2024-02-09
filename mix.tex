@@ -1,36 +1,74 @@
 \section{Mixed meshfree formulation for modified Hellinger-Reissner weak form}
 \subsection{Reproducing kernel approximation for displacement}
 In this study, the displacement is approximated by traditional reproducing kernel approximation. As shown in Fig, 
-
-\begin{equation}
+\begin{equation}\label{approxv}
 \boldsymbol v(\boldsymbol \xi) = \sum_{I=1}^{n_p} \Psi_I(\boldsymbol \xi) \boldsymbol d_I
 \end{equation}
 
 \subsection{Reproducing kernel gradient smoothing approximation for effective stress and strain}
-In Galerkin meshfree formulation, the mid-plane of thin shell $\Omega$ is split by a set of integration cells $\Omega_C$'s, $\cup_{C=1}^{n_e}\Omega_C\approx \Omega$. With the inspiration of reproducing kernel smoothing framework, the Cartesian and covariant derivatives of displacement, $\boldsymbol v_{,\alpha}$ and $-\boldsymbol v_{,\alpha}\vert_\beta$, in strains $\varepsilon_{\alpha\beta}$, $\kappa_{\alpha\beta}$ are approximated by $(p-1)$-th order polynomials in each integration cells. The approximated derivatives and strains denoted by $\boldsymbol v^h_{,\alpha}$, $\varepsilon_{\alpha\beta}$ and $-\boldsymbol v_{,\alpha}\vert_\beta$, $\kappa_{\alpha\beta}$ can be expressed by:
-
-\begin{equation}
-    \boldsymbol v_{,\alpha}(\boldsymbol \xi) = \boldsymbol q^T(\boldsymbol \xi) \boldsymbol d_{\alpha}^\varepsilon, \quad
-    \varepsilon_{\alpha\beta}(\boldsymbol \xi) = \boldsymbol q^T(\boldsymbol \xi) \frac{1}{2}(\boldsymbol a_\alpha \cdot \boldsymbol d_{\beta}^\varepsilon + \boldsymbol a_\beta \cdot \boldsymbol d_{\alpha}^\varepsilon)
+In Galerkin meshfree formulation, the mid-plane of thin shell $\Omega$ is split by a set of integration cells $\Omega_C$'s, $\cup_{C=1}^{n_e}\Omega_C\approx \Omega$. With the inspiration of reproducing kernel smoothing framework, the Cartesian and covariant derivatives of displacement, $\boldsymbol v_{,\alpha}$ and $-\boldsymbol v_{,\alpha}\vert_\beta$, in strains $\varepsilon_{\alpha\beta}$, $\kappa_{\alpha\beta}$ are approximated by $(p-1)$-th order polynomials in each integration cells. In integration cell $\Omega_C$, the approximated derivatives and strains denoted by $\boldsymbol v^h_{,\alpha}$, $\varepsilon^h_{\alpha\beta}$ and $-\boldsymbol v^h_{,\alpha}\vert_\beta$, $\kappa^h_{\alpha\beta}$ can be expressed by:
+\begin{equation}\label{approxsn1}
+    \boldsymbol v^h_{,\alpha}(\boldsymbol \xi) = \boldsymbol q^T(\boldsymbol \xi) \boldsymbol d_{\alpha}^\varepsilon, \quad
+    \varepsilon^h_{\alpha\beta}(\boldsymbol \xi) = \boldsymbol q^T(\boldsymbol \xi) \frac{1}{2}(\boldsymbol a_\alpha \cdot \boldsymbol d_{\beta}^\varepsilon + \boldsymbol a_\beta \cdot \boldsymbol d_{\alpha}^\varepsilon)
 \end{equation}
-
-\begin{equation}
-    -\boldsymbol v_{,\alpha}\vert_\beta(\boldsymbol \xi) = \boldsymbol q^T(\boldsymbol \xi) \boldsymbol d_{\alpha\beta}^\kappa , \quad
-    \kappa^{\alpha\beta}(\boldsymbol \xi) = - \boldsymbol q^T(\boldsymbol \xi) \boldsymbol a_3 \cdot \boldsymbol d_{\alpha\beta}^\kappa
+\begin{equation}\label{approxsn2}
+    -\boldsymbol v^h_{,\alpha}\vert_\beta(\boldsymbol \xi) = \boldsymbol q^T(\boldsymbol \xi) \boldsymbol d_{\alpha\beta}^\kappa , \quad
+    \kappa^h_{\alpha\beta}(\boldsymbol \xi) = - \boldsymbol q^T(\boldsymbol \xi) \boldsymbol a_3 \cdot \boldsymbol d_{\alpha\beta}^\kappa
 \end{equation}
-
 where $\boldsymbol q$ is the $(p-1)$th order polynomial vector and has the following form:
-
 \begin{equation}
 \boldsymbol q = \{ 1,\; \xi^1,\; \xi^2,\; \dots, (\xi^2)^{p-1}\}^T
 \end{equation}
+and the $\boldsymbol d^\varepsilon_{\alpha}$, $\boldsymbol d^\kappa_{\alpha\beta}$ are the corresponding coefficient vector tensors. For the conciseness, the mixed usage of tensor and vector is introduced in this study, for example, the component of coefficient tensor vector $\boldsymbol d^\varepsilon_{\alpha I}$, $\boldsymbol d^\varepsilon_\alpha = \{\boldsymbol d^\varepsilon_{\alpha I}\}$, is a three dimensional tensor, $\dim \boldsymbol d^\varepsilon_{\alpha I} = \dim \boldsymbol v$.
 
-and the 
+In order to meet the integration constraint of thin shell problem, the approximated stresses $N^{\alpha\beta h}$, $M^{\alpha\beta h}$ are assumed to be a similar form with strains, yields:
+\begin{equation}\label{approxse1}
+N^{\alpha\beta h}(\boldsymbol \xi) = \boldsymbol q^T(\boldsymbol \xi) \boldsymbol a^\alpha \cdot \boldsymbol d_{\beta}^N,\quad
+\boldsymbol a_\alpha N^{\alpha\beta h}(\boldsymbol \xi) = \boldsymbol q^T(\boldsymbol \xi) \boldsymbol d^N_\beta
+\end{equation}
+\begin{equation}\label{approxse2}
+    M^{\alpha\beta h}(\boldsymbol \xi) = \boldsymbol q^T(\boldsymbol \xi) \boldsymbol a_3 \cdot \boldsymbol d_{\alpha\beta}^M,\quad
+    \boldsymbol a_3 M^{\alpha\beta h}(\boldsymbol \xi) = \boldsymbol q^T(\boldsymbol \xi) \boldsymbol d_{\alpha\beta}^M
+\end{equation}
+substituting the approximations of Eqs. (\ref{approxv}), (\ref{approxsn1}), (\ref{approxsn2}), (\ref{approxse1}), (\ref{approxse2}) into Eqs. (\ref{w3}), (\ref{w4}) can express $\boldsymbol d^\varepsilon_\beta$ and $\boldsymbol d^\kappa_{\alpha\beta}$ by $\boldsymbol d$ as:
 \begin{equation}
-N^{\alpha\beta}(\boldsymbol x) = \boldsymbol p^T(\boldsymbol x) \boldsymbol a^\alpha \cdot \boldsymbol d_{\beta}^N,\quad
-\boldsymbol a_\alpha N^{\alpha\beta} = \boldsymbol p^T(\boldsymbol x) \boldsymbol d^N_\beta
+\boldsymbol d^\varepsilon_\beta = \boldsymbol G^{-1} \left (\sum_{I=1}^{n_p}(\tilde{\boldsymbol g}^\varepsilon_{\beta I} - \bar{\boldsymbol g}^\varepsilon_{\beta I}) \boldsymbol d_I + \hat{\boldsymbol g}^\varepsilon_\beta \right )
 \end{equation}
 \begin{equation}
-    M^{\alpha\beta}(\boldsymbol x) = \boldsymbol p^T(\boldsymbol x) \boldsymbol a_3 \cdot \boldsymbol d_{\alpha\beta}^M,\quad
-    \boldsymbol a_3 M^{\alpha\beta} = \boldsymbol p^T(\boldsymbol x) \boldsymbol d_{\alpha\beta}^M
+\boldsymbol d^\kappa_{\alpha\beta} = \boldsymbol G^{-1} \left (\sum_{I=1}^{n_p}(\tilde{\boldsymbol g}^\kappa_{\alpha\beta I} - \bar{\boldsymbol g}^\kappa_{\alpha\beta I})\boldsymbol d_I + \hat{\boldsymbol g}^\kappa_{\alpha\beta} \right )
 \end{equation}
+with
+\begin{equation}
+\boldsymbol G = \int_{\Omega_C} \boldsymbol q^T \boldsymbol q d\Omega
+\end{equation}
+\begin{subequations}
+\begin{align}
+\tilde{\boldsymbol g}^\varepsilon_{\beta I} &= \int_{\Gamma_C} \Psi_I \boldsymbol q n_\beta d\Gamma
+- \int_{\Omega_C} \Psi_I \boldsymbol q^*\vert_\beta d\Omega \\
+\bar{\boldsymbol g}^\varepsilon_{\beta I} &= \int_{\Gamma_C\cap\Gamma_v} \Psi_I \boldsymbol q n_\beta d\Gamma \\
+\bar{\boldsymbol g}^\varepsilon_{\beta I} &= \int_{\Gamma_C\cap\Gamma_v} \boldsymbol q n_\beta \bar{\boldsymbol v} d\Gamma 
+\end{align}
+\end{subequations}
+\begin{subequations}
+\begin{align}
+\small
+\begin{split}
+\tilde{\boldsymbol g}^\kappa_{\alpha\beta I} &= \int_{\Gamma_C} \Psi_{I,\gamma}n^\gamma \boldsymbol q n_\alpha n_\beta d\Gamma 
+- \int_{\Gamma_C} \Psi_I(\boldsymbol q^{**}\vert_\beta n_\alpha + (\boldsymbol q s_\alpha n_\beta)_{,\gamma}s^\gamma) d\Gamma \\
+&+ [[\Psi_I \boldsymbol q s_\alpha n_\beta]]_{\boldsymbol x\in C_C}
+- \int_{\Omega_C} \Psi \boldsymbol q^{**}_{,\alpha}\vert_\beta d\Omega \\
+\end{split} \\
+\small
+\begin{split}
+\bar{\boldsymbol g}^\kappa_{\alpha\beta I} &= \int_{\Gamma_C\cap\Gamma_\theta} \Psi_{I,\gamma}n^\gamma \boldsymbol q n_\alpha n_\beta d\Gamma 
+- \int_{\Gamma_C\cap\Gamma_v} \Psi_I(\boldsymbol q^{**}\vert_\beta n_\alpha + (\boldsymbol q s_\alpha n_\beta)_{,\gamma}s^\gamma) d\Gamma \\
+&+ [[\Psi_I \boldsymbol q s_\alpha n_\beta]]_{\boldsymbol x\in C_C\cap C_v}
+\end{split} \\
+\small
+\begin{split}
+\hat{\boldsymbol g}^\kappa_{\alpha\beta I} &= \int_{\Gamma_C\cap\Gamma_\theta} \boldsymbol q n_\alpha n_\beta \boldsymbol a_3 \bar{\theta}_{\boldsymbol n} d\Gamma 
+- \int_{\Gamma_C\cap\Gamma_v}(\boldsymbol q^{**}\vert_\beta n_\alpha + (\boldsymbol q s_\alpha n_\beta)_{,\gamma}s^\gamma)\bar{\boldsymbol v} d\Gamma \\
+&+ [[\boldsymbol q s_\alpha n_\beta \bar{\boldsymbol v}]]_{\boldsymbol x\in C_C\cap C_v}
+\end{split}
+\end{align}
+\end{subequations}
