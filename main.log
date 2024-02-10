@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.5.23)  10 FEB 2024 01:50
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.5.23)  10 FEB 2024 11:50
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -414,10 +414,13 @@ LaTeX Font Warning: Command \small invalid in math mode on input line 73.
 
 LaTeX Font Warning: Command \small invalid in math mode on input line 73.
 
-) [5]
+
+Package natbib Warning: Citation `wang2019d' on page 5 undefined on input line 114.
+
+[5]) [6]
 \openout2 = `boundary.aux'.
 
- (./boundary.tex) [6
+ (./boundary.tex) [7
 
 
 
@@ -438,11 +441,15 @@ Option `H' ignored and `p' used.
 
 File: figures/patchtest_msh.png Graphic file (type bmp)
 <figures/patchtest_msh.png>
-) [7
+) [8
 
 
 
-] [8] (./main.bbl) [9
+] [9] (./main.bbl)
+
+Package natbib Warning: There were undefined citations.
+
+[10
 
 
 ] (./main.aux (./introduction.aux) (./kinematics.aux) (./mix.aux) (./boundary.aux) (./examples.aux))
@@ -450,12 +457,12 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: B4ACF2B251B51449FE6CAFBDF47BC2B5;2838.
  ) 
 Here is how much of TeX's memory you used:
- 11091 strings out of 476760
- 174723 string characters out of 5805258
- 1862482 words of memory out of 5000000
- 31053 multiletter control sequences out of 15000+600000
+ 11093 strings out of 476760
+ 174741 string characters out of 5805258
+ 1863482 words of memory out of 5000000
+ 31055 multiletter control sequences out of 15000+600000
  522115 words of font info for 76 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 72i,16n,76p,772b,391s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,16n,76p,1050b,391s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (9 pages).
+Output written on main.pdf (10 pages).
