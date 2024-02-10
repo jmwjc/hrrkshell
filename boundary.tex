@@ -1,1 +1,55 @@
 \section{Naturally variational enforcement for essential boundary conditions}
+\subsection{Discrete equilibrium equations}
+With the approximated effective stresses and strains, the last equation of weak form becomes:
+\begin{equation}\label{w51}
+- \sum_{C=1}^{n_e}(\tilde{\boldsymbol g}^T_{\alpha I} - \bar{\boldsymbol g}^T_{\alpha I}) \boldsymbol d_N^{\alpha}
+- \sum_{C=1}^{n_e}(\tilde{\boldsymbol g}^T_{\alpha\beta I} - \bar{\boldsymbol g}^T_{\alpha\beta I}) \boldsymbol d_M^{\alpha\beta} = \boldsymbol f_I
+\end{equation}
+where $\boldsymbol f_I$'s are the components of the traditional force vector:
+\begin{equation}
+        \boldsymbol f_I = \int_{\Gamma_t} \Psi_I \bar{\boldsymbol t} d\Gamma - \int_{\Gamma_M} \Psi_{I,\gamma} n^\gamma \bar M_{\boldsymbol{nn}} d\Gamma + [[\Psi_I\boldsymbol a_3 \bar P]]_{\boldsymbol x\in C_P} + \int_\Omega \Psi_I \bar{\boldsymbol b} d\Omega
+\end{equation}
+and further substituting coefficients $\boldsymbol d_N^\alpha$, $\boldsymbol d_M^{\alpha\beta}$ into Eq. (\ref{w51}) gives the final discrete equilibrium equations: 
+\begin{equation}
+\begin{split}
+&- \sum_{C=1}^{n_c}(\tilde{\boldsymbol g}^T_{\alpha I} - \bar{\boldsymbol g}^T_{\alpha I}) \boldsymbol d_N^{\alpha}
+- \sum_{C=1}^{n_c}(\tilde{\boldsymbol g}^T_{\alpha\beta I} - \bar{\boldsymbol g}^T_{\alpha\beta I}) \boldsymbol d_M^{\alpha\beta} \\
+= &\sum_{C=1}^{n_e} \sum_{J=1}^{n_p} \left (
+\begin{split}
+& \boldsymbol a_\alpha \tilde{\boldsymbol g}^T_{\beta I} h C^{\alpha\beta\gamma\eta} \boldsymbol a_\gamma \tilde{\boldsymbol g}_{\eta J} 
++ \tilde{\boldsymbol g}^T_{\alpha\beta I} \boldsymbol a_3 \frac{h^3}{12}C^{\alpha\beta\gamma\eta} \boldsymbol a_3 \tilde{\boldsymbol g}_{\gamma\eta} \\
+- & \boldsymbol a_\alpha \bar{\boldsymbol g}^T_{\beta I} h C^{\alpha\beta\gamma\eta} \boldsymbol a_\gamma \tilde{\boldsymbol g}_{\eta J} - \boldsymbol a_\alpha \tilde{\boldsymbol g}^T_{\beta I} h C^{\alpha\beta\gamma\eta} \boldsymbol a_\gamma \bar{\boldsymbol g}_{\eta J} \\
+- & \bar{\boldsymbol g}^T_{\alpha\beta I}\boldsymbol a_3 \frac{h^3}{12} C^{\alpha\beta\gamma\eta} \boldsymbol a_3 \tilde{\boldsymbol g}_{\gamma\eta J} - \tilde{\boldsymbol g}^T_{\alpha\beta I} \boldsymbol a_3 \frac{h^3}{12} C^{\alpha\beta\gamma\eta} \boldsymbol a_3 \bar{\boldsymbol g}_{\gamma\eta J} \\
++ & \boldsymbol a_\alpha \tilde{\boldsymbol g}^T_{\beta I} h C^{\alpha\beta\gamma\eta} \boldsymbol a_\gamma \hat{\boldsymbol g}_{\eta J}
+- \boldsymbol a_\alpha \bar{\boldsymbol g}^T_{\beta I} h C^{\alpha\beta\gamma\eta} \boldsymbol a_\gamma \hat{\boldsymbol g}_{\eta J} \\
++ & \tilde{\boldsymbol g}^T_{\alpha\beta I}\boldsymbol a_3 \frac{h^3}{12} C^{\alpha\beta\gamma\eta} \boldsymbol a_3 \hat{\boldsymbol g}_{\gamma\eta J} - \bar{\boldsymbol g}^T_{\alpha\beta I} \boldsymbol a_3 \frac{h^3}{12} C^{\alpha\beta\gamma\eta} \boldsymbol a_3 \hat{\boldsymbol g}_{\gamma\eta J} \\
++ & \boldsymbol a_\alpha \bar{\boldsymbol g}^T_{\beta I} h C^{\alpha\beta\gamma\eta} \boldsymbol a_\gamma \bar{\boldsymbol g}_{\eta J}
++ \bar{\boldsymbol g}^T_{\alpha\beta I}\boldsymbol a_3 \frac{h^3}{12} C^{\alpha\beta\gamma\eta} \boldsymbol a_3 \bar{\boldsymbol g}_{\gamma\eta J} 
+\end{split}
+\right ) \\
+= &\sum_{J=1}^{n_p} (\boldsymbol K_{IJ}+\tilde{\boldsymbol K}_{IJ}+\bar{\boldsymbol K}_{IJ}) \cdot \boldsymbol d_J - \tilde{\boldsymbol f}_I - \bar{\boldsymbol f}_I
+\end{split}
+\end{equation}
+where
+\begin{equation}\label{de1}
+        \boldsymbol K_{IJ} = \int_\Omega \tilde{\boldsymbol \varepsilon}_{\alpha\beta I} \tilde{\boldsymbol N}^{\alpha\beta}_J d\Omega + \int_\Omega \tilde{\boldsymbol \kappa}_{\alpha\beta I} \tilde{\boldsymbol M}^{\alpha\beta}_J d\Omega
+\end{equation}
+\begin{subequations}\label{de2}
+\begin{align}
+\begin{split}
+        \tilde{\boldsymbol K}_{IJ} = &- \int_{\Gamma_v} (\Psi_I \tilde{\boldsymbol t}_J + \tilde{\boldsymbol t}_I \Psi_J) d\Gamma \\
+                                     &+ \int_{\Gamma_\theta} (\Psi_{I,\gamma} n^\gamma \boldsymbol a_3 \tilde M_{\boldsymbol{nn}J} + \boldsymbol a_3 \tilde M_{\boldsymbol{nn}I} \Psi_{I,\gamma}n^\gamma)d\Gamma \\
+                                     & + ([[\Psi_I \boldsymbol a_3 P_J]] + [[P_I \boldsymbol a_3 \Psi_J]])_{\boldsymbol x \in C_v}
+\end{split} \\
+\tilde{\boldsymbol f}_I = &- \int_{\Gamma_v} \tilde{\boldsymbol t}_I \cdot \bar{\boldsymbol v} d\Gamma + \int_{\Gamma_\theta} \tilde M_{\boldsymbol{nn}} \bar{\theta}_{\boldsymbol n} d\Gamma + [[\tilde P_I\boldsymbol a_3 \cdot \bar{\boldsymbol v}]]_{\boldsymbol x \in C_v}
+\end{align}
+\end{subequations}
+\begin{subequations}\label{de3}
+\begin{align}
+\bar{\boldsymbol K}_{IJ} &= - \int_{\Gamma_v} \bar{\boldsymbol t}_I \Psi_J d\Gamma 
++ \int_{\Gamma_\theta} \boldsymbol a_3\bar M_{\boldsymbol{nn}I} \Psi_{J,\gamma}n^\gamma d\Gamma + [[\bar P_I \boldsymbol a_3 \Psi_J]]_{\boldsymbol x \in C_v} \\
+\bar{\boldsymbol f}_I &= - \int_{\Gamma_v} \bar{\boldsymbol t}_I \cdot \bar{\boldsymbol v} d\Gamma + \int_{\Gamma_\theta} \bar M_{\boldsymbol{nn}} \bar{\theta}_{\boldsymbol n} d\Gamma + [[\bar P_I\boldsymbol a_3 \cdot \bar{\boldsymbol v}]]_{\boldsymbol x \in C_v}
+\end{align}
+\end{subequations}
+
+The detailed derivations of Eqs (\ref{de1})-(\ref{de3}) are listed in the Appendix. As shown in these equations, the Eq. (\ref{de1}) is the conventional stiffness matrix evaluated by smoothed gradients of Eqs. ()
