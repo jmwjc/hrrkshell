@@ -1,0 +1,41 @@
+
+\begin{frontmatter}
+    \title{A principle meshfree formulation for thin shells with naturally consistent enforcement of essential boundary conditions}
+    \author[1]{Junchao Wu\corref{cor1}}
+    \ead{jcwu@hqu.edu.cn}
+    \author[2]{Yangtao Xu}
+    \author[1]{Bin Xu}
+    \author[3]{Syed Humayun Basha}
+
+    \affiliation[1]{organization={Key Laboratory for Intelligent Infrastructure and Monitoring of Fujian Province,
+                                  College of Civil Engineering,
+                                  Huaqiao University},
+                    city={Xiamen},
+                    state={Fujian},
+                    postcode={361021},
+                    country={China}}
+
+    \affiliation[2]{organization={College of Civil Engineering,
+                                  Huaqiao University},
+                    city={Xiamen},
+                    state={Fujian},
+                    postcode={361021},
+                    country={China}}
+
+    \affiliation[3]{organization={Key Laboratory for Structural Engineering and Disaster Prevention of Fujian Province,
+                                  College of Civil Engineering,
+                                  Huaqiao University},
+                    city={Xiamen},
+                    state={Fujian},
+                    postcode={361021},
+                    country={China}}
+
+    \cortext[cor1]{Corresponding author}
+
+\begin{abstract}
+Thin shell problems ignore the shear deformations and this leads to a requirement of C1 continuous approximations. Meshfree methods equipped with high order smoothed shape functions is suitable for thin shell analysis, since the high order shape function can also suppress the membrane locking in thin shell problems. However, meshfree shape function always perform a natural rational property, this is a big challenge to meet integration consistency for traditional Gauss integration rule within Galerkin weak form, while integration consistency serves a key role in accuracy of Galerkin meshfree methods. In this work, we proposed a reproducing kernel gradient smoothing integration (RKGSI) algorithm for thin shell problems, while the first and second order smoothed gradients are constructed based upon reproducing kernel smoothing gradient framework, with the aid of this framework, the integration consistency becomes a natural property by a replacement between smoothed gradients and traditional gradients of shape functions in Galerkin weak form. The order of basis functions used in smoothed gradient is determined by ensuring the optimal order of error convergence respected to energy norm. The traditional costly second order gradients are totally eliminated in RKGSI formulation. To further increase the efficiency of proposed method, a set of integration schemes are developed for consistent assembly of stiffness matrix, force vector and smoothed gradients, where the number of integration points, which accompanied with calculation of traditional shape functions and their first order gradients, are minimized by a global point of view. It is evident that the smoothed gradients meets the reproducing consistency of gradients that can ensure the optimal convergence property. The numerical examples demonstrate the efficacy and efficiency of proposed method, while the RKGSI performs a comparable result in energy error with interpolation by meshfree approximations.
+\end{abstract}
+\begin{keyword}
+Meshfree \sep Thin shell \sep Hu-Washizu variational principle \sep Reproducing kernel gradient smoothing \sep Essential boundary condition
+\end{keyword}
+\end{frontmatter}

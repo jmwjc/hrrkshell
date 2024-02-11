@@ -1,5 +1,108 @@
 \section{Mixed meshfree formulation for modified Hellinger-Reissner weak form}
 \subsection{Reproducing kernel approximation for displacement}
+
+\begin{equation}
+\varepsilon_{\alpha\beta} = \frac{1}{2}(\boldsymbol a_\alpha \cdot \boldsymbol v_{,\beta} + \boldsymbol a_\beta \cdot \boldsymbol v_{,\alpha})
+\end{equation}
+
+\begin{equation}
+\theta_{\boldsymbol n} = \boldsymbol a_3 \cdot \boldsymbol v_{,\alpha} n^\alpha
+\end{equation}
+
+\begin{equation}
+\kappa_{\alpha\beta} = (\Gamma^\gamma_{\alpha\beta} \boldsymbol v_{,\gamma} - \boldsymbol v_{,\alpha\beta}) \cdot \boldsymbol a_3 = - \boldsymbol v_{,\alpha}\vert_\beta \cdot \boldsymbol a_3
+\end{equation}
+
+\begin{equation}
+\boldsymbol t = \boldsymbol t_N + \boldsymbol t_M
+\end{equation}
+
+\begin{equation}
+\boldsymbol t_N = \boldsymbol a_\alpha N^{\alpha\beta} n_\beta
+\end{equation}
+
+\begin{equation}
+\boldsymbol t_M = (\boldsymbol a_3 M^{\alpha\beta})\vert_\beta n_\alpha + (\boldsymbol a_3 M^{\alpha\beta} s_\alpha n_\beta)_{,\gamma} s^\gamma
+\end{equation}
+
+\begin{equation}
+M_{\boldsymbol{nn}} = M^{\alpha\beta}n_\alpha n_\beta
+\end{equation}
+
+\begin{equation}
+\boldsymbol b = \boldsymbol b_N + \boldsymbol b_M
+\end{equation}
+
+\begin{equation}
+\boldsymbol b_N = (\boldsymbol a_\alpha N^{\alpha\beta})\vert_\beta
+\end{equation}
+
+\begin{equation}
+\boldsymbol b_M = (\boldsymbol a_3 M^{\alpha\beta})_{,\alpha}\vert_\beta
+\end{equation}
+
+\begin{equation}
+P = -[[M^{\alpha\beta}s_\alpha n_\beta]]
+\end{equation}
+
+\subsection{Galerkin weak form for Hu-Washizu principle of complementary energy}
+In accordance with the Hu-Washizu variational principle of complementary energy \cite{dah-wei1985}, the corresponding complementary functional, denoted by $\Pi$, is listed as follow:
+\begin{equation} \label{functional}
+\begin{split}
+&\Pi(\boldsymbol v, \varepsilon_{\alpha\beta},\kappa_{\alpha\beta},N^{\alpha\beta},M^{\alpha\beta}) \\
+= &\int_\Omega \frac{h}{2}\varepsilon_{\alpha\beta} C^{\alpha\beta\gamma\eta}\varepsilon_{\gamma\eta}d\Omega 
++ \int_\Omega \frac{h^3}{24}\kappa_{\alpha\beta} C^{\alpha\beta\gamma\eta}\kappa_{\gamma\eta}d\Omega \\
++& \int_\Omega \varepsilon_{\alpha\beta} (N^{\alpha\beta} - h C^{\alpha\beta\gamma\eta} \varepsilon_{\gamma\eta}) d\Omega
++ \int_\Omega \kappa_{\alpha\beta} (M^{\alpha\beta} - \frac{h^3}{12} C^{\alpha\beta\gamma\eta} \kappa_{\gamma\eta}) d\Omega \\
+-& \int_{\Gamma_v} \boldsymbol t \cdot \bar{\boldsymbol v} d\Gamma 
++ \int_{\Gamma_\theta} M_{\boldsymbol{nn}} \bar \theta_{\boldsymbol n} d\Gamma - (P \boldsymbol a_3 \cdot \bar{\boldsymbol v})_{\boldsymbol x \in C_w} \\
++ &\int_{\Gamma_M} \theta_{\boldsymbol n} (M_{\boldsymbol{nn}} - \bar M_{\boldsymbol{nn}}) d\Gamma
+- \int_{\Gamma_t} \boldsymbol v \cdot (\boldsymbol t - \bar{\boldsymbol t})d\Gamma - \boldsymbol v \cdot \boldsymbol a_3 (P - \bar{P})_{\boldsymbol x \in C_P} \\
+- &\int_\Omega \boldsymbol v \cdot (\boldsymbol b - \bar{\boldsymbol b}) d\Omega \\
+\end{split}
+\end{equation}
+Introducing a standard variational argument to Eq. (\ref{functional}), $\delta \Pi=0$, and considering the arbitrariness of virtual variables, $\delta \boldsymbol v$, $\delta \varepsilon_{\alpha\beta}$, $\delta \kappa_{\alpha\beta}$, $N^{\alpha\beta}$, $M^{\alpha\beta}$ lead to the following weak form:
+\begin{subequations}
+\begin{equation}\label{w1}
+- \int_\Omega h \delta \varepsilon_{\alpha\beta} C^{\alpha\beta\gamma\eta}\varepsilon_{\gamma\eta}d\Omega 
++ \int_\Omega \delta \varepsilon_{\alpha\beta} N^{\alpha\beta} d\Omega = 0
+\end{equation}
+\begin{equation}\label{w2}
+- \int_\Omega \frac{h^3}{12} \delta \kappa_{\alpha\beta} C^{\alpha\beta\gamma\eta}\kappa_{\gamma\eta}d\Omega 
++ \int_\Omega \delta \kappa_{\alpha\beta} M^{\alpha\beta} d\Omega = 0
+\end{equation}
+\begin{multline}\label{w3}
+\int_\Omega \delta N^{\alpha\beta} \varepsilon_{\alpha\beta} d\Omega
+- \int_\Gamma \delta \boldsymbol t_N \cdot \boldsymbol v d\Gamma 
++ \int_\Omega \delta \boldsymbol b_N \cdot \boldsymbol v d\Omega \\
++ \int_{\Gamma_v} \delta \boldsymbol t_N \cdot \boldsymbol v d\Gamma 
+= \int_{\Gamma_v} \delta \boldsymbol t_N \cdot \bar{\boldsymbol v} d\Gamma 
+\end{multline}
+\begin{multline}\label{w4}
+\int_\Omega \delta M^{\alpha\beta} \kappa_{\alpha\beta} d\Omega 
+- \int_\Gamma \delta M_{\boldsymbol{nn}} \theta_{\boldsymbol n}d\Gamma
++ \int_\Gamma \delta \boldsymbol t_M \cdot \boldsymbol v d\Gamma
++ (\delta P \boldsymbol a_3 \cdot \boldsymbol v)_{\boldsymbol x \in C}
++ \int_\Omega \delta \boldsymbol b_M \cdot \boldsymbol v d\Omega \\
++ \int_{\Gamma_\theta} \delta M_{\boldsymbol{nn}} \theta_{\boldsymbol n}d\Gamma
+- \int_{\Gamma_v} \delta \boldsymbol t_M \cdot \boldsymbol v d\Gamma
+- (\delta P \boldsymbol a_3 \cdot \boldsymbol v)_{\boldsymbol x \in C_v} \\ =
+\int_{\Gamma_\theta} \delta M_{\boldsymbol{nn}} \bar{\theta}_{\boldsymbol n}d\Gamma
+- \int_{\Gamma_v} \delta \boldsymbol t_M \cdot \bar{\boldsymbol v} d\Gamma
+- (\delta P \boldsymbol a_3 \cdot \bar{\boldsymbol v})_{\boldsymbol x \in C_v} \\
+\end{multline}
+\begin{multline}\label{w5}
+\int_{\Gamma} \delta \theta_{\boldsymbol n} M_{\boldsymbol{nn}} d\Gamma
+    - \int_\Gamma \delta \boldsymbol v \cdot \boldsymbol t d\Gamma 
+    - (\delta \boldsymbol v \cdot \boldsymbol a_3 P)_{\boldsymbol x \in C}
+    + \int_\Omega \delta \boldsymbol v \cdot \boldsymbol b d\Omega \\
+    - \int_{\Gamma_\theta} \delta \theta_{\boldsymbol n} M_{\boldsymbol{nn}} d\Gamma
+    + \int_{\Gamma_v} \delta \boldsymbol v \cdot \boldsymbol t d\Gamma 
+    + (\delta \boldsymbol v \cdot \boldsymbol a_3 P)_{\boldsymbol x \in C_v}
+    = - \int_{\Gamma_t} \delta \boldsymbol v \cdot \bar{\boldsymbol t} d\Gamma - \int_\Omega \delta \boldsymbol v \cdot \bar{\boldsymbol b} d\Omega
+\end{multline}
+\end{subequations}
+where the geometric relationships of Eq. () is used herein.
 In this study, the displacement is approximated by traditional reproducing kernel approximation. As shown in Fig, the mid-surface of the shell $\Omega$ is discretized by a set of meshfree nodes $\{\boldsymbol \xi_I\}_{I=1}^{n_p}$ in parametric configuration, where $n_p$ is the total number of meshfree nodes. The approximated displacement namely $\boldsymbol v^h$ can be expressed by:
 \begin{equation}\label{approxv}
 \boldsymbol v(\boldsymbol \xi) = \sum_{I=1}^{n_p} \Psi_I(\boldsymbol \xi) \boldsymbol d_I

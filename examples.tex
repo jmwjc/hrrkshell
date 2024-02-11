@@ -1,21 +1,42 @@
 
 \section{Numerical examples}
-\begin{figure}[H]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{figures/patchtest_msh}
     \caption{Meshfree discretization for patch test}
 
 \end{figure}
 
+\begin{table}[h!]
+\centering
+\caption{Results of patch test for flat model}
 \begin{tabular}{lcccc}
 \toprule
  & \multicolumn{2}{c}{Linear patch test} & \multicolumn{2}{c}{Quadratic patch test} \\ \cline{2-5}
  & $L_2$-Error & $H_e$-Error & $L_2$-Error & $H_e$-Error \\
     \midrule
-    GI-Penalty & \\
-    GI-Nitsche & \\
-    RKGSI-Penalty & \\
-    RKGSI-Nitsche & \\
-    RKGSI-HR & \\
+    GI-Penalty & $4.45E-4$ & $1.35E-2$ & $2.01E-3$ & $1.63E-2$ \\
+    GI-Nitsche & $4.51E-4$ & $1.42E-2$ & $1.22E-3$ & $1.68E-2$ \\
+    RKGSI-Penalty & $3.64E-9$ & $6.77E-8$ & $4.54E-9$ & $6.57E-8$ \\
+    RKGSI-Nitsche & $3.31E-12$ & $1.34E-11$ & $5.98E-12$ & $1.21E-11$ \\
+    RKGSI-HR & $6.67E-13$ & $1.50E-11$ & $1.07E-12$ & $1.26E-11$ \\
     \bottomrule
 \end{tabular}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\caption{Results of patch test for curved model}
+\begin{tabular}{lcccc}
+\toprule
+ & \multicolumn{2}{c}{Linear patch test} & \multicolumn{2}{c}{Quadratic patch test} \\ \cline{2-5}
+ & $L_2$-Error & $H_e$-Error & $L_2$-Error & $H_e$-Error \\
+    \midrule
+    GI-Penalty & $3.79E-4$ & $1.30E-2$ & $1.74E-3$ & $1.37E-2$ \\
+    GI-Nitsche & $4.04E-4$ & $1.42E-2$ & $1.15E-3$ & $1.49E-2$ \\
+    RKGSI-Penalty & $3.64E-9$ & $6.77E-8$ & $4.54E-9$ & $6.57E-8$ \\
+    RKGSI-Nitsche & $3.31E-12$ & $1.34E-11$ & $5.98E-12$ & $1.21E-11$ \\
+    RKGSI-HR & $4.28E-6$ & $1.30E-4$ & $9.69E-6$ & $1.30E-4$ \\
+    \bottomrule
+\end{tabular}
+\end{table}

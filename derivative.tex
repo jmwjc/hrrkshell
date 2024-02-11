@@ -1,6 +1,25 @@
 \section{Covariant derivatives}\label{appderivative}
-This Appendix lists the covariant derivatives needed for the method developed in this study.
+This Appendix lists the covariant derivatives needed for the development of the proposed method. For an arbitrary first order tensor $\boldsymbol v$ presented by in-plane covariant or contravariant bases as: 
 \begin{equation}
-v_{\alpha}\vert_\beta
+\boldsymbol v = v_{\alpha}\boldsymbol a^\alpha + v_{3} \boldsymbol a_3 = v^{\alpha}\boldsymbol a_\alpha + v^3 \boldsymbol a_3
+\end{equation}
+the partial derivatives of tensor $\boldsymbol v$ with respect to coordinate $\xi^\alpha$, $\boldsymbol v_{,\alpha}$, can be evaluated by:
+\begin{equation}
+\begin{split}
+\boldsymbol v_{,\alpha} &= 
+v_{\beta,\alpha} \boldsymbol a^\beta + v_{\beta}\boldsymbol a^\beta_{,\alpha} + v_{3,\alpha}\boldsymbol a_3 + v_3 \boldsymbol a_{3,\alpha} \\
+&= v_{\beta,\alpha} \boldsymbol a^\beta - \Gamma^\beta_{\alpha\gamma}v_\beta \boldsymbol a^\gamma + v_{3,\alpha} \boldsymbol a_3 - v_3 b_{\alpha\beta} \boldsymbol a^\beta \\
+&= v_{\beta,\alpha} \boldsymbol a^\beta - \Gamma^\gamma_{\alpha\beta}v_\gamma \boldsymbol a^\beta + v_{3,\alpha} \boldsymbol a_3 - v_3 b_{\alpha\beta} \boldsymbol a^\beta \\
+&= v_{\beta}\vert_\alpha \boldsymbol a^\beta + v_{3,\alpha} \boldsymbol a_3 - v_3 b_{\alpha\beta} \boldsymbol a^\beta \\
+\end{split}
+\end{equation}
+where $\Gamma^\gamma_{\alpha\beta} = \boldsymbol a_{\alpha,\beta}\cdot \boldsymbol a^\gamma$ denotes the Christoffel symbol of the second kind, $b_{\alpha\beta} = \boldsymbol a_{\alpha,\beta}\cdot\boldsymbol a_3=-\boldsymbol a_{\alpha}\cdot\boldsymbol a_{3,\beta}$ stands for the curvature tensor. $v_\alpha\vert_\beta$ can be regarded as the in-plane covariant derivative of the vector $v_\alpha$:
+\begin{equation}
+v_{\alpha}\vert_\beta = v_{\alpha,\beta} - \Gamma^\gamma_{\alpha\beta} v_\gamma
+\end{equation}
+
+Following the same path, the in-plane covariant derivative of $v^\alpha$ is given by:
+\begin{equation}
+v^\alpha\vert_\beta = v^\alpha_{,\beta} + \Gamma^\alpha_{\beta\gamma} v^\gamma
 \end{equation}
 
