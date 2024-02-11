@@ -52,4 +52,57 @@ where
 \end{align}
 \end{subequations}
 
-The detailed derivations of Eqs (\ref{de1})-(\ref{de3}) are listed in the Appendix. As shown in these equations, the Eq. (\ref{de1}) is the conventional stiffness matrix evaluated by smoothed gradients of Eqs. ()
+The detailed derivations of Eqs (\ref{de1})-(\ref{de3}) are listed in the Appendix. As shown in these equations, the Eq. (\ref{de1}) is the conventional stiffness matrix evaluated by smoothed gradients $\tilde \Psi_{I,\alpha}$, $\tilde \Psi_{I,\alpha}\vert_\beta$, and the Eqs. (\ref{de2}) and (\ref{de3}) contribute for the enforcement of essential boundary. 
+
+\subsection{Comparison with Nitsche's method}
+The Nitsche's method for enforcing essential boundary can be regarded as a combination of Lagrangian multiplier method and penalty method, in which the Lagrangian multiplier is represented by the approximated displacement. The corresponding total potential energy functional $\Pi_P$ is given by:
+\begin{equation}
+\begin{split}
+\Pi_P(\boldsymbol v) &= \int_\Omega \frac{1}{2}\varepsilon_{\alpha\beta} N^{\alpha\beta} d\Oemga +
+\int_\Omega \frac{1}{2} \kappa_{\alpha\beta}M^{\alpha\beta} d\Omega \\
+                     &- \int_{\Gamma_t} \boldsymbol v \cdot \bar{\boldsymbol t} d\Gamma 
+                     + \int_{\Gamma_M} \boldsymbol v_{,\gamma} n^\gamma \boldsymbol a_3 M_{\boldsymbol{nn}} d\Gamma
+                     + (\boldsymbol v \cdot \boldsymbol a_3 P)_{\boldsymbol x \in C_P}
+                     - \int_\Omega \boldsymbol v \cdot \bar{\boldsymbol b} d\Omega \\
+                     &- \underbrace{\int_{\Gamma_v} \boldsymbol t \cdot (\boldsymbol v - \bar{\boldsymbol v}) d\Gamma
+                     + \int_{\Gamma_\theta} M_{\boldsymbol{nn}}(\theta_{\boldsymbol n} - \bar \theta_{\boldsymbol n})d\Gamma
+                     + (P\boldsymbol a_3 \cdot (\boldsymbol v - \bar{\boldsymbol v}))_{\boldsymbol x \in C_v}}_{\text{consistent term}} \\
+                     &+ \underbrace{\frac{\alpha_v}{2} \int_{\Gamma_v} \boldsymbol v \cdot \boldsymbol v d\Gamma 
+                     + \frac{\alpha_\theta}{2} \int_{\Gamma_\theta} \theta_{\boldsymbol n}^2 d\Gamma
+             + \frac{\alpha_C}{2}(\boldsymbol v \cdot \boldsymbol v)_{\boldsymbol x\in C_v}}_{\text{stabilized term}}
+\end{split}
+\end{equation}
+where the consistent term rephrased from Lagrangian multiplier method contributes to enforce the essential boundary and meet the variational consistency condition. However the consistent term can not always ensure the coercivity of stiffness, so the penalty method is introduced to be regarded as a stabilized term. With a standard variational argument, the corresponding weak form can be stated as:
+\begin{equation}
+\begin{split}
+\delta \Pi_P(\boldsymbol v) &= \int_\Omega\delta \varepsilon_{\alpha\beta} N^{\alpha\beta} d\Oemga +
+\int_\Omega \delta \kappa_{\alpha\beta}M^{\alpha\beta} d\Omega \\
+                     &- \int_{\Gamma_t} \delta \boldsymbol v \cdot \bar{\boldsymbol t} d\Gamma 
+                     + \int_{\Gamma_M} \delta \boldsymbol v_{,\gamma} n^\gamma \boldsymbol a_3 M_{\boldsymbol{nn}} d\Gamma
+                     + (\delta \boldsymbol v \cdot \boldsymbol a_3 P)_{\boldsymbol x \in C_P}
+                     - \int_\Omega \delta \boldsymbol v \cdot \bar{\boldsymbol b} d\Omega \\
+                     &- \int_{\Gamma_v} \delta \boldsymbol v \cdot \boldsymbol t d\Gamma 
+                     + \int_{\Gamma_\theta} \delta \theta_{\boldsymbol n} M_{\boldsymbol{nn}}d\Gamma 
+                     + (\boldsymbol v \cdot \boldsymbol a_3 P)_{\boldsymbol x \in C_v}\\
+                     &- \int_{\Gamma_v} \delta \boldsymbol t \cdot (\boldsymbol v - \bar{\boldsymbol v}) d\Gamma
+                     + \int_{\Gamma_\theta} \delta M_{\boldsymbol{nn}}(\theta_{\boldsymbol n} - \bar \theta_{\boldsymbol n})d\Gamma
+                     + (\delta P\boldsymbol a_3 \cdot (\boldsymbol v - \bar{\boldsymbol v}))_{\boldsymbol x \in C_v} \\
+                     &+ \alpha_v \int_{\Gamma_v} \delta \boldsymbol v \cdot \boldsymbol v d\Gamma 
+                     + \alpha_\theta \int_{\Gamma_\theta} \delta \theta_{\boldsymbol n}\theta_{\boldsymbol n} d\Gamma
+                     + \alpha_C(\delta \boldsymbol v \cdot \boldsymbol v)_{\boldsymbol x\in C_v} \\
+                     &= 0
+\end{split}
+\end{equation}
+in which $\alpha_v$, $\alpha_\theta$ and $\alpha_C$ are experimental artificial parameters. Further invoking the conventional reproducing kernel approximation of Eq. (\ref{approxv}) leads to the following discrete equilibrium equations:
+\begin{equation}
+\sum_{J=1}^{n_p}(\boldsymbol K_{IJ} + \boldsymbol K^c_{IJ} + \boldsymbol K^s_{IJ}) \boldsymbol d_J = \boldsymbol f_I + \boldsymbol f^c + \boldsymbol f^s
+\end{equation}
+where the stiffness $\boldsymbol K_{IJ}$ is identical with Eq. (\ref{de1}). $\boldsymbol K^c_{IJ}$ and $\boldsymbol K^s_{IJ}$ are the stiffness matrix for consistent and stabilized terms respectively, and have the following forms:
+\begin{subequations}
+\begin{equation}
+\begin{split}
+        \boldsymbol K^c_{IJ} &= -\int_{\Gamma_v} \left ((\boldsymbol {\mathcal T}^\alpha \Psi_{I,\alpha} + \boldsymbol{\mathcal V}^{\alpha\beta} \Psi_{I,\alpha}\vert_\beta) \Psi_J + \Psi_I (\boldsymbol {\mathcal T}^\alpha \Psi_{J,\alpha} + \boldsymbol{\mathcal V}^{\alpha\beta}\Psi_{J,\alpha}\vert_\beta)\right ) d\Gamma \\
+                             &+ \int_{\Gamma_M} (\mathcal M^{\alpha\beta} \Psi_{I,\alpha}\vert_\beta \boldsymbol a_3 \Psi_{J,\gamma}n^\gamma + \Psi_{I,\gamma}n^\gamma \boldsymbol a_3 \mathcal M^{\alpha\beta} \Psi_{I,\alpha}\vert_\beta) d\Gamma
+\end{split}
+\end{equation}
+\end{subequations}

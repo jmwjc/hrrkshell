@@ -1,10 +1,54 @@
 \section{Mixed meshfree formulation for modified Hellinger-Reissner weak form}
 \subsection{Reproducing kernel approximation for displacement}
-In this study, the displacement is approximated by traditional reproducing kernel approximation. As shown in Fig, 
+In this study, the displacement is approximated by traditional reproducing kernel approximation. As shown in Fig, the mid-surface of the shell $\Omega$ is discretized by a set of meshfree nodes $\{\boldsymbol \xi_I\}_{I=1}^{n_p}$ in parametric configuration, where $n_p$ is the total number of meshfree nodes. The approximated displacement namely $\boldsymbol v^h$ can be expressed by:
 \begin{equation}\label{approxv}
 \boldsymbol v(\boldsymbol \xi) = \sum_{I=1}^{n_p} \Psi_I(\boldsymbol \xi) \boldsymbol d_I
 \end{equation}
+in which $\Psi_I$ and $\boldsymbol d_I$ is the shape function and nodal coefficient tensor related by node $\boldsymbol \xi_I$. According to reproducing kernel approximation \cite{liu1995}, the shape function takes the following form:
+\begin{equation}
+\Psi_I(\boldsymbol \xi) = \boldsymbol p^T(\boldsymbol \xi) \boldsymbol c(\boldsymbol \xi) \phi(\boldsymbol \xi_I - \boldsymbol \xi)
+\end{equation}
+where $\boldsymbol p$ is the basis function vector, and in this study, the following quadratic basis function is considered:
+\begin{equation}
+        \boldsymbol p = \{1,\;\xi^1,\;\xi^2,\;(\xi^1)^2,\xi^1\xi^2,(\xi^2)^2\}^T
+\end{equation}
 
+The kernel function denoted by$\phi$ controls the support and smoothness of meshfree shape functions. The quantic B-spline function with square support is used herein as the kernel function:
+\begin{equation}
+\phi(\boldsymbol \xi_I - \boldsymbol \xi) = \phi(\hat s_1)\phi(\hat s_2), \quad \hat s_\alpha = \frac{\vert \xi^\alpha_I - \xi^\alpha\vert}{s_{\alpha I}}
+\end{equation}
+with
+\begin{equation}
+\phi(\hat s_\alpha) = \frac{1}{5!}\begin{cases}
+(3-3\hat s_\alpha)^5 - 6(2-3\hat s_\alpha)^5 + 15(1-3\hat s_\alpha)^5 & \hat s_\alpha \le \frac{1}{3} \\
+(3-3\hat s_\alpha)^5 - 6(2-3\hat s_\alpha)^5 & \frac{1}{3}<\hat s_\alpha \le \frac{2}{3} \\
+(3-3\hat s_\alpha)^5 & \frac{2}{3}<\hat s_\alpha \le 1 \\
+0 & \hat s_\alpha >1
+\end{cases}
+\end{equation}
+and $\hat s_{\alpha I}$ means the characterized size of support for meshfree shape function $\Psi_I$.
+
+The unknown vector $\boldsymbol c$ in shape function are determined by the fulfillment of the so-call consistency condition:
+\begin{equation}
+\sum_{I=1}^{n_p} \Psi_I(\boldsymbol \xi)\boldsymbol p(\boldsymbol \xi_I) = \boldsymbol p(\boldsymbol \xi)
+\end{equation}
+or equivalently
+\begin{equation}\label{cc}
+\sum_{I=1}^{n_p} \Psi_I(\boldsymbol \xi)\boldsymbol p(\boldsymbol \xi_I-\boldsymbol \xi) = \boldsymbol p(\boldsymbol 0)
+\end{equation}
+Substituting Eq. (\ref{approxv}) into (\ref{cc}), yields:
+\begin{equation}\label{A}
+\boldsymbol A(\boldsymbol \xi) \boldsymbol c(\boldsymbol \xi) = \boldsymbol p(\boldsymbol 0)\quad \Rightarrow \quad
+\boldsymbol c(\boldsymbol \xi) = \boldsymbol A^{-1}(\boldsymbol \xi)\boldsymbol p(\boldsymbol 0)
+\end{equation}
+where $\boldsymbol A$ is the moment matrix:
+\begin{equation}
+\boldsymbol A(\boldsymbol \xi) = \sum_{I=1}^{n_p}\phi(\boldsymbol \xi_I - \boldsymbol \xi) \boldsymbol p(\boldsymbol \xi_I-\boldsymbol \xi)\boldsymbol p^T(\boldsymbol \xi_I - \boldsymbol \xi)
+\end{equation}
+Taking Eq. (\ref{A}) back into Eq. (\ref{approxv}), the expression of meshfree shape function can be given by:
+\begin{equation}
+\Psi_I(\boldsymbol \xi) = \boldsymbol p^T(\boldsymbol \xi_I - \boldsymbol \xi)\boldsymbol A^{-1}(\boldsymbol \xi) \boldsymbol p(\boldsymbol 0) \phi(\boldsymbol \xi_I-\boldsymbol \xi)
+\end{equation}
 \subsection{Reproducing kernel gradient smoothing approximation for effective stress and strain}
 In Galerkin meshfree formulation, the mid-plane of thin shell $\Omega$ is split by a set of integration cells $\Omega_C$'s, $\cup_{C=1}^{n_e}\Omega_C\approx \Omega$. With the inspiration of reproducing kernel smoothing framework, the Cartesian and covariant derivatives of displacement, $\boldsymbol v_{,\alpha}$ and $-\boldsymbol v_{,\alpha}\vert_\beta$, in strains $\varepsilon_{\alpha\beta}$, $\kappa_{\alpha\beta}$ are approximated by $(p-1)$-th order polynomials in each integration cells. In integration cell $\Omega_C$, the approximated derivatives and strains denoted by $\boldsymbol v^h_{,\alpha}$, $\varepsilon^h_{\alpha\beta}$ and $-\boldsymbol v^h_{,\alpha}\vert_\beta$, $\kappa^h_{\alpha\beta}$ can be expressed by:
 \begin{equation}\label{approxsn1}

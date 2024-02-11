@@ -1,5 +1,65 @@
 \section{Hu-Washizu's formulation of complementary energy for thin shell}
 \subsection{Kinematics for thin shell}
+Consider the configuration of a shell $\bar \Omega$, as shown in Fig. \ref{}, which can be easily described by a parametric curvilinear coordinate system $\boldsymbol \xi = \{\xi^i\}_{i=1,2,3}$. The mid-surface of the shell is specified by the in-plane coordinates $\boldsymbol \xi = \{\xi^\alpha\}_{\alpha=1,2}$, as the thickness direction of shell is by $\xi^3$, $-\frac{h}{2} \le \xi^3 \le \frac{h}{2}$, $h$ is the thick of shell. In this work, Latin indices take 22 the values from 1 to 3, and Greek indices are evaluated by 1 or 2. For the Kirchhoff hypothesis \cite{krysl1996}, the position $\boldsymbol x\in \bar \Omega$ are defined by linear functions with respect to $\xi^3$ :
+\begin{equation}\label{x}
+\boldsymbol x(\xi^1, \xi^2, \xi^3) = \boldsymbol r(\xi^1,\xi^2) + \xi^3 \boldsymbol a_3(\xi^1,\xi^2)
+\end{equation}
+in which $\boldsymbol r$ means the position on the mid-surface of shell, and the $\boldsymbol a_3$ is corresponding normal direction. For the mid-surface of shell, the in-plane covariant base vector with respect to $\xi^\alpha$ can be derived by a trivial partial differentiation to $\boldsymbol r$:
+\begin{equation}
+\boldsymbol a_\alpha = \frac{\partial \boldsymbol r}{\partial \xi^\alpha} = \boldsymbol r_{,\alpha}, \alpha  = 1,2
+\end{equation}
+for a clear expression, the subscript comma denotes the partial differentiation operation with respect to in-plane coordinates $\xi^\alpha$. And the normal vector $\boldsymbol a_3$ can be obtained by the normalized cross product of $\boldsymbol a_{\alpha}$'s as follow:
+\begin{equation}
+\boldsymbol a_3 = \frac{\boldsymbol a_1 \times \boldsymbol a_2}{\Vert \boldsymbol a_1 \times \boldsymbol a_2 \Vert}
+\end{equation}
+where $\Vert \bullet \Vert$ is the Euclidean norm operator.
+
+With the assumption of infinitesimal deformation, the strain components respected to global contravariant base can be sated as:
+\begin{equation}\label{epsilon}
+\epsilon_{ij} = \frac{1}{2}(\boldsymbol x_{,i} \cdot \boldsymbol u_{,j} + \boldsymbol u_{,i} \cdot \boldsymbol x_{,j})
+\end{equation}
+where $\boldsymbol u$ is the displacement for shell deformation. To fulfillment with Kirchhoff hypothesis, the displacement is assumed to be the following form:
+\begin{equation}\label{u}
+\boldsymbol u(\xi^1,\xi^2,\xi^3) = \boldsymbol v(\xi^1,\xi^2) + \boldsymbol \theta(\xi^1,\xi^2) \xi^3
+\end{equation}
+in which the quadratic and higher order terms are neglected. $\boldsymbol v$, $\boldsymbol \theta$ respect the displacement and rotation in mid-surface.
+
+Subsequently, plugging Eqs. (\ref{x}) and (\ref{u}) into Eq. (\ref{epsilon}) and neglecting quadratic terms, the strain components can be rephrased as follows:
+\begin{subequations}
+\begin{align}
+\begin{split}
+\epsilon_{\alpha\beta} &= \frac{1}{2}(\boldsymbol a_\alpha \cdot \boldsymbol v_{,\beta} + \boldsymbol v_{,\alpha}\cdot \boldsymbol a_\beta) \\ 
+&+ \frac{1}{2}(\boldsymbol a_{3,\alpha} \cdot \boldsymbol v_{,\beta} + \boldsymbol v_{,\alpha}\cdot \boldsymbol a_{3,\beta} + \boldsymbol a_\alpha \cdot \boldsymbol \theta_{,\beta} + \boldsymbol \theta_{,\alpha}\cdot \boldsymbol a_\beta)\xi^3 \\
+&= \varepsilon_{\alpha\beta} + \kappa_{\alpha\beta}\xi^3
+\end{split} \\
+\epsilon_{\alpha 3} &= \frac{1}{2}(\boldsymbol a_\alpha \cdot \boldsymbol \theta + \boldsymbol v_{,\alpha}\cdot \boldsymbol a_3) + \frac{1}{2} (\boldsymbol a_3 \cdot \boldsymbol \theta)_{,\alpha}\xi^3 \\ 
+\epsilon_{33} &= \boldsymbol a_3 \cdot \boldsymbol \theta
+\end{align}
+\end{subequations}
+where $\varepsilon_{\alpha\beta}$, $\kappa_{\alpha\beta}$ are membrane and bending strains respectively:
+\begin{equation}
+\varepsilon_{\alpha\beta} = \frac{1}{2}(\boldsymbol a_\alpha \cdot \boldsymbol v_{,\beta} + \boldsymbol v_{,\alpha}\cdot \boldsymbol a_\beta) 
+\end{equation}
+\begin{equation}\label{kappa1}
+\kappa_{\alpha\beta} = \frac{1}{2}(\boldsymbol a_{3,\alpha} \cdot \boldsymbol v_{,\beta} + \boldsymbol v_{,\alpha}\cdot \boldsymbol a_{3,\beta} + \boldsymbol a_\alpha \cdot \boldsymbol \theta_{,\beta} + \boldsymbol \theta_{,\alpha}\cdot \boldsymbol a_\beta)
+\end{equation}
+
+In accordance with Kirchhoff hypothesis, the thickness of shell will not change and the deformation related with direction of $\xi^3$ will be vanished, i.e. $\epsilon_{3i}=0$. Thus, the rotation $\boldsymbol \theta$ can be rewritten as:
+\begin{equation}\label{a3}
+\epsilon_{3i} = 0 \Rightarrow
+\left \{
+\begin{split}
+&\boldsymbol \theta \cdot \boldsymbol a_\alpha + \boldsymbol v_{,\alpha} \cdot \boldsymbol a_3 = 0 \\
+&\boldsymbol \theta \cdot \boldsymbol a_3 = 0
+\end{split}
+\right .
+\Rightarrow \boldsymbol \theta = - \boldsymbol v_{,\alpha} \cdot \boldsymbol a_3 \boldsymbol a^\alpha
+\end{equation}
+where $\boldsymbol a^\alpha$'s are the in-plane contravariant base vectors, $\boldsymbol a^\alpha \cdot \boldsymbol a_\beta = \delta^\alpha_\beta$, $\delta$ is the Kronecker delta function. Substituting Eq. (\ref{a3}) into Eq. (\ref{kappa1}) leads to:
+\begin{equation}
+\kappa_{\alpha\beta} = (\Gamma^\gamma_{\alpha\beta} \boldsymbol v_{,\gamma} - \boldsymbol v_{,\alpha\beta}) \cdot \boldsymbol a_3 = - \boldsymbol v_{,\alpha}\vert_\beta \cdot \boldsymbol a_3
+\end{equation}
+in which $\Gamma^\gamma_{\alpha\beta} = \boldsymbol a_{\alpha,\beta} \cdot \boldsymbol a^\gamma$ is namely Christoffel symbol of the second kind.
 \begin{equation}
 \varepsilon_{\alpha\beta} = \frac{1}{2}(\boldsymbol a_\alpha \cdot \boldsymbol v_{,\beta} + \boldsymbol a_\beta \cdot \boldsymbol v_{,\alpha})
 \end{equation}
