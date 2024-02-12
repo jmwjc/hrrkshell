@@ -1,25 +1,59 @@
-\section{Covariant derivatives}\label{appderivative}
-This Appendix lists the covariant derivatives needed for the development of the proposed method. For an arbitrary first order tensor $\boldsymbol v$ presented by in-plane covariant or contravariant bases as: 
-\begin{equation}
-\boldsymbol v = v_{\alpha}\boldsymbol a^\alpha + v_{3} \boldsymbol a_3 = v^{\alpha}\boldsymbol a_\alpha + v^3 \boldsymbol a_3
-\end{equation}
-the partial derivatives of tensor $\boldsymbol v$ with respect to coordinate $\xi^\alpha$, $\boldsymbol v_{,\alpha}$, can be evaluated by:
+\section{Green's theorems for in-plane vector}\label{appderivative}
+This Appendix discuss two kinds of Green's theorems used for the development of the method. For an arbitrary vector $v^\alpha$ and a scalar function $f$, with the Green's theorem for in-plane vector, the first Green's theorem is list as follow \cite{benzaken2021}:
 \begin{equation}
 \begin{split}
-\boldsymbol v_{,\alpha} &= 
-v_{\beta,\alpha} \boldsymbol a^\beta + v_{\beta}\boldsymbol a^\beta_{,\alpha} + v_{3,\alpha}\boldsymbol a_3 + v_3 \boldsymbol a_{3,\alpha} \\
-&= v_{\beta,\alpha} \boldsymbol a^\beta - \Gamma^\beta_{\alpha\gamma}v_\beta \boldsymbol a^\gamma + v_{3,\alpha} \boldsymbol a_3 - v_3 b_{\alpha\beta} \boldsymbol a^\beta \\
-&= v_{\beta,\alpha} \boldsymbol a^\beta - \Gamma^\gamma_{\alpha\beta}v_\gamma \boldsymbol a^\beta + v_{3,\alpha} \boldsymbol a_3 - v_3 b_{\alpha\beta} \boldsymbol a^\beta \\
-&= v_{\beta}\vert_\alpha \boldsymbol a^\beta + v_{3,\alpha} \boldsymbol a_3 - v_3 b_{\alpha\beta} \boldsymbol a^\beta \\
+\int_\Omega f_{,\alpha} v^\alpha d\Omega &= \int_\Gamma f v^\alpha n_\alpha d\Gamma - \int_\Omega f (v_{,\alpha}^\alpha + \Gamma^\beta_{\beta\alpha}v^\alpha) d\Omega \\
+&= \int_\Gamma f v^\alpha n_\alpha d\Gamma - \int_\Omega f v^\alpha\vert_\alpha d\Omega
 \end{split}
 \end{equation}
-where $\Gamma^\gamma_{\alpha\beta} = \boldsymbol a_{\alpha,\beta}\cdot \boldsymbol a^\gamma$ denotes the Christoffel symbol of the second kind, $b_{\alpha\beta} = \boldsymbol a_{\alpha,\beta}\cdot\boldsymbol a_3=-\boldsymbol a_{\alpha}\cdot\boldsymbol a_{3,\beta}$ stands for the curvature tensor. $v_\alpha\vert_\beta$ can be regarded as the in-plane covariant derivative of the vector $v_\alpha$:
+where $\Gamma^\gamma_{\alpha\beta} = \boldsymbol a_{\alpha,\beta}\cdot \boldsymbol a^\gamma$ denotes the Christoffel symbol of the second kind. $v^\alpha\vert_\alpha$ can be regarded as the in-plane covariant derivative of the vector $v^\alpha$:
 \begin{equation}
-v_{\alpha}\vert_\beta = v_{\alpha,\beta} - \Gamma^\gamma_{\alpha\beta} v_\gamma
+v^\alpha\vert_\alpha= v^\alpha_{,\alpha} + \Gamma^\beta_{\beta\alpha} v^\alpha
 \end{equation}
 
-Following the same path, the in-plane covariant derivative of $v^\alpha$ is given by:
+The second Green's theorem is established with a mixed form of second order derivative, let $A^{\alpha\beta}$ be an arbitrary symmetric second order tensor, the Green's theorem yields \cite{benzaken2021}:
+\begin{equation}\small
+\begin{split}
+\int_\Omega f_{,\alpha}\vert_\beta A^{\alpha\beta} d\Omega &= 
+\int_\Gamma f_{,\gamma} n^\gamma A^{\alpha\beta} n_\alpha n_\beta d\Gamma 
+- \int_\Gamma f(A^{\alpha\beta}s_\alpha n_\beta)_{,\gamma} s^\gamma d\Gamma
++ [[f A^{\alpha\beta} s_\alpha n_\beta]]_{\boldsymbol x \in C} \\
+&- \int_\Gamma f(A^{\alpha\beta}_{,\beta}n_\alpha + \Gamma^\gamma_{\alpha\beta}A^{\alpha\beta}n_\gamma + \Gamma^\gamma_{\gamma\beta} A^{\alpha\beta} n_\alpha) d\Gamma \\
+&+ \int_\Omega f \left (
+\begin{split}
+&\Gamma^\gamma_{\alpha\beta,\gamma}A^{\alpha\beta} + \Gamma^\gamma_{\alpha\beta} A^{\alpha\beta}_{,\gamma} + \Gamma^\eta_{\eta\gamma}\Gamma^\gamma_{\alpha\beta} A^{\alpha\beta} \\
++ &A^{\alpha\beta}_{,\alpha\beta} + \Gamma^\gamma_{\gamma\beta,\alpha}A^{\alpha\beta}+2\Gamma^\gamma_{\gamma\alpha}A^{\alpha\beta}_{,\beta} + \Gamma^{\gamma}_{\gamma\alpha}\Gamma^\eta_{\eta\beta} A^{\alpha\beta}
+\end{split}
+\right ) d\Omega \\
+&=\int_\Gamma f_{,\gamma} n^\gamma A^{\alpha\beta} n_\alpha n_\beta d\Gamma 
+- \int_\Gamma f(A^{\alpha\beta}s_\alpha n_\beta)_{,\gamma} s^\gamma d\Gamma
++ [[f A^{\alpha\beta} s_\alpha n_\beta]]_{\boldsymbol x \in C} \\
+&-\int_\Gamma f A^{\alpha\beta}\vert_\beta n_\alpha d\Gamma
++ \int_\Omega f A^{\alpha\beta}\vert_{\alpha\beta} d\Omega
+\end{split}
+\end{equation}
+with
 \begin{equation}
-v^\alpha\vert_\beta = v^\alpha_{,\beta} + \Gamma^\alpha_{\beta\gamma} v^\gamma
+A^{\alpha\beta}\vert_\beta = A^{\alpha\beta}_{,\beta} + \Gamma^\alpha_{\beta\gamma}A^{\beta\gamma} + \Gamma^\gamma_{\gamma\beta} A^{\alpha\beta}
+\end{equation}
+\begin{equation}
+\begin{split}
+A^{\alpha\beta}\vert_{\alpha\beta} = &\Gamma^\gamma_{\alpha\beta,\gamma}A^{\alpha\beta} + \Gamma^\gamma_{\alpha\beta} A^{\alpha\beta}_{,\gamma} + \Gamma^\eta_{\eta\gamma}\Gamma^\gamma_{\alpha\beta} A^{\alpha\beta} \\
++ &A^{\alpha\beta}_{,\alpha\beta} + \Gamma^\gamma_{\gamma\beta,\alpha}A^{\alpha\beta}+2\Gamma^\gamma_{\gamma\alpha}A^{\alpha\beta}_{,\beta} + \Gamma^{\gamma}_{\gamma\alpha}\Gamma^\eta_{\eta\beta} A^{\alpha\beta}
+\end{split}
 \end{equation}
 
+For the sake of brevity, the notion of covariant derivative is extended to scalar function as:
+\begin{equation}
+f_{\vert\alpha} = f_{,\alpha} + \Gamma^\beta_{\beta\alpha} f \\
+\end{equation}
+\begin{equation}
+f_{\vert\beta} n_\alpha = f_{,\beta}n_\alpha + \Gamma^\gamma_{\alpha\beta} f n_\gamma + \Gamma^\gamma_{\gamma_\beta} f n_\alpha
+\end{equation}
+\begin{equation}
+\begin{split}
+f_{\vert\alpha\beta} &=
+\Gamma^\gamma_{\alpha\beta,\gamma}f + \Gamma^\gamma_{\alpha\beta} f_{,\gamma} + \Gamma^\eta_{\eta\gamma}\Gamma^\gamma_{\alpha\beta} f \\
+&+ f_{,\alpha\beta} + \Gamma^\gamma_{\gamma\beta,\alpha}f+2\Gamma^\gamma_{\gamma\alpha}f_{,\beta} + \Gamma^{\gamma}_{\gamma\alpha}\Gamma^\eta_{\eta\beta} f
+\end{split}
+\end{align}
