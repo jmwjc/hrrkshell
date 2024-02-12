@@ -778,10 +778,6 @@ INPUT ./examples.tex
 INPUT examples.tex
 INPUT ./examples.tex
 INPUT examples.tex
-INPUT ./figures/patchtest_msh.png
-INPUT figures/patchtest_msh.png
-INPUT ./figures/patchtest_msh.png
-INPUT ./figures/patchtest_msh.png
 INPUT ./conclusion.tex
 INPUT ./conclusion.tex
 INPUT ./conclusion.tex
@@ -855,6 +851,7 @@ INPUT /opt/homebrew/Cellar/texlive/20230313_2/share/texmf-dist/fonts/type1/publi
 INPUT /opt/homebrew/Cellar/texlive/20230313_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb
 INPUT /opt/homebrew/Cellar/texlive/20230313_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb
 INPUT /opt/homebrew/Cellar/texlive/20230313_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb
+INPUT /opt/homebrew/Cellar/texlive/20230313_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
 INPUT /opt/homebrew/Cellar/texlive/20230313_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb
 INPUT /opt/homebrew/Cellar/texlive/20230313_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb
 INPUT /opt/homebrew/Cellar/texlive/20230313_2/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib6.pfb
