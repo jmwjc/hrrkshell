@@ -12,15 +12,33 @@ A level-1 auxiliary file: conclusion.aux
 A level-1 auxiliary file: derivative.aux
 A level-1 auxiliary file: derivation.aux
 Database file #1: references.bib
-Warning--I didn't find a database entry for "krysl1996"
-Warning--I didn't find a database entry for "benzaken2021"
+Warning--I didn't find a database entry for "donnell1976"
+Warning--I didn't find a database entry for "hughes2000"
+Warning--I didn't find a database entry for "belytschko1994"
 Warning--I didn't find a database entry for "liu1995"
+Warning--I didn't find a database entry for "chen2017a"
+Warning--I didn't find a database entry for "krysl1996"
+Warning--I didn't find a database entry for "fernandez-mendez2004"
+Warning--I didn't find a database entry for "wu2021"
+Warning--I didn't find a database entry for "liu2019a"
+Warning--I didn't find a database entry for "chen2000a"
+Warning--I didn't find a database entry for "ivannikov2014a"
+Warning--I didn't find a database entry for "lu1994"
+Warning--I didn't find a database entry for "zhu1998"
+Warning--I didn't find a database entry for "skatulla2008"
+Warning--I didn't find a database entry for "chen2001"
+Warning--I didn't find a database entry for "chen2013"
+Warning--I didn't find a database entry for "duan2012"
 Warning--I didn't find a database entry for "wang2019d"
+Warning--I didn't find a database entry for "wang2023"
+Warning--I didn't find a database entry for "benzaken2021"
+Warning--I didn't find a database entry for "wu2022b"
+Warning--I didn't find a database entry for "wu2023"
 Warning--empty journal in dah-wei1985
 Warning--empty year in dah-wei1985
 You've used 1 entry,
             2952 wiz_defined-function locations,
-            689 strings with 5384 characters,
+            707 strings with 5555 characters,
 and the built_in function-call counts, 374 in all, are:
 = -- 35
 > -- 4
@@ -59,4 +77,4 @@ warning$ -- 2
 while$ -- 3
 width$ -- 2
 write$ -- 17
-(There were 6 warnings)
+(There were 24 warnings)
