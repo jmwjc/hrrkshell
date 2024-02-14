@@ -1,2 +1,20 @@
 \section{Derivations for stiffness metrics and force vectors}
-This Appendix details the derivations of stiffness
+This Appendix details the derivations of stiffness matrices and force vectors in Eqs. (\ref{de1})-(\ref{de3}), where the relationships of Eqs. (\ref{gn}), (\ref{gm}), (\ref{epsilon2}) and (\ref{kappa2}) are used herein. Firstly, we consider the following term:
+\begin{equation}
+\begin{split}
+&\sum_{C=1}^{n_e}\int_{\Omega_C} \delta \tilde \varepsilon_{\alpha\beta}^h hC^{\alpha\beta\gamma\eta}\bar \varepsilon^h_{\gamma\eta} d\Omega \\
+        =&\sum_{C=1}^{n_e}\sum_{I,J=1}^{n_p}\delta \boldsymbol d_I \cdot \underbrace{\int_{\Omega_C} \tilde{\boldsymbol \varepsilon}_{\alpha\beta I} hC^{\alpha\beta\gamma\eta} \boldsymbol a_\gamma \boldsymbol q^T d\Omega}_{\tilde{\boldsymbol g}^{\eta T}_I} \boldsymbol G^{-1} \bar{\boldsymbol g}_{\eta J} \cdot \boldsymbol d_J \\
+        =&\sum_{C=1}^{n_e}\sum_{I,J=1}^{n_p}\delta \boldsymbol d_I \cdot \int_{\Gamma_C\cap\Gamma_v} \Psi_J \underbrace{\boldsymbol q^T \boldsymbol G^{-1}\tilde{\boldsymbol g}^\alpha_I
+        n_\alpha}_{\tilde{\boldsymbol T}_{NI}} d\Gamma
+       \cdot \boldsymbol d_J \\
+        =&\sum_{I,J=1}^{n_p}\delta \boldsymbol d_I \cdot \int_{\Gamma_v} \tilde{\boldsymbol T}_{NI}\Psi_J d\Gamma
+       \cdot \boldsymbol d_J \\
+\end{split}
+\end{equation}
+with
+\begin{equation}
+        \tilde{\boldsymbol g}^\alpha_I = \boldsymbol q \boldsymbol a_\beta C^{\alpha\beta\gamma\eta} \tilde{\boldsymbol \varepsilon}_{\alpha\beta I}
+\end{equation}
+\begin{equation}
+        \tilde{\boldsymbol T}_{NI} = \boldsymbol q^T \boldsymbol G^{-1} \tilde{\boldsymbol g}_I^\alpha n_\alpha
+\end{equation}

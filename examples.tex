@@ -1,6 +1,6 @@
 
 \section{Numerical examples}\label{examples}
-In this section, several examples are carried out to verify proposed method, which employs the consistent reproducing kernel gradient smoothing integration scheme (RKGSI) and the non-consistent Gauss integration scheme (GI) with penalty method, Nitsche's method and the proposed Hu-Washizu formulation (HW) to enforce the essential boundary conditions. A normalized support size of 2.5 is used for all methods to ensure the requirement of quadratic base meshfree approximation. To eliminate the influence of integration, the Gauss integration scheme use 6 Gauss points for domain integration and 3 points for boundary integration, and such that the number of integration points are identical between Gauss scheme and RKGSI scheme. The error estimates of displacement namely $L_2$-Error and energy namely $H_e$-Error is used here:
+In this section, several examples are carried out to verify proposed method, which employs the consistent reproducing kernel gradient smoothing integration scheme (RKGSI) and the non-consistent Gauss integration scheme (GI) with penalty method, Nitsche's method and the proposed Hu-Washizu formulation (HW) to enforce the essential boundary conditions. A normalized support size of 2.5 is used for all methods to ensure the requirement of quadratic base meshfree approximation. To eliminate the influence of integration, the Gauss integration scheme use 6 Gauss points for domain integration and 3 points for boundary integration to maintain the same integration accuracy between domain and boundaries, and moreover the number of integration points are identical between Gauss scheme and RKGSI scheme. The error estimates of displacement namely $L_2$-Error and energy namely $H_e$-Error is used here:
 \begin{equation}
 \begin{split}
 L_2\text{-Error} &= \frac{\sqrt{\int_\Omega(\boldsymbol v - \boldsymbol v^h) \cdot (\boldsymbol v - \boldsymbol v^h)d\Omega}}{\sqrt{\boldsymbol v \cdot \boldsymbol v}} \\
@@ -20,15 +20,15 @@ n = \begin{cases}
 \end{cases}
 \end{equation}
 
-\begin{figure}[h!]
+\begin{figure}[!ht]
     \centering
-    \includegraphics[width=\textwidth]{figures/patchtest_msh}
+    % \includegraphics[width=\textwidth]{figures/patchtest_msh}
     \caption{Meshfree discretization for patch test}\label{ptf1}
 \end{figure}
 
 Table \ref{ptt1} lists the $L_2$- and $H_e$-Error results of patch test with flat model, where the RKGSI with variational consistent essential boundary enforcement, i.e. RKGSI-Nitsche and RKGSI-HW, can pass the linear and quadratic path test. Due to the loss of variational consistency condition, even with Nitsche's method, Gauss meshfree formulations show noticeable errors. Table \ref{ptt2} shows the results for curved model, which indicated that all the mehtods cannot pass the patch test, which mainly because the proposed smoothed gradient of Eqs. (\ref{approxse1}), (\ref{approxse2}) is unable to exactly reproduce the non-polynomial membrane and bending stress. However, the RKGSI-HW and RKGSI-Nitsche also performance better accuracy than other methods due to the fulfillment of first two order variational consistency. Meanwhile, the bending moment contours of $M^{12}$ are listed in Fig. \ref{ptf2}, which further verify that the proposed method obtain a satisfactory result comparing with exact solution, the conventional Gauss meshree formulations show observable errors.
 
-\begin{table}[h!]
+\begin{table}[!ht]
 \centering
 \caption{Results of patch test for flat model}\label{ptt1}
 \begin{tabular}{lcccc}
@@ -45,7 +45,7 @@ Table \ref{ptt1} lists the $L_2$- and $H_e$-Error results of patch test with fla
 \end{tabular}
 \end{table}
 
-\begin{table}[h!]
+\begin{table}[!ht]
 \centering
 \caption{Results of patch test for cylindrical model.}\label{ptt2}
 \begin{tabular}{lcccc}
@@ -62,19 +62,57 @@ Table \ref{ptt1} lists the $L_2$- and $H_e$-Error results of patch test with fla
 \end{tabular}
 \end{table}
 
-\begin{figure}[h!]
+\begin{figure}[!ht]
 \centering
-\includegraphics[width=\textwidth]{figures/patchtest_msh}
+% \includegraphics[width=\textwidth]{figures/patchtest_msh}
 \caption{Contour plots of $M^{12}$ for curved shell patch test.}\label{ptf2}
 \end{figure}
 
 \subsection{Scordelis-Lo roof}
-This example consider the classical Scordelis-Lo roof problem, as shown in Fig., the cylindrical roof has the radius $R=25$, length $L=50$, thickness $h=0.25$, Young's modulus $E=4.32\times 10^8$ and Poisson rate $\nu=0.0$. An uniform body force of $b_z = -90$ are enforced in whole roof and the curved edges are enforced by $v_x=v_z=0$, and the straight edges are free.
+This example consider the classical Scordelis-Lo roof problem, as shown in Fig. \ref{slf1}, the cylindrical roof has the radius $R=25$, length $L=50$, thickness $h=0.25$, Young's modulus $E=4.32\times 10^8$ and Poisson rate $\nu=0.0$. An uniform body force of $b_z = -90$ is loaded in whole roof and the curved edges are enforced by $v_x=v_z=0$, and the straight edges are free.
 
-Due to the symmetry, only a quadrant of the model is considered for meshfree analysis, which is discretized by the $5\times 8$, $11\times 16$, $17\times 24$ and $23\times32$ meshfree nodes.
+Due to the symmetry, only a quadrant of the model is considered for meshfree analysis, which is discretized by the $5\times 8$, $11\times 16$, $17\times 24$ and $23\times32$ meshfree nodes(double check), as listed in Fig. \ref{slf2}. The comparison of the displacement in $z-$direction at node $A$, $v_{A3}$, is used as the investigated quantity, the reference value is 0.3024 given by reference \cite{macneal1985}. Firstly, Fig. \ref{slf3} presents a sensitivity study for the artificial parameters of $\alpha_v$'s, $\alpha_\theta$'s in the RKGSI meshfree formulations with Nitsche's method and penalty method, the results of Fig. \ref{slf3} reveal that Nitsche's method performed less artificial sensitivity, however both of them cannot trivially determine the optimal values of artificial parameters. The optimal artificial parameters from Fig. \ref{slf3} are adopted for the convergence study in Fig. \ref{slf4}, and the convergence result shown that the RKGSI get satisfactory results while the traditional Gauss methods have noticeable errors.
 
-\begin{figure}[h!]
+\begin{figure}[!ht]
 \centering
-\includegraphics[width=\textwidth]{figures/patchtest_msh}
-\caption{Description of Scordelis-Lo roof problem.}\label{ptf2}
+% \includegraphics[width=\textwidth]{figures/patchtest_msh}
+\caption{Description of Scordelis-Lo roof problem.}\label{slf1}
 \end{figure}
+\begin{figure}[!ht]
+\centering
+% \includegraphics[width=\textwidth]{figures/patchtest_msh}
+\caption{Meshfree discretizations for Scordelis-Lo roof problem.}\label{slf2}
+\end{figure}
+\begin{figure}[!ht]
+\centering
+% \includegraphics[width=\textwidth]{figures/patchtest_msh}
+\caption{sensitivity comparison of $\alpha_v$ and $\alpha_\theta$ for Scordelis-Lo problem.}\label{slf3}
+\end{figure}
+\begin{figure}[!ht]
+\centering
+% \includegraphics[width=\textwidth]{figures/patchtest_msh}
+\caption{Displacement convergence for Scordelis-Lo roof problem.}\label{slf4}
+\end{figure}
+
+\subsection{Pinched Hemispherical shell}
+Consider the hemispherical shell shown in Fig. \ref{phf1}, where four point loads $F=\pm 2$ are loaded at its bottom with an interval of $90^\circ$. The hemispherical shell has an radius $R=10$, thickness $h=0.04$, Young's modulus $E=6.825\times10^7$ and Poisson rate $\nu = 0.3$.
+
+Due to symmetry, only quadrant model has been study, where the quadrant shell has been discretized by (double check) meshfree nodes. The convergence investigated quantity is to comparing with the displacement at $x-$direction on point $A$, $v_{A1}$.
+The corresponding convergence result are presented in Fig. \ref{slfc}, where the RKGSI's performs much more favorably compared with GI meshfree formulation. Meanwhile the efficiency comparison for this problem is shown in Fig. \ref{slfe}, in which the CPU time for assembly and calculation of shape functions are considered.
+\begin{figure}[!ht]
+\centering
+% \includegraphics[width=\textwidth]{figures/patchtest_msh}
+\caption{Description of pinched hemispherical shell problem.}\label{slf1}
+\end{figure}
+\begin{figure}[!ht]
+\centering
+% \includegraphics[width=\textwidth]{figures/patchtest_msh}
+\caption{Description of pinched hemispherical shell problem.}\label{slfc}
+\end{figure}
+\begin{figure}[!ht]
+\centering
+% \includegraphics[width=\textwidth]{figures/patchtest_msh}
+\caption{Description of pinched hemispherical shell problem.}\label{slfe}
+\end{figure}
+
+

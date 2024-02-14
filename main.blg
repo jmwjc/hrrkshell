@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2023/Homebrew)
+This is BibTeX, Version 0.99d (TeX Live 2023)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: elsarticle-num.bst
@@ -18,6 +18,7 @@ Warning--I didn't find a database entry for "ivannikov2014a"
 Warning--I didn't find a database entry for "duan2012"
 Warning--I didn't find a database entry for "wang2019d"
 Warning--I didn't find a database entry for "wu2022b"
+Warning--I didn't find a database entry for "macneal1985"
 Warning--empty year in donnell1976
 Warning--empty year in hughes2000
 Warning--empty journal in belytschko1994
@@ -52,7 +53,7 @@ Warning--empty journal in dah-wei1985
 Warning--empty year in dah-wei1985
 You've used 17 entries,
             2952 wiz_defined-function locations,
-            775 strings with 7734 characters,
+            776 strings with 7745 characters,
 and the built_in function-call counts, 4969 in all, are:
 = -- 460
 > -- 140
@@ -91,4 +92,4 @@ warning$ -- 32
 while$ -- 45
 width$ -- 19
 write$ -- 134
-(There were 38 warnings)
+(There were 39 warnings)
