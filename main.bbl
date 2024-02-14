@@ -1,13 +1,63 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
 \expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
 \expandafter\ifx\csname href\endcsname\relax
   \def\href#1#2{#2} \def\path#1{#1}\fi
 
+\bibitem{donnell1976}
+L.~H. Donnell, Beams, {{Plates}} and {{Shells}}, {McGraw-Hill}.
+\newblock \href {http://arxiv.org/abs/o_IeAQAAIAAJ} {\path{arXiv:o_IeAQAAIAAJ}}.
+
+\bibitem{hughes2000}
+T.~J. Hughes, The {{Finite Element Method}}: {{Linear Static}} and {{Dynamic Finite Element Analysis}}, {Dover Publications}.
+
+\bibitem{belytschko1994}
+T.~Belytschko, Y.~Y. Lu, L.~Gu, Element‐free {{Galerkin}} methods 37~(2)  229--256.
+\newblock \href {http://arxiv.org/abs/10208278} {\path{arXiv:10208278}}.
+
+\bibitem{liu1995}
+W.~K. Liu, S.~Jun, Y.~F. Zhang, Reproducing kernel particle methods 20~(8-9)  1081--1106.
+
+\bibitem{krysl1996}
+P.~Krysl, T.~Belytschko, Analysis of thin shells by the {{Element-Free Galerkin}} method 33~(20)  3057--3080.
+
+\bibitem{fernandez-mendez2004}
+S.~Fernández-Méndez, A.~Huerta, Imposing essential boundary conditions in mesh-free methods 193~(12-14)  1257--1275.
+
+\bibitem{liu2019a}
+D.~Liu, Y.~M. Cheng, The interpolating element-free {{Galerkin}} ({{IEFG}}) method for three-dimensional potential problems 108  115--123.
+
+\bibitem{chen2000a}
+J.-S. Chen, H.-P. Wang, New boundary condition treatments in meshfree computation of contact problems 187~(3)  441--468.
+
+\bibitem{lu1994}
+Y.~Y. Lu, T.~Belytschko, L.~Gu, A new implementation of the element free {{Galerkin}} method 113~(3-4)  397--414.
+\newblock \href {http://arxiv.org/abs/26071039} {\path{arXiv:26071039}}.
+
+\bibitem{zhu1998}
+T.~Zhu, S.~N. Atluri, A modified collocation method and a penalty formulation for enforcing the essential boundary conditions in the element free {{Galerkin}} method 21~(3)  211--222.
+
+\bibitem{skatulla2008}
+S.~Skatulla, C.~Sansour, Essential boundary conditions in meshfree methods via a modified variational principle: {{Applications}} to shell computations 15~(2)  123--142.
+
+\bibitem{chen2001}
+J.~S. Chen, C.~T. Wu, S.~Yoon, Y.~You, A stabilized conforming nodal integration for {{Galerkin}} mesh-free methods 50~(2)  435--466.
+
+\bibitem{chen2013}
+J.~S. Chen, M.~Hillman, M.~Rüter, An arbitrary order variationally consistent integration for {{Galerkin}} meshfree methods 95~(5)  387--418.
+\newblock \href {http://arxiv.org/abs/260949200001} {\path{arXiv:260949200001}}.
+
+\bibitem{wang2023}
+J.~Wang, X.~Ren, A consistent projection integration for {{Galerkin}} meshfree methods 414  116143.
+
+\bibitem{benzaken2021}
+J.~Benzaken, J.~A. Evans, S.~F. McCormick, R.~Tamstorf, Nitsche’s method for linear {{Kirchhoff}}–{{Love}} shells: {{Formulation}}, error analysis, and verification 374  113544.
+
+\bibitem{wu2023}
+J.~Wu, X.~Wu, Y.~Zhao, D.~Wang, A rotation-free {{Hellinger-Reissner}} meshfree thin plate formulation naturally accommodating essential boundary conditions 154  122--140.
+
 \bibitem{dah-wei1985}
-H.~Dah-wei, \href{http://link.springer.com/10.1007/BF01876390}{A method for establishing generalized variational principle} 6~(6)  501--509.
-\newblock \href {https://doi.org/10.1007/BF01876390} {\path{doi:10.1007/BF01876390}}.
-\newline\urlprefix\url{http://link.springer.com/10.1007/BF01876390}
+H.~Dah-wei, A method for establishing generalized variational principle 6~(6)  501--509.
 
 \end{thebibliography}

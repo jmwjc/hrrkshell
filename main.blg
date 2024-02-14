@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2023)
+This is BibTeX, Version 0.99d (TeX Live 2023/Homebrew)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: elsarticle-num.bst
@@ -12,69 +12,83 @@ A level-1 auxiliary file: conclusion.aux
 A level-1 auxiliary file: derivative.aux
 A level-1 auxiliary file: derivation.aux
 Database file #1: references.bib
-Warning--I didn't find a database entry for "donnell1976"
-Warning--I didn't find a database entry for "hughes2000"
-Warning--I didn't find a database entry for "belytschko1994"
-Warning--I didn't find a database entry for "liu1995"
 Warning--I didn't find a database entry for "chen2017a"
-Warning--I didn't find a database entry for "krysl1996"
-Warning--I didn't find a database entry for "fernandez-mendez2004"
 Warning--I didn't find a database entry for "wu2021"
-Warning--I didn't find a database entry for "liu2019a"
-Warning--I didn't find a database entry for "chen2000a"
 Warning--I didn't find a database entry for "ivannikov2014a"
-Warning--I didn't find a database entry for "lu1994"
-Warning--I didn't find a database entry for "zhu1998"
-Warning--I didn't find a database entry for "skatulla2008"
-Warning--I didn't find a database entry for "chen2001"
-Warning--I didn't find a database entry for "chen2013"
 Warning--I didn't find a database entry for "duan2012"
 Warning--I didn't find a database entry for "wang2019d"
-Warning--I didn't find a database entry for "wang2023"
-Warning--I didn't find a database entry for "benzaken2021"
 Warning--I didn't find a database entry for "wu2022b"
-Warning--I didn't find a database entry for "wu2023"
+Warning--empty year in donnell1976
+Warning--empty year in hughes2000
+Warning--empty journal in belytschko1994
+Warning--empty year in belytschko1994
+Warning--empty journal in liu1995
+Warning--empty year in liu1995
+Warning--empty journal in krysl1996
+Warning--empty year in krysl1996
+Warning--empty journal in fernandez-mendez2004
+Warning--empty year in fernandez-mendez2004
+Warning--empty journal in liu2019a
+Warning--empty year in liu2019a
+Warning--empty journal in chen2000a
+Warning--empty year in chen2000a
+Warning--empty journal in lu1994
+Warning--empty year in lu1994
+Warning--empty journal in zhu1998
+Warning--empty year in zhu1998
+Warning--empty journal in skatulla2008
+Warning--empty year in skatulla2008
+Warning--empty journal in chen2001
+Warning--empty year in chen2001
+Warning--empty journal in chen2013
+Warning--empty year in chen2013
+Warning--empty journal in wang2023
+Warning--empty year in wang2023
+Warning--empty journal in benzaken2021
+Warning--empty year in benzaken2021
+Warning--empty journal in wu2023
+Warning--empty year in wu2023
 Warning--empty journal in dah-wei1985
 Warning--empty year in dah-wei1985
-You've used 1 entry,
+You've used 17 entries,
             2952 wiz_defined-function locations,
-            707 strings with 5555 characters,
-and the built_in function-call counts, 374 in all, are:
-= -- 35
-> -- 4
+            775 strings with 7734 characters,
+and the built_in function-call counts, 4969 in all, are:
+= -- 460
+> -- 140
 < -- 0
-+ -- 2
-- -- 1
-* -- 35
-:= -- 67
-add.period$ -- 2
-call.type$ -- 1
-change.case$ -- 1
++ -- 58
+- -- 41
+* -- 401
+:= -- 667
+add.period$ -- 21
+call.type$ -- 17
+change.case$ -- 15
 chr.to.int$ -- 0
-cite$ -- 3
-duplicate$ -- 9
-empty$ -- 39
-format.name$ -- 1
-if$ -- 83
+cite$ -- 49
+duplicate$ -- 133
+empty$ -- 553
+format.name$ -- 55
+if$ -- 1224
 int.to.chr$ -- 0
-int.to.str$ -- 1
-missing$ -- 1
-newline$ -- 13
-num.names$ -- 1
-pop$ -- 6
+int.to.str$ -- 17
+missing$ -- 19
+newline$ -- 63
+num.names$ -- 17
+pop$ -- 120
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 16
+skip$ -- 281
 stack$ -- 0
-substring$ -- 25
-swap$ -- 3
+substring$ -- 379
+swap$ -- 8
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 2
-while$ -- 3
-width$ -- 2
-write$ -- 17
-(There were 24 warnings)
+warning$ -- 32
+while$ -- 45
+width$ -- 19
+write$ -- 134
+(There were 38 warnings)

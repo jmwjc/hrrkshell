@@ -59,7 +59,7 @@ where $\boldsymbol a^\alpha$'s are the in-plane contravariant base vectors, $\bo
 \begin{equation}
 \kappa_{\alpha\beta} = (\Gamma^\gamma_{\alpha\beta} \boldsymbol v_{,\gamma} - \boldsymbol v_{,\alpha\beta}) \cdot \boldsymbol a_3 = - \boldsymbol v_{,\alpha}\vert_\beta \cdot \boldsymbol a_3
 \end{equation}
-in which $\Gamma^\gamma_{\alpha\beta} = \boldsymbol a_{\alpha,\beta} \cdot \boldsymbol a^\gamma$ is namely Christoffel symbol of the second kind. And $\boldsymbol v_{,\alpha}\vet$ is the in-plane covariant derivative of $\boldsymbol v_{,\alpha}$, i.e. $\boldsymbol v_{,\alpha}\vert_\beta = \Gamma^\gamma_{\alpha\beta}\boldsymbol v_{,\gamma} - \boldsymbol v_{,\alpha\beta}$.
+in which $\Gamma^\gamma_{\alpha\beta} = \boldsymbol a_{\alpha,\beta} \cdot \boldsymbol a^\gamma$ is namely Christoffel symbol of the second kind. And $\boldsymbol v_{,\alpha}\vert$ is the in-plane covariant derivative of $\boldsymbol v_{,\alpha}$, i.e. $\boldsymbol v_{,\alpha}\vert_\beta = \Gamma^\gamma_{\alpha\beta}\boldsymbol v_{,\gamma} - \boldsymbol v_{,\alpha\beta}$.
 
 \subsection{Galerkin weak form for Hu-Washizu principle of complementary energy}
 In this study, the Hu-Washizu variational principle of complementary energy \cite{dah-wei1985} is used herein for development of this method, the corresponding complementary functional, denoted by $\Pi_C$, is listed as follow:
@@ -84,7 +84,7 @@ N^{\alpha\beta} = hC^{\alpha\beta\gamma\eta}\varepsilon_{\gamma\eta}, \quad
 M^{\alpha\beta} = \frac{h^3}{12}C^{\alpha\beta\gamma\eta}\kappa_{\gamma\eta}
 \end{equation}
 
-Essential boundaries on the edges and corners denoted by $\Gamma_v$, $\Gamma_\theta$ and $C_v$ are naturally existed in complementary energy functional, $\bar{\boldsymbol v}$, $\bar \theta_{\boldsymbol n}$ are the corresponding prescribed displacement and normal rotation. $\boldsymbol T$, $M_{\bodlsymbol{nn}}$ and $P$ can be determined by Euler-Lagrange equations of shell problem \cite{benzaken2021} as follows:
+Essential boundaries on the edges and corners denoted by $\Gamma_v$, $\Gamma_\theta$ and $C_v$ are naturally existed in complementary energy functional, $\bar{\boldsymbol v}$, $\bar \theta_{\boldsymbol n}$ are the corresponding prescribed displacement and normal rotation. $\boldsymbol T$, $M_{\boldsymbol{nn}}$ and $P$ can be determined by Euler-Lagrange equations of shell problem \cite{benzaken2021} as follows:
 \begin{equation}
 \boldsymbol T = \boldsymbol T_N + \boldsymbol T_M \; \rightarrow
 \begin{cases}
@@ -159,7 +159,7 @@ Introducing a standard variational argument to Eq. (\ref{functional}), $\delta \
 - (\delta P \boldsymbol a_3 \cdot \boldsymbol v)_{\boldsymbol x \in C_v} \\ =
 \int_{\Gamma_\theta} \delta M_{\boldsymbol{nn}} \bar{\theta}_{\boldsymbol n}d\Gamma
 - \int_{\Gamma_v} \delta \boldsymbol T_M \cdot \bar{\boldsymbol v} d\Gamma
-- (\delta P \boldsymbol a_3 \cdot \bar{\boldsymbol v})_{\boldsymbol x \in C_v} \\
+- (\delta P \boldsymbol a_3 \cdot \bar{\boldsymbol v})_{\boldsymbol x \in C_v}
 \end{multline}
 \begin{multline}\label{w5}
 \int_{\Gamma} \delta \theta_{\boldsymbol n} M_{\boldsymbol{nn}} d\Gamma

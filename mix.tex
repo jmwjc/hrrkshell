@@ -59,20 +59,20 @@ In Galerkin meshfree formulation, the mid-plane of thin shell $\Omega$ is split 
     -\boldsymbol v^h_{,\alpha}\vert_\beta(\boldsymbol \xi) = \boldsymbol q^T(\boldsymbol \xi) \boldsymbol d_{\alpha\beta}^\kappa , \quad
     \kappa^h_{\alpha\beta}(\boldsymbol \xi) = \boldsymbol q^T(\boldsymbol \xi) \boldsymbol a_3 \cdot \boldsymbol d_{\alpha\beta}^\kappa
 \end{equation}
-where $\boldsymbol q$ is the $(p-1)$th order polynomial vector and has the following form:
+where $\boldsymbol q$ is the linear polynomial vector and has the following form:
 \begin{equation}
-\boldsymbol q = \{ 1,\; \xi^1,\; \xi^2,\; \dots, (\xi^2)^{p-1}\}^T
+\boldsymbol q = \{ 1,\; \xi^1,\; \xi^2\}^T
 \end{equation}
 and the $\boldsymbol d^\varepsilon_{\alpha}$, $\boldsymbol d^\kappa_{\alpha\beta}$ are the corresponding coefficient vector tensors. For the conciseness, the mixed usage of tensor and vector is introduced in this study, for example, the component of coefficient tensor vector $\boldsymbol d^\varepsilon_{\alpha I}$, $\boldsymbol d^\varepsilon_\alpha = \{\boldsymbol d^\varepsilon_{\alpha I}\}$, is a three dimensional tensor, $\dim \boldsymbol d^\varepsilon_{\alpha I} = \dim \boldsymbol v$.
 
 In order to meet the integration constraint of thin shell problem, the approximated stresses $N^{\alpha\beta h}$, $M^{\alpha\beta h}$ are assumed to be a similar form with strains, yields:
 \begin{equation}\label{approxse1}
-N^{\alpha\beta h}(\boldsymbol \xi) = \boldsymbol q^T(\boldsymbol \xi) \boldsymbol a^\alpha \cdot \boldsymbol d_{\beta}^N,\quad
-\boldsymbol a_\alpha N^{\alpha\beta h}(\boldsymbol \xi) = \boldsymbol q^T(\boldsymbol \xi) \boldsymbol d^N_\beta
+N^{\alpha\beta h}(\boldsymbol \xi) = \boldsymbol q^T(\boldsymbol \xi) \boldsymbol a^\alpha \cdot \boldsymbol d^{\beta}_N,\quad
+\boldsymbol a_\alpha N^{\alpha\beta h}(\boldsymbol \xi) = \boldsymbol q^T(\boldsymbol \xi) \boldsymbol d_N^\beta
 \end{equation}
 \begin{equation}\label{approxse2}
-    M^{\alpha\beta h}(\boldsymbol \xi) = \boldsymbol q^T(\boldsymbol \xi) \boldsymbol a_3 \cdot \boldsymbol d_{\alpha\beta}^M,\quad
-    \boldsymbol a_3 M^{\alpha\beta h}(\boldsymbol \xi) = \boldsymbol q^T(\boldsymbol \xi) \boldsymbol d_{\alpha\beta}^M
+    M^{\alpha\beta h}(\boldsymbol \xi) = \boldsymbol q^T(\boldsymbol \xi) \boldsymbol a_3 \cdot \boldsymbol d^{\alpha\beta}_M,\quad
+    \boldsymbol a_3 M^{\alpha\beta h}(\boldsymbol \xi) = \boldsymbol q^T(\boldsymbol \xi) \boldsymbol d^{\alpha\beta}_M
 \end{equation}
 substituting the approximations of Eqs. (\ref{approxv}), (\ref{approxsn1}), (\ref{approxsn2}), (\ref{approxse1}), (\ref{approxse2}) into Eqs. (\ref{w3}), (\ref{w4}) can express $\boldsymbol d^\varepsilon_\beta$ and $\boldsymbol d^\kappa_{\alpha\beta}$ by $\boldsymbol d$ as:
 \begin{equation}\label{depsilon}
@@ -88,7 +88,7 @@ with
 \begin{subequations}
 \begin{align}
 \tilde{\boldsymbol g}_{\beta I} &= \int_{\Gamma_C} \Psi_I \boldsymbol q n_\beta d\Gamma
-- \int_{\Omega_C} \Psi_I \boldsymbol q^*\vert_\beta d\Omega \\
+- \int_{\Omega_C} \Psi_I \boldsymbol q_{\vert \beta} d\Omega \\
 \bar{\boldsymbol g}_{\beta I} &= \int_{\Gamma_C\cap\Gamma_v} \Psi_I \boldsymbol q n_\beta d\Gamma \\
 \hat{\boldsymbol g}_{\beta} &= \int_{\Gamma_C\cap\Gamma_v} \boldsymbol q n_\beta \bar{\boldsymbol v} d\Gamma 
 \end{align}
@@ -98,26 +98,25 @@ with
 \small
 \begin{split}
 \tilde{\boldsymbol g}_{\alpha\beta I} &= \int_{\Gamma_C} \Psi_{I,\gamma}n^\gamma \boldsymbol q n_\alpha n_\beta d\Gamma 
-- \int_{\Gamma_C} \Psi_I(\boldsymbol q^{**}\vert_\beta n_\alpha + (\boldsymbol q s_\alpha n_\beta)_{,\gamma}s^\gamma) d\Gamma \\
+- \int_{\Gamma_C} \Psi_I(\boldsymbol q_{\vert \beta} n_\alpha + (\boldsymbol q s_\alpha n_\beta)_{,\gamma}s^\gamma) d\Gamma \\
 &+ [[\Psi_I \boldsymbol q s_\alpha n_\beta]]_{\boldsymbol x\in C_C}
-- \int_{\Omega_C} \Psi \boldsymbol q^{**}_{,\alpha}\vert_\beta d\Omega \\
+- \int_{\Omega_C} \Psi \boldsymbol q_{,\alpha\vert \beta} d\Omega \\
 \end{split} \\
 \small
 \begin{split}
 \bar{\boldsymbol g}_{\alpha\beta I} &= \int_{\Gamma_C\cap\Gamma_\theta} \Psi_{I,\gamma}n^\gamma \boldsymbol q n_\alpha n_\beta d\Gamma 
-- \int_{\Gamma_C\cap\Gamma_v} \Psi_I(\boldsymbol q^{**}\vert_\beta n_\alpha + (\boldsymbol q s_\alpha n_\beta)_{,\gamma}s^\gamma) d\Gamma \\
+- \int_{\Gamma_C\cap\Gamma_v} \Psi_I(\boldsymbol q_{\vert \beta} n_\alpha + (\boldsymbol q s_\alpha n_\beta)_{,\gamma}s^\gamma) d\Gamma \\
 &+ [[\Psi_I \boldsymbol q s_\alpha n_\beta]]_{\boldsymbol x\in C_C\cap C_v}
 \end{split} \\
 \small
 \begin{split}
 \hat{\boldsymbol g}_{\alpha\beta} &= \int_{\Gamma_C\cap\Gamma_\theta} \boldsymbol q n_\alpha n_\beta \boldsymbol a_3 \bar{\theta}_{\boldsymbol n} d\Gamma 
-- \int_{\Gamma_C\cap\Gamma_v}(\boldsymbol q^{**}\vert_\beta n_\alpha + (\boldsymbol q s_\alpha n_\beta)_{,\gamma}s^\gamma)\bar{\boldsymbol v} d\Gamma \\
+- \int_{\Gamma_C\cap\Gamma_v}(\boldsymbol q_{\vert \beta} n_\alpha + (\boldsymbol q s_\alpha n_\beta)_{,\gamma}s^\gamma)\bar{\boldsymbol v} d\Gamma \\
 &+ [[\boldsymbol q s_\alpha n_\beta \bar{\boldsymbol v}]]_{\boldsymbol x\in C_C\cap C_v}
 \end{split}
 \end{align}
 \end{subequations}
-plugging Eqs. (\ref{depsilon}) and (\ref{dkappa}) back into Eqs. (\ref{approxsn1}) and (\ref{approxsn2}) respectively gives the final expression of $\boldsymbol v^h_{,\alpha}$, $\varepsilon^h_{\alpha\beta}$ and $-\boldsymbol v^h_{,\alpha\beta}$, $\boldsymbol \kappa^h_{\alpha\beta}$ as:
-\begin{subequations}
+where evalutions of $\boldsymbol q_{\vert \beta}$, $\boldsymbol q_{,\apha\vert\beta}$ are detail in Appendix \ref{derivatives}. Further plugging Eqs. (\ref{depsilon}) and (\ref{dkappa}) back into Eqs. (\ref{approxsn1}) and (\ref{approxsn2}) respectively gives the final expression of $\boldsymbol v^h_{,\alpha}$, $\varepsilon^h_{\alpha\beta}$ and $-\boldsymbol v^h_{,\alpha\beta}$, $\boldsymbol \kappa^h_{\alpha\beta}$ as: \begin{subequations}
 \begin{equation}
 \boldsymbol v^h_{,\alpha} = \sum_{I=1}^{n_p}(
 \tilde \Psi_{I,\alpha} - \bar \Psi_{I,\alpha}) \boldsymbol d_I +
@@ -177,39 +176,37 @@ with
 \right .
 \end{equation}
 
-Furthermore, taking Eqs. (\ref{approxsn1}) and (\ref{approxsn2}) into Eqs.(\ref{w1}) and (\ref{w2}) can obtain the approximated effective stresses $N^{\alpha\beta h}$, $M^{\alpha\beta h}$ and their coefficients $\boldsymbol d^N_\beta$, $\boldsymbol d^M_{\alpha\beta}$ as:
-\begin{equation}
-\begin{split}
-&\frac{1}{2}(\delta \boldsymbol d^\varepsilon_\alpha \cdot \boldsymbol a_\beta + \delta \boldsymbol d^\varepsilon_\beta\ \cdot \boldsymbol a_\alpha)
-h C^{\alpha\beta\gamma\eta}
-\frac{1}{2}(\boldsymbol a_\gamma \cdot \boldsymbol d^\varepsilon_\eta + \boldsymbol a_\gamma \cdot \boldsymbol d^\varepsilon_\eta)
-\boldsymbol G \\ = &
-\frac{1}{2}(\delta \boldsymbol d^\varepsilon_\alpha \cdot \boldsymbol d^N_\beta + \delta \boldsymbol d^\varepsilon_\beta \cdot \boldsymbol d^N_\alpha) \boldsymbol G \\
-\Rightarrow \; \boldsymbol d_N^\beta = &\boldsymbol a_\beta hC^{\alpha\beta\gamma\eta} \frac{1}{2}(\boldsymbol a_\gamma \cdot \boldsymbol d^\varepsilon_\eta + \boldsymbol a_\eta \cdot \boldsymbol d^\varepsilon_\gamma)
-\end{split} 
+Furthermore, taking Eqs. (\ref{approxsn1}) and (\ref{approxsn2}) into Eqs.(\ref{w1}) and (\ref{w2}) can obtain the approximated effective stresses $N^{\alpha\beta h}$, $M^{\alpha\beta h}$ and their coefficients $\boldsymbol d_N^\beta$, $\boldsymbol d_M^{\alpha\beta}$ as:
+\begin{equation}\label{d_N1}
+ \delta \boldsymbol d^\varepsilon_\alpha \cdot \boldsymbol G^{\alpha\eta}_N \cdot \boldsymbol d^\varepsilon_\eta = \delta \boldsymbol d^\varepsilon_\alpha \cdot \boldsymbol d_N^\alpha \boldsymbol G \quad\Rightarrow \quad & \boldsymbol d_N^\alpha = \boldsymbol G^{-1} \boldsymbol G_N^{\alpha\eta} \cdot \boldsymbol d^\varepsilon_\eta
 \end{equation}
-\begin{equation}
-\begin{split}
-& \delta \boldsymbol d^\kappa_{\alpha\beta}\cdot \boldsymbol a_3 \frac{h^3}{12} C^{\alpha\beta\gamma\eta} \boldsymbol a_3 \cdot \boldsymbol d^\kappa_{\gamma\eta} \boldsymbol G = \delta \boldsymbol d^\kappa_{\alpha\beta} \cdot \boldsymbol d^M_{\alpha\beta} \boldsymbol G \\
-\Rightarrow \; &\boldsymbol d_M^{\alpha\beta} = \boldsymbol a_3 \frac{h^3}{12}C^{\alpha\beta\gamma\eta}\boldsymbol a_3 \cdot \boldsymbol d^\kappa_{\gamma\eta}
-\end{split}
-\end{equation}
-\begin{equation}\label{Nh}
-N^{\alpha\beta h} &= hC^{\alpha\beta\gamma\eta}(\tilde \varepsilon^h_{\gamma\eta} - \bar \varepsilon^h_{\gamma\eta} + \hat \varepsilon^h_{\gamma\eta}) = \tilde N^{\alpha\beta h} - \bar N^{\alpha\beta h} + \hat N^{\alpha\beta h}
-\end{equation}
-\begin{equation}\label{Mh}
-M^{\alpha\beta h} &= \frac{h^3}{12}C^{\alpha\beta\gamma\eta}(\tilde \kappa^h_{\gamma\eta} - \bar \kappa^h_{\gamma\eta} + \hat \kappa^h_{\gamma\eta}) = \tilde M^{\alpha\beta h} - \bar M^{\alpha\beta h} + \hat M^{\alpha\beta h}
+\begin{equation}\label{d_M1}
+ \delta \boldsymbol d^\kappa_{\alpha\beta} : \boldsymbol G_M^{\alpha\beta\gamma\eta} : \boldsymbol d^\kappa_{\gamma\eta} \boldsymbol G = \delta \boldsymbol d^\kappa_{\alpha\beta} \cdot \boldsymbol d_M^{\alpha\beta} \boldsymbol G \\
+\Rightarrow \; \boldsymbol d_M^{\alpha\beta} = \boldsymbol G^{-1} \boldsymbol G_{\alpha\beta}^M \cdot \boldsymbol d^\kappa_{\gamma\eta}
 \end{equation}
 with
 \begin{equation}
-\tilde N^{\alpha\beta h} = hC^{\alpha\beta\gamma\eta}\tilde \varepsilon^h_{\gamma\eta} ,\quad
-\bar N^{\alpha\beta h} = hC^{\alpha\beta\gamma\eta}\bar \varepsilon^h_{\gamma\eta} ,\quad
-\hat N^{\alpha\beta h} = hC^{\alpha\beta\gamma\eta}\hat \varepsilon^h_{\gamma\eta}
+\boldsymbol G^{\alpha\eta}_N = \int_{\Omega_C} \boldsymbol a_\beta hC^{\alpha\beta\gamma\eta} \boldsymbol a_\gamma \boldsymbol q \boldsymbol q^T d\Omega
 \end{equation}
 \begin{equation}
-\tilde M^{\alpha\beta h} = \frac{h^3}{12}C^{\alpha\beta\gamma\eta}\tilde \kappa^h_{\gamma\eta} ,\quad
-\bar M^{\alpha\beta h} = \frac{h^3}{12}C^{\alpha\beta\gamma\eta}\bar \kappa^h_{\gamma\eta} ,\quad
-\hat M^{\alpha\beta h} = \frac{h^3}{12}C^{\alpha\beta\gamma\eta}\hat \kappa^h_{\gamma\eta}
+\boldsymbol G^{\alpha\beta\gamma\eta}_M = \int_{\Omega_C} \boldsymbol a_3 \frac{h^3}{12}C^{\alpha\beta\gamma\eta}\boldsymbol a_3 \boldsymbol q\boldsymbol q^T d\Omega
+\end{equation}
+ 
+Finally, taking Eqs. (\ref{d_N1}) and (\ref{d_M1}) back to Eqs. (\ref{approxse1}), (\ref{approxse2}) can express the components of stresses as follows:
+\begin{equation}\label{Nh}
+N^{\alpha\beta h} = \boldsymbol q^T \boldsymbol G^{-1}\frac{1}{2}(\boldsymbol a^\alpha \cdot \boldsymbol G^{\beta\gamma}_{N} + \boldsymbol a^\beta \cdot \boldsymbol G^{\alpha\gamma}_N) \cdot \boldsymbol d^{\varepsilon}_\gamma
+\end{equation}
+\begin{equation}\label{Mh}
+M^{\alpha\beta h} = \boldsymbol q^T \boldsymbol G^{-1} \boldsymbol a_3 \cdot \boldsymbol G^{\alpha\beta\gamma\eta}_M \cdot \boldsymbol d^\kappa_{\gamma\eta}
 \end{equation}
 
 It is noted that, referring to reproducing kernel gradient smoothing framework \cite{wang2019d}, $\tilde \Psi_{I,\alpha}$, $\tilde \Psi_{I,\alpha\beta}$ are actually the first and second order smoothed gradients in curvilinear coordinates. $\tilde{\boldsymbol g}_{\alpha I}$ and $\tilde{\boldsymbol g}_{\alpha \beta I}$ are the right hand side integration constraints for first and second order gradients, then this formulation can meet the variational consistency for the $p$-th order polynomials. It should be known that, in curved model, the variational consistency for non-polynomial functions, like trigonometric functions, should be required for the polynomial solution. Even with $p$-th order variational consistency, the proposed formulation can not exactly reproduce the solution spanned by basis functions, however the accuracy of reproducing kernel smoothed gradients is still better that traditonal meshfree formulation, this will be evidenced by numerical examples in further section.
+
+\begin{equation}
+\begin{split}
+N^{\alpha\beta h} &= \boldsymbol q^T \boldsymbol G^{-1} \boldsymbol a_\alpha \cdot \int_{\Omega_C} \boldsymbol a_{\zeta} hC^{\zeta\beta\gamma\eta} \boldsymbol a_\gamma \boldsymbol q \boldsymbol q^T d\Omega \cdot \boldsymbol d^\varepsilon_\eta \\
+&= \boldsymbol q^T \boldsymbol G^{-1} \int_{\Omega_C} \boldsymbol a_{\alpha} hC^{\alpha\beta\gamma\eta} \boldsymbol a_\gamma \boldsymbol q \boldsymbol q^T d\Omega \cdot \boldsymbol d^\varepsilon_\eta \\
+&= \boldsymbol q^T \boldsymbol G^{-1} \int_{\Omega_C} \boldsymbol a_{\alpha} \boldsymbol q hC^{\alpha\beta\gamma\eta} \varepsilon^h_{\alpha\beta} d\Omega \\
+&= \boldsymbol q^T \boldsymbol G^{-1} \int_{\Omega_C} \boldsymbol q \boldsymbol a_{\alpha} (\tilde N^{\alpha\beta h} - \bar N^{\alpha\beta h} + \hat N^{\alpha\beta h}) d\Omega \\
+\end{split}
+\end{equation}

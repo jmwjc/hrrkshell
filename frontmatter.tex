@@ -1,6 +1,7 @@
 
 \begin{frontmatter}
-    \title{A Hu-Washizu variational consistent meshfree thin shell formulation with naturally accommodating essential boundary conditions}
+    % \title{A Hu-Washizu variational consistent meshfree thin shell formulation naturally accommodating essential boundary conditions}
+    \title{An quasi-consistent efficient meshfree thin shell formulation naturally accommodating essential boundary conditions}
     \author[1]{Junchao Wu\corref{cor1}}
     \ead{jcwu@hqu.edu.cn}
     \author[2]{Yangtao Xu}
@@ -33,8 +34,7 @@
     \cortext[cor1]{Corresponding author}
 
 \begin{abstract}
-A Hu-Washizu principle based variational consistent meshfree formulation with naturally enforcement of essential boundary conditions is proposed for thin shell analysis. In this approach, a mixed formulation of displacements, strains and stresses within the framework of Hu-Washizu variational principle is employed, where the displacements are discretized by meshfree shape functions, the strains and stresses are expressed as the smoothed gradients and covariant smoothed gradients which meet the first two order integration constraint and have the quasi- varational consistency. 
-The numerical examples demonstrate the efficacy and efficiency of proposed method, while the RKGSI performs a comparable result in energy error with interpolation by meshfree approximations.
+This research proposed an eficient and quasi-consistent meshfree thin shell formulation with natural enforcement of essential boundary conditions. Within the framework of the Hu-Washizu variational principle, a mixed formulation of displacements, strains and stresses is employed in this approach, where the displacements are discretized using meshfree shape functions, and the strains and stresses are expressed using smoothed gradients, covariant smoothed gradients and covariant bases. The smoothed gradients satisfy the first and second order integration constraint and have quasi-consistent consistency. Owing to Hu-Washizu variational principle, the essential boundary conditions automatically arise in its weak form. As a result, the suggested technique's enforcement of essential boundary conditions resembles that of the traditional Nitsche's method. Contrary to Nitsche's method, the costly higher order derivatives of conventional meshfree shape functions were replaced by the smoothed gradients with fast computation, which improve the efficiency. Meanwhile, the proposed formulation features a naturally stabilized term without adding any artificial stabilization factors, which eliminates the stabilization parameter-dependent issue in the Nitsche's method. The efficacy of the proposed Hu-Washizu meshfree thin shell formulation is illustrated by a set of classical standard thin shell problems.
 \end{abstract}
 \begin{keyword}
 Meshfree \sep Thin shell \sep Hu-Washizu variational principle \sep Reproducing kernel gradient smoothing \sep Essential boundary condition
