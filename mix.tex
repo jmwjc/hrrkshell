@@ -1,6 +1,6 @@
 \section{Mixed meshfree formulation for modified Hellinger-Reissner weak form}\label{mixed}
 \subsection{Reproducing kernel approximation for displacement}
-In this study, the displacement is approximated by traditional reproducing kernel approximation. As shown in Fig, the mid-surface of the shell $\Omega$ is discretized by a set of meshfree nodes $\{\boldsymbol \xi_I\}_{I=1}^{n_p}$ in parametric configuration, where $n_p$ is the total number of meshfree nodes. The approximated displacement namely $\boldsymbol v^h$ can be expressed by:
+This study approximates the displacement by adopting reproducing kernel approximation. As shown in Fig. \ref{fig2}, the mid-surface of the shell $\Omega$ is discretized by a set of meshfree nodes $\{\boldsymbol \xi_I\}_{I=1}^{n_p}$ in parametric configuration, where $n_p$ is the total number of meshfree nodes. The approximated displacement namely $\boldsymbol v^h$ can be expressed as:
 \begin{equation}\label{approxv}
 \boldsymbol v(\boldsymbol \xi) = \sum_{I=1}^{n_p} \Psi_I(\boldsymbol \xi) \boldsymbol d_I
 \end{equation}
@@ -8,12 +8,12 @@ in which $\Psi_I$ and $\boldsymbol d_I$ is the shape function and nodal coeffici
 \begin{equation}
 \Psi_I(\boldsymbol \xi) = \boldsymbol p^T(\boldsymbol \xi) \boldsymbol c(\boldsymbol \xi) \phi(\boldsymbol \xi_I - \boldsymbol \xi)
 \end{equation}
-where $\boldsymbol p$ is the basis function vector, and in this study, the following quadratic basis function is considered:
+where $\boldsymbol p$ is the basis function vector represented using the following quadratic function as:
 \begin{equation}
         \boldsymbol p = \{1,\;\xi^1,\;\xi^2,\;(\xi^1)^2,\xi^1\xi^2,(\xi^2)^2\}^T
 \end{equation}
 
-The kernel function denoted by$\phi$ controls the support and smoothness of meshfree shape functions. The quintic B-spline function with square support is used herein as the kernel function:
+The kernel function denoted by $\phi$ controls the support and smoothness of meshfree shape functions. The quintic B-spline function with square support is used herein as the kernel function:
 \begin{equation}
 \phi(\boldsymbol \xi_I - \boldsymbol \xi) = \phi(\hat s_1)\phi(\hat s_2), \quad \hat s_\alpha = \frac{\vert \xi^\alpha_I - \xi^\alpha\vert}{s_{\alpha I}}
 \end{equation}
@@ -28,7 +28,7 @@ with
 \end{equation}
 and $\hat s_{\alpha I}$ means the characterized size of support for meshfree shape function $\Psi_I$.
 
-The unknown vector $\boldsymbol c$ in shape function are determined by the fulfillment of the so-call consistency condition:
+The unknown vector $\boldsymbol c$ in shape function are determined by the fulfillment of the so-called consistency condition:
 \begin{equation}
 \sum_{I=1}^{n_p} \Psi_I(\boldsymbol \xi)\boldsymbol p(\boldsymbol \xi_I) = \boldsymbol p(\boldsymbol \xi)
 \end{equation}
@@ -45,12 +45,12 @@ where $\boldsymbol A$ is the moment matrix:
 \begin{equation}
 \boldsymbol A(\boldsymbol \xi) = \sum_{I=1}^{n_p}\phi(\boldsymbol \xi_I - \boldsymbol \xi) \boldsymbol p(\boldsymbol \xi_I-\boldsymbol \xi)\boldsymbol p^T(\boldsymbol \xi_I - \boldsymbol \xi)
 \end{equation}
-Taking Eq. (\ref{A}) back into Eq. (\ref{approxv}), the expression of meshfree shape function can be given by:
+Substituting Eq. (\ref{A}) back into Eq. (\ref{approxv}), the expression of meshfree shape function can be written as:
 \begin{equation}
 \Psi_I(\boldsymbol \xi) = \boldsymbol p^T(\boldsymbol \xi_I - \boldsymbol \xi)\boldsymbol A^{-1}(\boldsymbol \xi) \boldsymbol p(\boldsymbol 0) \phi(\boldsymbol \xi_I-\boldsymbol \xi)
 \end{equation}
 \subsection{Reproducing kernel gradient smoothing approximation for effective stress and strain}
-In Galerkin meshfree formulation, the mid-plane of thin shell $\Omega$ is split by a set of integration cells $\Omega_C$'s, $\cup_{C=1}^{n_e}\Omega_C\approx \Omega$. With the inspiration of reproducing kernel smoothing framework, the Cartesian and covariant derivatives of displacement, $\boldsymbol v_{,\alpha}$ and $-\boldsymbol v_{,\alpha}\vert_\beta$, in strains $\varepsilon_{\alpha\beta}$, $\kappa_{\alpha\beta}$ are approximated by $(p-1)$-th order polynomials in each integration cells. In integration cell $\Omega_C$, the approximated derivatives and strains denoted by $\boldsymbol v^h_{,\alpha}$, $\varepsilon^h_{\alpha\beta}$ and $-\boldsymbol v^h_{,\alpha}\vert_\beta$, $\kappa^h_{\alpha\beta}$ can be expressed by:
+In Galerkin meshfree formulation, the mid-plane of thin shell $\Omega$ is split by a set of integration cells $\Omega_C$'s, $\cup_{C=1}^{n_e}\Omega_C\approx \Omega$, as shown in Fig. \ref{fig2}. With the inspiration of reproducing kernel smoothing framework, the Cartesian and covariant derivatives of displacement, $\boldsymbol v_{,\alpha}$ and $-\boldsymbol v_{,\alpha}\vert_\beta$, in strains $\varepsilon_{\alpha\beta}$, $\kappa_{\alpha\beta}$ are approximated by $(p-1)$-th order polynomials in each integration cells. In integration cell $\Omega_C$, the approximated derivatives and strains denoted by $\boldsymbol v^h_{,\alpha}$, $\varepsilon^h_{\alpha\beta}$ and $-\boldsymbol v^h_{,\alpha}\vert_\beta$, $\kappa^h_{\alpha\beta}$ can be expressed by:
 \begin{equation}\label{approxsn1}
     \boldsymbol v^h_{,\alpha}(\boldsymbol \xi) = \boldsymbol q^T(\boldsymbol \xi) \boldsymbol d_{\alpha}^\varepsilon, \quad
     \varepsilon^h_{\alpha\beta}(\boldsymbol \xi) = \boldsymbol q^T(\boldsymbol \xi) \frac{1}{2}(\boldsymbol a_\alpha \cdot \boldsymbol d_{\beta}^\varepsilon + \boldsymbol a_\beta \cdot \boldsymbol d_{\alpha}^\varepsilon)
@@ -63,7 +63,13 @@ where $\boldsymbol q$ is the linear polynomial vector and has the following form
 \begin{equation}
 \boldsymbol q = \{ 1,\; \xi^1,\; \xi^2\}^T
 \end{equation}
-and the $\boldsymbol d^\varepsilon_{\alpha}$, $\boldsymbol d^\kappa_{\alpha\beta}$ are the corresponding coefficient vector tensors. For the conciseness, the mixed usage of tensor and vector is introduced in this study, for example, the component of coefficient tensor vector $\boldsymbol d^\varepsilon_{\alpha I}$, $\boldsymbol d^\varepsilon_\alpha = \{\boldsymbol d^\varepsilon_{\alpha I}\}$, is a three dimensional tensor, $\dim \boldsymbol d^\varepsilon_{\alpha I} = \dim \boldsymbol v$.
+and the $\boldsymbol d^\varepsilon_{\alpha}$, $\boldsymbol d^\kappa_{\alpha\beta}$ are the corresponding coefficient vector tensors. For the conciseness, the mixed usage of tensor and vector is introduced in this study. For instance, the component of coefficient tensor vector $\boldsymbol d^\varepsilon_{\alpha I}$, $\boldsymbol d^\varepsilon_\alpha = \{\boldsymbol d^\varepsilon_{\alpha I}\}$, is a three dimensional tensor, $\dim \boldsymbol d^\varepsilon_{\alpha I} = \dim \boldsymbol v$.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\textwidth]{figures/2}
+\caption{Integration scheme for Hu-Washizu weak form.}\label{fig2}
+\end{figure}
 
 In order to meet the integration constraint of thin shell problem, the approximated stresses $N^{\alpha\beta h}$, $M^{\alpha\beta h}$ are assumed to be a similar form with strains, yields:
 \begin{equation}\label{approxse1}
@@ -116,7 +122,7 @@ with
 \end{split}
 \end{align}
 \end{subequations}
-where evalutions of $\boldsymbol q_{\vert \beta}$, $\boldsymbol q_{,\alpha\vert\beta}$ are detail in Appendix \ref{derivatives}. Further plugging Eqs. (\ref{depsilon}) and (\ref{dkappa}) back into Eqs. (\ref{approxsn1}) and (\ref{approxsn2}) respectively gives the final expression of $\boldsymbol v^h_{,\alpha}$, $\varepsilon^h_{\alpha\beta}$ and $-\boldsymbol v^h_{,\alpha\beta}$, $\boldsymbol \kappa^h_{\alpha\beta}$ as: \begin{subequations}
+where evaluations of $\boldsymbol q_{\vert \beta}$, $\boldsymbol q_{,\alpha\vert\beta}$ are detail in \ref{derivative}. Further plugging Eqs. (\ref{depsilon}) and (\ref{dkappa}) back into Eqs. (\ref{approxsn1}) and (\ref{approxsn2}) respectively gives the final expression of $\boldsymbol v^h_{,\alpha}$, $\varepsilon^h_{\alpha\beta}$ and $-\boldsymbol v^h_{,\alpha\beta}$, $\boldsymbol \kappa^h_{\alpha\beta}$ as: \begin{subequations}
 \begin{equation}
 \boldsymbol v^h_{,\alpha} = \sum_{I=1}^{n_p}(
 \tilde \Psi_{I,\alpha} - \bar \Psi_{I,\alpha}) \boldsymbol d_I +
@@ -216,5 +222,5 @@ with
 % M^{\alpha\beta h} = \boldsymbol q^T \boldsymbol G^{-1} \boldsymbol a_3 \cdot \boldsymbol G^{\alpha\beta\gamma\eta}_M \cdot \boldsymbol d^\kappa_{\gamma\eta}
 % \end{equation}
 
-It is noted that, referring to reproducing kernel gradient smoothing framework \cite{wang2019d}, $\tilde \Psi_{I,\alpha}$, $\tilde \Psi_{I,\alpha\beta}$ are actually the first and second order smoothed gradients in curvilinear coordinates. $\tilde{\boldsymbol g}_{\alpha I}$ and $\tilde{\boldsymbol g}_{\alpha \beta I}$ are the right hand side integration constraints for first and second order gradients, then this formulation can meet the variational consistency for the $p$-th order polynomials. It should be known that, in curved model, the variational consistency for non-polynomial functions, like trigonometric functions, should be required for the polynomial solution. Even with $p$-th order variational consistency, the proposed formulation can not exactly reproduce the solution spanned by basis functions, however the accuracy of reproducing kernel smoothed gradients is still better that traditonal meshfree formulation, this will be evidenced by numerical examples in further section.
+It has to be noted that, referring to reproducing kernel gradient smoothing framework \cite{wang2019a}, $\tilde \Psi_{I,\alpha}$, $\tilde \Psi_{I,\alpha\beta}$ are actually the first and second order smoothed gradients in curvilinear coordinates. $\tilde{\boldsymbol g}_{\alpha I}$ and $\tilde{\boldsymbol g}_{\alpha \beta I}$ are the right hand side integration constraints for first and second order gradients, then this formulation can meet the variational consistency for the $p$-th order polynomials. It should be known that, in curved model, the variational consistency for non-polynomial functions, like trigonometric functions, should be required for the polynomial solution. Even with $p$-th order variational consistency, the proposed formulation can not exactly reproduce the solution spanned by basis functions. However, the accuracy of reproducing kernel smoothed gradients is still better that traditional meshfree formulation. Numerical examples in the section below will provide better evidence to prove the accuracy of the reproducing kernel smoothed gradients.
 

@@ -1,6 +1,6 @@
 \section{Naturally variational enforcement for essential boundary conditions}\label{boundary}
 \subsection{Discrete equilibrium equations}
-With the approximated effective stresses and strains, the last equation of weak form becomes:
+With the approximated effective stresses and strains, the last equation of weak form Eq. (\ref{w5}) becomes:
 \begin{equation}\label{w51}
 - \sum_{C=1}^{n_e}\sum_{I=1}^{n_p} \delta \boldsymbol d_I \cdot \left ( (\tilde{\boldsymbol g}^T_{\alpha I} - \bar{\boldsymbol g}^T_{\alpha I}) \boldsymbol d_N^{\alpha}
 + (\tilde{\boldsymbol g}^T_{\alpha\beta I} - \bar{\boldsymbol g}^T_{\alpha\beta I}) \boldsymbol d_M^{\alpha\beta} \right ) = - \sum_{I=1}^{n_p}\delta d_I \cdot \boldsymbol f_I
@@ -9,7 +9,7 @@ where $\boldsymbol f_I$'s are the components of the traditional force vector:
 \begin{equation}
         \boldsymbol f_I = \int_{\Gamma_t} \Psi_I \bar{\boldsymbol t} d\Gamma - \int_{\Gamma_M} \Psi_{I,\gamma} n^\gamma \bar M_{\boldsymbol{nn}} d\Gamma + [[\Psi_I\boldsymbol a_3 \bar P]]_{\boldsymbol x\in C_P} + \int_\Omega \Psi_I \bar{\boldsymbol b} d\Omega
 \end{equation}
-the left side of Eq. (\ref{w51}) can be simplified by following steps. For clarity, the derivation of first term in Eq. (\ref{w51}) regarding as an example is given by:
+The left side of Eq. (\ref{w51}) can be simplified using the following steps. For clarity, the derivation of first term in Eq. (\ref{w51}) taken as an example is given by:
 \begin{equation}
 \begin{split}
 \sum_{I=1}^{n_p} \delta \boldsymbol d_I \cdot \tilde{\boldsymbol g}^T_{\alpha I} \boldsymbol d_N^\alpha 
@@ -42,7 +42,7 @@ following the above procedure and including the weak form of Eqs. (\ref{w1}), (\
 + \int_{\Omega_C}(\delta \tilde \kappa^h_{\alpha\beta} - \delta \bar \kappa^h_{\alpha\beta})\frac{h^3}{12}C^{\alpha\beta\gamma\eta}\hat \kappa^h_{\gamma\eta}d\Omega \\
 \end{split}
 \end{equation}
-and further substituting Eqs. (\ref{epsilon2}), (\ref{kappa2}) into above equation gives the final discrete equilibrium equations: 
+on further substituting Eqs. (\ref{epsilon2}) and (\ref{kappa2}) into above equation gives the final discrete equilibrium equations, respectively: 
 \begin{equation}
         (\boldsymbol K + \tilde{\boldsymbol K} + \bar{\boldsymbol K} )\boldsymbol d = \boldsymbol f + \tilde{\boldsymbol f} + \bar{\boldsymbol f}
 \end{equation}
@@ -68,10 +68,10 @@ where
 \end{align}
 \end{subequations}
 
-The detailed derivations of Eqs (\ref{de1})-(\ref{de3}) are listed in the Appendix \ref{derivations}. As shown in these equations, the Eq. (\ref{de1}) is the conventional stiffness matrix evaluated by smoothed gradients $\tilde \Psi_{I,\alpha}$, $\tilde \Psi_{I,\alpha}\vert_\beta$, and the Eqs. (\ref{de2}) and (\ref{de3}) contribute for the enforcement of essential boundary. It should be mentioned that, in accordance with reproducing kernel smoothed gradient framework, the integration scheme of Eqs. (\ref{de1}-\ref{de3}) should be aligned with the those used in the construction of smoothed gradients. With a close look with Eqs. (\ref{de2}) and (\ref{de3}), the proposed approach for enforcing essential boundary conditions show an identical structure with traditional Nitsche's method, both have the consistent term and stabilized term. So the next subsection will review the Nitsche's method and compare it with proposed method.
+The detailed derivations of Eqs (\ref{de1})-(\ref{de3}) are listed in the \ref{derivations}. As shown in these equations, Eq. (\ref{de1}) is the conventional stiffness matrix evaluated by smoothed gradients $\tilde \Psi_{I,\alpha}$, $\tilde \Psi_{I,\alpha}\vert_\beta$, and the Eqs. (\ref{de2}) and (\ref{de3}) contribute for the enforcement of essential boundary. It should be mentioned that, in accordance with reproducing kernel smoothed gradient framework, the integration scheme of Eqs. (\ref{de1}-\ref{de3}) should be aligned with the those used in the construction of smoothed gradients. The integration scheme used for proposed method is shown in Fig. \ref{fig2}, the detailed positions and weight of integration points can be found in \cite{du2022}  With a close look at Eqs. (\ref{de2}) and (\ref{de3}), the proposed approach for enforcing essential boundary conditions show an identical structure with traditional Nitsche's method, both have the consistent and stabilized terms. So, the next subsection will review the Nitsche's method and compare it with the proposed method.
 
 \subsection{Comparison with Nitsche's method}
-The Nitsche's method for enforcing essential boundary can be regarded as a combination of Lagrangian multiplier method and penalty method, in which the Lagrangian multiplier is represented by the approximated displacement. The corresponding total potential energy functional $\Pi_P$ is given by:
+The Nitsche's method for enforcing essential boundaries can be regarded as a combination of Lagrangian multiplier method and penalty method, in which the Lagrangian multiplier is represented by the approximated displacement. The corresponding total potential energy functional $\Pi_P$ is given by:
 \begin{equation}
 \begin{split}
 \Pi_P(\boldsymbol v) &= \int_\Omega \frac{1}{2}\varepsilon_{\alpha\beta} N^{\alpha\beta} d\Omega +
@@ -88,7 +88,7 @@ The Nitsche's method for enforcing essential boundary can be regarded as a combi
              + \frac{\alpha_C}{2}(\boldsymbol v \cdot \boldsymbol v)_{\boldsymbol x\in C_v}}_{\text{stabilized term}}
 \end{split}
 \end{equation}
-where the consistent term rephrased from Lagrangian multiplier method contributes to enforce the essential boundary and meet the variational consistency condition. However the consistent term can not always ensure the coercivity of stiffness, so the penalty method is introduced to be regarded as a stabilized term. With a standard variational argument, the corresponding weak form can be stated as:
+where the consistent term generated from the Lagrangian multiplier method contributes to enforce the essential boundary, and meet the variational consistency condition. However, the consistent term can not always ensure the coercivity of stiffness, so the penalty method is introduced to serve as a stabilized term. With a standard variational argument, the corresponding weak form can be stated as:
 \begin{equation}
 \begin{split}
 \delta \Pi_P(\boldsymbol v) &= \int_\Omega\delta \varepsilon_{\alpha\beta} N^{\alpha\beta} d\Omega +
@@ -109,11 +109,11 @@ where the consistent term rephrased from Lagrangian multiplier method contribute
                      &= 0
 \end{split}
 \end{equation}
-in which $\alpha_v$, $\alpha_\theta$ and $\alpha_C$ are experimental artificial parameters. Further invoking the conventional reproducing kernel approximation of Eq. (\ref{approxv}) leads to the following discrete equilibrium equations:
+in which $\alpha_v$, $\alpha_\theta$ and $\alpha_C$ represent experimental artificial parameters. Further invoking the conventional reproducing kernel approximation of Eq. (\ref{approxv}) leads to the following discrete equilibrium equations:
 \begin{equation}
 \sum_{J=1}^{n_p}(\boldsymbol K_{IJ} + \boldsymbol K^c_{IJ} + \boldsymbol K^s_{IJ}) \boldsymbol d_J = \boldsymbol f_I + \boldsymbol f^c + \boldsymbol f^s
 \end{equation}
-where the stiffness $\boldsymbol K_{IJ}$ is identical with Eq. (\ref{de1}). $\boldsymbol K^c_{IJ}$ and $\boldsymbol K^s_{IJ}$ are the stiffness matrix for consistent and stabilized terms respectively, and have the following forms:
+where the stiffness $\boldsymbol K_{IJ}$ is identical with Eq. (\ref{de1}). $\boldsymbol K^c_{IJ}$ and $\boldsymbol K^s_{IJ}$ are the stiffness matrices for consistent and stabilized terms, respectively, and have the following form:
 \begin{subequations}\label{nde2}
 \begin{align}
 \begin{split}
@@ -132,5 +132,5 @@ where the stiffness $\boldsymbol K_{IJ}$ is identical with Eq. (\ref{de1}). $\bo
 \end{align}
 \end{subequations}
 
-Comparing with the consistent terms of Eqs (\ref{de2}) and (\ref{nde2}), their expression is almost identical, the major difference is that the higher order derivatives of shape functions have been replaced by smoothed gradients. Owing to the reproducing kernel framework, the construction of smoothed gradients only concerns about the computation of traditional meshfree shape functions and their first order derivatives, which avoids the costly computation of higher order derivatives. Moreover, the stabilized terms in Eq. (\ref{nd3}) employs the penalty method to ensure the coercivity of stiffness, in contrast, the stabilized term of Eq. (\ref{de3}) naturally exist in weak form, and it can stabilize the result without any artificial parameters.
+On comparing with the consistent terms of Eqs. (\ref{de2}) and (\ref{nde2}), the expressions were almost identical, the major difference is that the higher order derivatives of shape functions have been replaced by smoothed gradients. Owing to the reproducing kernel framework, the construction of smoothed gradients only concerned about the computation of traditional meshfree shape functions and their first order derivatives, which avoid the costly computation of higher order derivatives. Moreover, the stabilized terms in Eq. (\ref{nde3}) employs the penalty method to ensure the coercivity of stiffness. In contrast, the stabilized term of Eq. (\ref{de3}) naturally exists in its weak form, and can stabilize the result without considering any artificial parameters.
  

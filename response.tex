@@ -1,0 +1,104 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,bm}
+\title{Response to Reviewer's Comments}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+\begin{document}
+
+\maketitle
+
+The authors sincerely thank the reviewers for their further comments. Accordingly, the authors have meticulously revised the manuscript and the details are given as follows.
+
+\section*{Reviewer \#1}
+\textit{This manuscript provides a meshfree thin shell formulation based on the Hu-Washizu variational principle. The essential boundary conditions in the present formulation do not require additional artificial parameters, which can be considered insensitive to those in Nitsche and Penalty’s approaches. The derivation is rigorous however several issues must be properly addressed before the publication. I recommend a major revision.}
+
+\textbf{1.} \textit{After Eq. 5, the formulation of theta needs to be provided.}
+
+\textbf{Reply:}
+
+\textbf{2.} \textit{Consider using different symbols for the mid-surface displacement, v is always referring to velocity.}
+
+\textbf{Reply:} Thanks to reviewer's suggestion. However, the velocity is not involved in this paper, it will not lead any misunstanding as $\boldsymbol v$ is denoted for mid-plane displacement.
+
+\textbf{3.} $\boldsymbol \theta$ \textit{is the variation of $\boldsymbol a_3$, so $\boldsymbol \theta \cdot \boldsymbol a_3=0$. This relationship does not come from $\epsilon_{3i} = 0$, which was in Eq. (9).}
+
+\textbf{Reply:} Thanks, the reviewer is right, the rotation $\boldsymbol \theta$ is perpendicular to $\boldsymbol a_3$. However, this relationship is also equivalent with $\epsilon_{3i}=0$, which follows the Kirchhofff hypothesis.
+
+\textbf{4.} \textit{Eq. (10) seems to be wrong. Where is $\boldsymbol a_{3,\alpha}$ and where is the most complicated term $\boldsymbol \theta_{,\alpha}$?}
+
+\textbf{Reply:} Thank you for this comment. The detailed dervation of Eq. (10) is given by the following steps:
+\begin{equation}
+    \begin{split}
+        \kappa_{\alpha\beta} &=\frac{1}{2}(\boldsymbol a_{3,\alpha} \cdot \boldsymbol v_{,\beta} + \boldsymbol v_{,\alpha} \cdot \boldsymbol a_{3,\beta} + \boldsymbol a_\alpha \cdot \boldsymbol \theta_{,\beta} + \boldsymbol \theta_{,\alpha} \cdot \boldsymbol a_\beta) \\
+        &=\frac{1}{2} \left ( 
+        \begin{split}
+            &\underbrace{(\boldsymbol a_3 \cdot \boldsymbol v_{,\beta})_{,\alpha} - \boldsymbol a_3 \cdot \boldsymbol v_{,\alpha\beta}}_{\boldsymbol a_{3,\alpha} \cdot \boldsymbol v_{,\beta}} \\
+            +&\underbrace{(\boldsymbol a_3 \cdot \boldsymbol v_{,\alpha})_{,\beta} - \boldsymbol a_3 \cdot \boldsymbol v_{,\alpha\beta}}_{\boldsymbol v_{,\beta} \cdot \boldsymbol a_{3,\alpha}} \\
+            -& \boldsymbol a_\alpha \cdot \underbrace{((\boldsymbol v_{,\gamma} \cdot \boldsymbol a_3)_{,\beta} \boldsymbol a^\gamma + \boldsymbol v_{,\gamma} \cdot \boldsymbol a_3 \boldsymbol a^\gamma_{,\beta})}_{-\boldsymbol \theta_{,\beta}} \\
+            -& \boldsymbol a_\beta \cdot \underbrace{((\boldsymbol v_{,\gamma} \cdot \boldsymbol a_3)_{,\alpha} \boldsymbol a^\gamma + \boldsymbol v_{,\gamma} \cdot \boldsymbol a_3 \boldsymbol a^\gamma_{,\alpha})}_{-\boldsymbol \theta_{,\alpha}} \\
+        \end{split}
+        \right ) \\
+        &=\frac{1}{2} \left ( 
+        \begin{split}
+            &\underbrace{(\boldsymbol a_3 \cdot \boldsymbol v_{,\beta})_{,\alpha}
+            +(\boldsymbol a_3 \cdot \boldsymbol v_{,\alpha})_{,\beta}
+            -(\boldsymbol v_{,\alpha} \cdot \boldsymbol a_3)_{,\beta}
+            -(\boldsymbol v_{,\beta} \cdot \boldsymbol a_3)_{,\alpha}}_{0} \\
+            -&2\boldsymbol a_3 \cdot \boldsymbol v_{,\alpha\beta}
+            - \boldsymbol v_{,\gamma} \cdot \boldsymbol a_3 \underbrace{\boldsymbol a_\alpha \cdot \boldsymbol a^\gamma_{,\beta}}_{-\Gamma_{\alpha\beta}^\gamma}
+            - \boldsymbol v_{,\gamma} \cdot \boldsymbol a_3 \underbrace{\boldsymbol a_\beta \cdot \boldsymbol a^\gamma_{,\alpha}}_{-\Gamma_{\alpha\beta}^\gamma} \\
+        \end{split}
+        \right ) \\
+        &= (\Gamma_{\alpha\beta}^\gamma \boldsymbol v_{,\gamma} - \boldsymbol v_{,\alpha\beta}) \cdot \boldsymbol a_3
+    \end{split}
+\end{equation}
+The detailed derivation can be found in reference (Benzaken et al. 2021). For the conciseness, the detailed derivation of Eq. (10) is not listed in manuscript, and the related statement has been added on line 150 (Page ).
+
+\textbf{5.} \textit{Patchtest: table 2 is interesting. Eq. (62) assumes the solution is only polynomials on the mid-surface, which is already not a polynomial in the Cartesian coordinate. The flat model is simple, in this case, the parametric domain is the same as Cartesian. I believe the error in the curved case is due to bad parametrization. In general, the solution should be able to reproduce the parametric polynomials if the integration and parametrization are both good.}
+
+\textbf{Reply:} Thank you for your comment. As we can find in Eqs. (32), (33), (35), (36),  the proposed approach was designated for polynomial strains and stresses. For flat model, the polynomial displacement leads to the polynomial strains and stresses. However, for curved model, the only polynomial strains can be got, the stresses turn to be non-polynomial due to the curvilinear coordinates. As a result, even the integration and parametrization are well posed, the approximated smoothed stresses cannot exactly reproduce this non-polynomial stresses. That is why the approach was named with "quasi-consistent".
+ 
+\textbf{6.} \textit{Example 5.2, figure (7) is distracting. The purpose of the newly designed method is to get rid of the penalty parameters. In general, the final penalty parameter should be $E/h\times C$, where $C$ is a dimensionless coefficient. If one is testing the convergence rate of Nitsche or penalty methods, the penalty parameter needs to be scaled by the mesh size $h$, when the model is refined.}
+
+\textbf{Reply:}
+
+\textbf{7.} \textit{In Example 5.2, the authors provided the wrong reference value. $-0.3024$ is the one under RM shell theory. In this case, I believe the value should be $-0.3006$. See [1] for more information.}
+
+\textbf{Reply:} Thank you for your suggestion, the reference value has been changed to $-0.3006$. Accordingly, the related statement on Page 21 is modified.
+
+\textbf{8.} \textit{In Example 6.2, also check if the reference value provided in this study is for RM shells [2].}
+
+\textbf{Reply:}
+
+\textbf{9.} \textit{Scodelis-Lo roof, pinched hemisphere, and pinched cylinder are the most famous shell benchmark problems. In [3], the authors named them ”shell obstacle course”. These 3 examples are even harder than those finite deformation shell simulations. So a good shell formulation should be capable of passing these three challenges. It is strongly suggested that the authors add the pinched cylinder simulation to this manuscript.}
+
+\textbf{Reply:}
+
+\section*{Reviewer \#2}
+\textit{With the aid of the Hu-Washizu variational principle and reproducing kernel smoothed gradients, an efficient and quasi-consistent meshfree Galerkin method is presented in this manuscript to solve thin shell problems. An outstanding merit of the method is that the essential boundary conditions can be enforced naturally. Computational formulas of the method are presented with some details. Numerical results are given to demonstrate the efficiency of the method.}
+
+\textit{The current manuscript is well presented and contains material worthy of publication. Acceptance of the manuscript is recommended. The authors are, however, encouraged to address the comments listed below.}
+
+\textbf{1.} \textit{Please check the gramma of the sentence below Eq. (22).}
+
+\textbf{Reply:} Thanks, following the suggestion, this sentence have been revised on Page 9 and the authors have also doubly checked the writing of this revised.
+
+\textbf{2.} \textit{Why is only the quadratic function used for the basis function vector p in Eq. (23)?}
+
+\textbf{Reply:} Thanks for this comment, following the suggestion, this sentence have been revised on Page 9 and the authors have also doubly checked the writing of this revised.
+
+\textbf{3.} \textit{Please provide the meaning of the symbol $s_{\alpha I}$ in Eq. (25). What is the parameter value used in this paper?}
+
+\textbf{Reply:} Thanks for this comment, following the suggestion, this sentence have been revised on Page 9 and the authors have also doubly checked the writing of this revised.
+
+\textbf{4.} \textit{Fig. 2 contains two sets of integration points. Considering the computational burden, using only one set of integration points may be more beneficial for Galerkin meshfree methods. Therefore, it is recommended to provide some explanations.}
+
+\textbf{5.} \textit{On page 13, the authors stated that "Even with p-th order variational consistency, the proposed formulation can not exactly reproduce the solution spanned by basis functions". The reproducibility is important for Galerkin meshfree methods. So, just suggestion, is it possible to give some more explicit explanations.}
+
+\textbf{6.} \textit{Numerical results of Nitsche's method and penalty method are also shown in Section 5.1. The values of penalty parameters used in the two methods should be provided. In addition, it is encouraged to provide some observations on numerical results of the RKGSI-penalty in Figure 4 and Tables 1 and 2.}
+
+\textbf{7.} \textit{On pages 32-34, some reference information such as journal title and year of publication is missed.}
+
+\textbf{Reply:} Thanks a lot, following the reviewer's suggestion, these reference's information have been revised, the authors also have doubly checked all the information and formats of references.
+
+\end{document}

@@ -1,17 +1,17 @@
-\section{Green's theorems for in-plane vector}\label{appderivative}
-This Appendix discuss two kinds of Green's theorems used for the development of the method. For an arbitrary vector $v^\alpha$ and a scalar function $f$, with the Green's theorem for in-plane vector, the first Green's theorem is list as follow \cite{benzaken2021}:
+\section{Green's theorems for in-plane vector}\label{derivative}
+This Appendix discusses two kinds of Green’s theorems used for the development of the proposed meshfree method. For an arbitrary vectors $v^\alpha$ and a scalar function $f$, with Green’s theorem for in-plane vector, the first Green’s theorem is listed as follows \cite{benzaken2021}:
 \begin{equation}
 \begin{split}
 \int_\Omega f_{,\alpha} v^\alpha d\Omega &= \int_\Gamma f v^\alpha n_\alpha d\Gamma - \int_\Omega f (v_{,\alpha}^\alpha + \Gamma^\beta_{\beta\alpha}v^\alpha) d\Omega \\
 &= \int_\Gamma f v^\alpha n_\alpha d\Gamma - \int_\Omega f v^\alpha\vert_\alpha d\Omega
 \end{split}
 \end{equation}
-where $\Gamma^\gamma_{\alpha\beta} = \boldsymbol a_{\alpha,\beta}\cdot \boldsymbol a^\gamma$ denotes the Christoffel symbol of the second kind. $v^\alpha\vert_\alpha$ can be regarded as the in-plane covariant derivative of the vector $v^\alpha$:
+where $\Gamma^\gamma_{\alpha\beta} = \boldsymbol a_{\alpha,\beta}\cdot \boldsymbol a^\gamma$ denotes the Christoffel symbol of the second kind. $v^\alpha\vert_\alpha$ can be represented as the in-plane covariant derivative of the vector $v^\alpha$:
 \begin{equation}
 v^\alpha\vert_\alpha= v^\alpha_{,\alpha} + \Gamma^\beta_{\beta\alpha} v^\alpha
 \end{equation}
 
-The second Green's theorem is established with a mixed form of second order derivative, let $A^{\alpha\beta}$ be an arbitrary symmetric second order tensor, the Green's theorem yields \cite{benzaken2021}:
+The second Green's theorem is established with a mixed form of second order derivative. Let $A^{\alpha\beta}$ can be an arbitrary symmetric second order tensor, the Green's theorem yields \cite{benzaken2021}:
 \begin{equation}\small
 \begin{split}
 \int_\Omega f_{,\alpha}\vert_\beta A^{\alpha\beta} d\Omega &= 
@@ -43,7 +43,7 @@ A^{\alpha\beta}\vert_{\alpha\beta} = &\Gamma^\gamma_{\alpha\beta,\gamma}A^{\alph
 \end{split}
 \end{equation}
 
-For the sake of brevity, the notion of covariant derivative is extended to scalar function as:
+For the sake of brevity, the notion of covariant derivative is extended to a scalar function as:
 \begin{equation}
 f_{\vert\alpha} = f_{,\alpha} + \Gamma^\beta_{\beta\alpha} f \\
 \end{equation}
