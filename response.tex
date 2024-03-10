@@ -1,7 +1,7 @@
 \documentclass{article}
 \usepackage{amsmath,amssymb,amsfonts,amsthm,bm}
 \title{Response to Reviewer's Comments}
-\setlength{\parindent}{0em}
+% \setlength{\parindent}{0em}
 \setlength{\parskip}{1em}
 \begin{document}
 
@@ -14,15 +14,29 @@ The authors sincerely thank the reviewers for their further comments. Accordingl
 
 \textbf{1.} \textit{After Eq. 5, the formulation of theta needs to be provided.}
 
-\textbf{Reply:}
+\textbf{Reply:} Thanks. The expression of $\boldsymbol \theta$ is derived by:
+\begin{equation}
+    \begin{split}
+        \epsilon_{3i} = 0 \Rightarrow &
+        \left \{
+        \begin{split}
+            \boldsymbol \theta \cdot \boldsymbol a_\alpha &= - \boldsymbol v_{,\alpha} \cdot \boldsymbol a_3 \\
+            \boldsymbol \theta \cdot \boldsymbol a_3 &= 0
+        \end{split}
+        \right . \\ \Rightarrow &
+        \boldsymbol \theta = \underbrace{\boldsymbol \theta \cdot \boldsymbol a_{\alpha}}_{- \boldsymbol v_{,\alpha} \cdot \boldsymbol a_3} \boldsymbol a^\alpha 
+        + \underbrace{\boldsymbol \theta \cdot \boldsymbol a_3}_{0} \boldsymbol a^3 = - \boldsymbol v_{,\alpha} \cdot \boldsymbol a_3 \boldsymbol a^\alpha
+    \end{split}
+\end{equation}
+The above derivation is given by Eq. (9). For a better understanding, the expression of Eq. (9) has been improved on Page 6.
 
 \textbf{2.} \textit{Consider using different symbols for the mid-surface displacement, v is always referring to velocity.}
 
-\textbf{Reply:} Thanks to reviewer's suggestion. However, the velocity is not involved in this paper, it will not lead any misunstanding as $\boldsymbol v$ is denoted for mid-plane displacement.
+\textbf{Reply:} Thanks to reviewer's suggestion. However, the velocity is not involved in this paper, it will not lead any misunstanding as $\boldsymbol v$ is denoted for deflection. So the $\boldsymbol v$ is still presented the mid-plane deflection.
 
 \textbf{3.} $\boldsymbol \theta$ \textit{is the variation of $\boldsymbol a_3$, so $\boldsymbol \theta \cdot \boldsymbol a_3=0$. This relationship does not come from $\epsilon_{3i} = 0$, which was in Eq. (9).}
 
-\textbf{Reply:} Thanks, the reviewer is right, the rotation $\boldsymbol \theta$ is perpendicular to $\boldsymbol a_3$. However, this relationship is also equivalent with $\epsilon_{3i}=0$, which follows the Kirchhofff hypothesis.
+\textbf{Reply:} Thanks, the reviewer is right, the rotation $\boldsymbol \theta$ is perpendicular to $\boldsymbol a_3$. However, this relationship is also equivalent with $\epsilon_{3i}=0$, which follows the Kirchhofff hypothesis and can be easily evidenced by expression of Eq. (9).
 
 \textbf{4.} \textit{Eq. (10) seems to be wrong. Where is $\boldsymbol a_{3,\alpha}$ and where is the most complicated term $\boldsymbol \theta_{,\alpha}$?}
 
@@ -68,11 +82,11 @@ The detailed derivation can be found in reference (Benzaken et al. 2021). For th
 
 \textbf{8.} \textit{In Example 6.2, also check if the reference value provided in this study is for RM shells [2].}
 
-\textbf{Reply:}
+\textbf{Reply:} Following the reviewer's suggestion, the reference value has been updated in Fig. on Page.
 
 \textbf{9.} \textit{Scodelis-Lo roof, pinched hemisphere, and pinched cylinder are the most famous shell benchmark problems. In [3], the authors named them ”shell obstacle course”. These 3 examples are even harder than those finite deformation shell simulations. So a good shell formulation should be capable of passing these three challenges. It is strongly suggested that the authors add the pinched cylinder simulation to this manuscript.}
 
-\textbf{Reply:}
+\textbf{Reply:} Thank your for reviewer's suggestion. The pinched cylinder is one of the most famous benchmark example for thin shell formulation, and this example is also based on cylinder coordinate system, which is similar with Scodelis-Lo roof problem. So, in this manuscript, the pinched cylinder problem is not considered in this manuscript, and the authors will consider it in further work.
 
 \section*{Reviewer \#2}
 \textit{With the aid of the Hu-Washizu variational principle and reproducing kernel smoothed gradients, an efficient and quasi-consistent meshfree Galerkin method is presented in this manuscript to solve thin shell problems. An outstanding merit of the method is that the essential boundary conditions can be enforced naturally. Computational formulas of the method are presented with some details. Numerical results are given to demonstrate the efficiency of the method.}
@@ -85,17 +99,27 @@ The detailed derivation can be found in reference (Benzaken et al. 2021). For th
 
 \textbf{2.} \textit{Why is only the quadratic function used for the basis function vector p in Eq. (23)?}
 
-\textbf{Reply:} Thanks for this comment, following the suggestion, this sentence have been revised on Page 9 and the authors have also doubly checked the writing of this revised.
+\textbf{Reply:} Thank you for this advised suggestion. The proposed method is in the context of RKGSI framework that can be easily extended for the high order basis functions. However, for conciseness, only quadratic basis function was considered in this study, and the formulation with high order basis functions will be considered in the further work. The related discussion has been added in conclusion on Page 27.
 
 \textbf{3.} \textit{Please provide the meaning of the symbol $s_{\alpha I}$ in Eq. (25). What is the parameter value used in this paper?}
 
-\textbf{Reply:} Thanks for this comment, following the suggestion, this sentence have been revised on Page 9 and the authors have also doubly checked the writing of this revised.
+\textbf{Reply:} Thanks for this comment. $s_{\alpha I}$ means the support size of the shape function $\Psi_I$. Following the suggestion, this related statement has been added on Page 9 and the authors have also doubly checked that all the symbols in manuscript have been properly defined.
 
 \textbf{4.} \textit{Fig. 2 contains two sets of integration points. Considering the computational burden, using only one set of integration points may be more beneficial for Galerkin meshfree methods. Therefore, it is recommended to provide some explanations.}
 
+\textbf{Reply:} Thanks for this comment. These two integration scheme contribute different procedures. For instance, in the procedures with blue integration points, there exist both domain integration and boundary integration in each integration cells. The total number of these blue integration points has been optimized from a global point of view to reduce the computation of meshfree shape functions and their first order derivatives. The detailed discussion of these optimized integration scheme can be found in (Wang and Wu, 2019).
+
+On the other hand, the red cross integration points are employed for assembly of stiffness matrix that does not involve any boundary integration, only the integration accuracy is considered for choosing a proper scheme. Thus, the traditional 3-point integration scheme is sufficient for this task. If this integration scheme uses the identical points with blue ones, the number of integration points for assembly have to be two-fold increased, which will lower the efficiency. 
+
+Consequently, so far, the integration schemes are the best choice for the proposed method. The related discussion has been added on Page 16. 
+
 \textbf{5.} \textit{On page 13, the authors stated that "Even with p-th order variational consistency, the proposed formulation can not exactly reproduce the solution spanned by basis functions". The reproducibility is important for Galerkin meshfree methods. So, just suggestion, is it possible to give some more explicit explanations.}
 
+\textbf{Reply:} Thanks a lot for this helpful comment.
+
 \textbf{6.} \textit{Numerical results of Nitsche's method and penalty method are also shown in Section 5.1. The values of penalty parameters used in the two methods should be provided. In addition, it is encouraged to provide some observations on numerical results of the RKGSI-penalty in Figure 4 and Tables 1 and 2.}
+
+\textbf{Reply:} Following the reviewer's suggestion, the artificial parameters used in NItsche's method and penalty method have been added on Page 19. And the additional demonstrations for RKGSI-penalty also have been added on Pages 19 and 20. 
 
 \textbf{7.} \textit{On pages 32-34, some reference information such as journal title and year of publication is missed.}
 

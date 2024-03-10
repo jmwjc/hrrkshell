@@ -1,14 +1,14 @@
 This is BibTeX, Version 0.99d (TeX Live 2023)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
-The top-level auxiliary file: main.aux
+The top-level auxiliary file: main-diff.aux
 The style file: elsarticle-num.bst
 A level-1 auxiliary file: frontmatter.aux
 A level-1 auxiliary file: introduction.aux
-A level-1 auxiliary file: kinematics.aux
+A level-1 auxiliary file: kinematics-diff.aux
 A level-1 auxiliary file: mix.aux
 A level-1 auxiliary file: boundary.aux
 A level-1 auxiliary file: examples.aux
-A level-1 auxiliary file: conclusion.aux
+A level-1 auxiliary file: conclusion-diff.aux
 A level-1 auxiliary file: derivative.aux
 A level-1 auxiliary file: derivation.aux
 Database file #1: references.bib
@@ -65,17 +65,17 @@ Warning--empty journal in wu2022a
 Warning--empty year in wu2022a
 Warning--empty journal in wu2023
 Warning--empty year in wu2023
-Warning--empty journal in dah-wei1985
-Warning--empty year in dah-wei1985
 Warning--empty journal in benzaken2021
 Warning--empty year in benzaken2021
+Warning--empty journal in dah-wei1985
+Warning--empty year in dah-wei1985
 Warning--empty journal in du2022
 Warning--empty year in du2022
 Warning--empty journal in macneal1985
 Warning--empty year in macneal1985
 You've used 32 entries,
             2952 wiz_defined-function locations,
-            844 strings with 10021 characters,
+            844 strings with 10041 characters,
 and the built_in function-call counts, 9265 in all, are:
 = -- 848
 > -- 281
