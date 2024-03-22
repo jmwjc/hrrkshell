@@ -1,6 +1,9 @@
 \documentclass{article}
 \usepackage{amsmath,amssymb,amsfonts,amsthm,bm}
+\usepackage{enumerate}
 \title{Response to Reviewer's Comments}
+\author{}
+\date{}
 % \setlength{\parindent}{0em}
 \setlength{\parskip}{1em}
 \begin{document}
@@ -66,23 +69,23 @@ The above derivation is given by Eq. (9). For a better understanding, the expres
         &= (\Gamma_{\alpha\beta}^\gamma \boldsymbol v_{,\gamma} - \boldsymbol v_{,\alpha\beta}) \cdot \boldsymbol a_3
     \end{split}
 \end{equation}
-The detailed derivation can be found in reference (Benzaken et al. 2021). For the conciseness, the detailed derivation of Eq. (10) is not listed in manuscript, and the related statement has been added on line 150 (Page ).
+The detailed derivation can be found in reference (Benzaken et al. 2021). For the conciseness, the detailed derivation of Eq. (10) is not listed in manuscript, and the related statement has been added on Page 6.
 
 \textbf{5.} \textit{Patchtest: table 2 is interesting. Eq. (62) assumes the solution is only polynomials on the mid-surface, which is already not a polynomial in the Cartesian coordinate. The flat model is simple, in this case, the parametric domain is the same as Cartesian. I believe the error in the curved case is due to bad parametrization. In general, the solution should be able to reproduce the parametric polynomials if the integration and parametrization are both good.}
 
-\textbf{Reply:} Thank you for your comment. As we can find in Eqs. (32), (33), (35), (36),  the proposed approach was designated for polynomial strains and stresses. For flat model, the polynomial displacement leads to the polynomial strains and stresses. However, for curved model, the only polynomial strains can be got, the stresses turn to be non-polynomial due to the curvilinear coordinates. As a result, even the integration and parametrization are well posed, the approximated smoothed stresses cannot exactly reproduce this non-polynomial stresses. That is why the approach was named with "quasi-consistent".
+\textbf{Reply:} Thank you for your comment. As we can find in Eqs. (32), (33), (35), (36),  the proposed approach was designated for polynomial strains and stresses. For flat model, the polynomial displacement leads to the polynomial strains and stresses. However, for curved model, the only polynomial strains can be got, the stresses turn to be non-polynomial due to the parametrization of curvilinear coordinates. As a result, even the integration and parametrization are well posed, the approximated smoothed stresses cannot exactly reproduce this non-polynomial stresses. That is why the approach was named with "quasi-consistent".
  
 \textbf{6.} \textit{Example 5.2, figure (7) is distracting. The purpose of the newly designed method is to get rid of the penalty parameters. In general, the final penalty parameter should be $E/h\times C$, where $C$ is a dimensionless coefficient. If one is testing the convergence rate of Nitsche or penalty methods, the penalty parameter needs to be scaled by the mesh size $h$, when the model is refined.}
 
-\textbf{Reply:}
+\textbf{Reply:} Following the reviewer's suggestion, the artificial parameters using in Figure (7) are scaled by support size of shape function $s$ that can represent the grid size of discrete model $h$. In accordance with reference [4], the parameters were set as $\alpha_{v\alpha} = \bar\alpha_v / s$, $\alpha_{v3} = \bar\alpha_v / s^3$ and $\alpha_\theta = \bar \theta / s$, in which $\alpha_{v\alpha}$'s and $\alpha_{v3}$ have been redefined as the parameters referring to in-plane displacements $\boldsymbol v \cdot \boldsymbol a_\alpha$ and deflection $\boldsymbol v \cdot \boldsymbol a_3$ respectively. After these parameters scaling by support size, Nitsche's method and penalty method shows less parameter sensitivity, but cannot totally eliminate this. The related statements are added on Pages 17, 18 and 21.
 
 \textbf{7.} \textit{In Example 5.2, the authors provided the wrong reference value. $-0.3024$ is the one under RM shell theory. In this case, I believe the value should be $-0.3006$. See [1] for more information.}
 
-\textbf{Reply:} Thank you for your suggestion, the reference value has been changed to $-0.3006$. Accordingly, the related statement on Page 21 is modified.
+\textbf{Reply:} Thank you for your suggestion, the reference value has been changed to $-0.3006$. Accordingly, the related statement on Page 21 has been modified.
 
 \textbf{8.} \textit{In Example 6.2, also check if the reference value provided in this study is for RM shells [2].}
 
-\textbf{Reply:} Following the reviewer's suggestion, the reference value has been updated in Fig. on Page.
+\textbf{Reply:} Following the reviewer's suggestion, the reference value has been updated in Fig. 10 on Page 26. For showing a better convergence performance, the meshfree discretizations were changed to that ranging from $16\times16$ to $40\times40$. The relate description also has been revised on Page 21. 
 
 \textbf{9.} \textit{Scodelis-Lo roof, pinched hemisphere, and pinched cylinder are the most famous shell benchmark problems. In [3], the authors named them ”shell obstacle course”. These 3 examples are even harder than those finite deformation shell simulations. So a good shell formulation should be capable of passing these three challenges. It is strongly suggested that the authors add the pinched cylinder simulation to this manuscript.}
 
@@ -107,7 +110,7 @@ The detailed derivation can be found in reference (Benzaken et al. 2021). For th
 
 \textbf{4.} \textit{Fig. 2 contains two sets of integration points. Considering the computational burden, using only one set of integration points may be more beneficial for Galerkin meshfree methods. Therefore, it is recommended to provide some explanations.}
 
-\textbf{Reply:} Thanks for this comment. These two integration scheme contribute different procedures. For instance, in the procedures with blue integration points, there exist both domain integration and boundary integration in each integration cells. The total number of these blue integration points has been optimized from a global point of view to reduce the computation of meshfree shape functions and their first order derivatives. The detailed discussion of these optimized integration scheme can be found in (Wang and Wu, 2019).
+\textbf{Reply:} Thanks for this comment. These two integration scheme contribute different procedures. For instance, in the procedures with blue integration points, there exist both domain integration and boundary integration in each integration cells. The total number of these blue integration points has been optimized from a global point of view to reduce the computation of meshfree shape functions and their first order derivatives. The detailed discussion of these optimized integration scheme can be found in [5].
 
 On the other hand, the red cross integration points are employed for assembly of stiffness matrix that does not involve any boundary integration, only the integration accuracy is considered for choosing a proper scheme. Thus, the traditional 3-point integration scheme is sufficient for this task. If this integration scheme uses the identical points with blue ones, the number of integration points for assembly have to be two-fold increased, which will lower the efficiency. 
 
@@ -115,7 +118,7 @@ Consequently, so far, the integration schemes are the best choice for the propos
 
 \textbf{5.} \textit{On page 13, the authors stated that "Even with p-th order variational consistency, the proposed formulation can not exactly reproduce the solution spanned by basis functions". The reproducibility is important for Galerkin meshfree methods. So, just suggestion, is it possible to give some more explicit explanations.}
 
-\textbf{Reply:} Thanks a lot for this helpful comment.
+\textbf{Reply:} Thanks a lot for this helpful comment. This reproducibility is a requirement for the variational consistency, and it is the necessary to achieve the optimal accuracy for Galerkin formulations. The related discussions about the reproducibility and consistency condition have been added on Page 2.
 
 \textbf{6.} \textit{Numerical results of Nitsche's method and penalty method are also shown in Section 5.1. The values of penalty parameters used in the two methods should be provided. In addition, it is encouraged to provide some observations on numerical results of the RKGSI-penalty in Figure 4 and Tables 1 and 2.}
 
@@ -125,4 +128,12 @@ Consequently, so far, the integration schemes are the best choice for the propos
 
 \textbf{Reply:} Thanks a lot, following the reviewer's suggestion, these reference's information have been revised, the authors also have doubly checked all the information and formats of references.
 
+\section*{References}
+\begin{enumerate}[{[1]}]
+    \item P. Krysl, J.S. Chen, Benchmarking computational shell models, Archives of Computational Methods in Engineering 30 (2023) 301–315. 
+    \item J. Kiendl, K.U. Bletzinger, J. Linhard, R. Wüchner, Isogeometric shell analysis with Kirchhoff–Love elements, Computer Methods in Applied Mechanics and Engineering 198 (2009) 3902–3914. 
+    \item T. Belytschko, H. Stolarski, W.K. Liu, Stress projection for membrane and shear locking in shell finite elements, Computer Methods in Applied Mechanics and Engineering 51 (1985) 221–258. 
+    \item J. Benzaken, J.A. Evans, S.F. McCormick, R. Tamstorf, Nitsche’s method for linear Kirchhoff–Love shells: Formulation, error analysis, and verification, Computer Methods in Applied Mechanics and Engineering 374 (2021) 113544. 
+    \item D. Wang, J. Wu, An inherently consistent reproducing kernel gradient smoothing framework toward efficient Galerkin meshfree formulation with explicit quadrature, Computer Methods in Applied Mechanics and Engineering 349 (2019) 628–672. 
+\end{enumerate}
 \end{document}

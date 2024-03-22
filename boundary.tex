@@ -83,12 +83,12 @@ The Nitsche's method for enforcing essential boundaries can be regarded as a com
                      &- \underbrace{\int_{\Gamma_v} \boldsymbol t \cdot (\boldsymbol v - \bar{\boldsymbol v}) d\Gamma
                      + \int_{\Gamma_\theta} M_{\boldsymbol{nn}}(\theta_{\boldsymbol n} - \bar \theta_{\boldsymbol n})d\Gamma
                      + (P\boldsymbol a_3 \cdot (\boldsymbol v - \bar{\boldsymbol v}))_{\boldsymbol x \in C_v}}_{\text{consistent term}} \\
-                     &+ \underbrace{\frac{\alpha_v}{2} \int_{\Gamma_v} \boldsymbol v \cdot \boldsymbol v d\Gamma 
+                     &+ \underbrace{\sum_{i=1}^3\frac{\alpha_{vi}}{2} \int_{\Gamma_v} \boldsymbol v \cdot \boldsymbol v d\Gamma 
                      + \frac{\alpha_\theta}{2} \int_{\Gamma_\theta} \theta_{\boldsymbol n}^2 d\Gamma
-             + \frac{\alpha_C}{2}(\boldsymbol v \cdot \boldsymbol v)_{\boldsymbol x\in C_v}}_{\text{stabilized term}}
+             + \frac{\alpha_C}{2}(\boldsymbol v \cdot \boldsymbol a_3)^2_{\boldsymbol x\in C_v}}_{\text{stabilized term}}
 \end{split}
 \end{equation}
-where the consistent term generated from the Lagrangian multiplier method contributes to enforce the essential boundary, and meet the variational consistency condition. However, the consistent term can not always ensure the coercivity of stiffness, so the penalty method is introduced to serve as a stabilized term. With a standard variational argument, the corresponding weak form can be stated as:
+where the consistent term generated from the Lagrangian multiplier method contributes to enforce the essential boundary, and meet the variational consistency condition. However, the consistent term can not always ensure the coercivity of stiffness, so the penalty method is introduced to serve as a stabilized term, in which $\alpha_{vi}$'s, $\alpha_\theta$ and $\alpha_C$ are experimental artificial parameters in penalty method. With a standard variational argument, the corresponding weak form can be stated as:
 \begin{equation}
 \begin{split}
 \delta \Pi_P(\boldsymbol v) &= \int_\Omega\delta \varepsilon_{\alpha\beta} N^{\alpha\beta} d\Omega +
@@ -103,13 +103,13 @@ where the consistent term generated from the Lagrangian multiplier method contri
                      &- \int_{\Gamma_v} \delta \boldsymbol t \cdot (\boldsymbol v - \bar{\boldsymbol v}) d\Gamma
                      + \int_{\Gamma_\theta} \delta M_{\boldsymbol{nn}}(\theta_{\boldsymbol n} - \bar \theta_{\boldsymbol n})d\Gamma
                      + (\delta P\boldsymbol a_3 \cdot (\boldsymbol v - \bar{\boldsymbol v}))_{\boldsymbol x \in C_v} \\
-                     &+ \alpha_v \int_{\Gamma_v} \delta \boldsymbol v \cdot \boldsymbol v d\Gamma 
+                     &+ \sum_{i=1}^{3}\alpha_{vi} \int_{\Gamma_v} (\delta \boldsymbol v \cdot \boldsymbol a_i) (\boldsymbol a_i \cdot \boldsymbol v) d\Gamma 
                      + \alpha_\theta \int_{\Gamma_\theta} \delta \theta_{\boldsymbol n}\theta_{\boldsymbol n} d\Gamma
-                     + \alpha_C(\delta \boldsymbol v \cdot \boldsymbol v)_{\boldsymbol x\in C_v} \\
+                     + \alpha_C(\delta \boldsymbol v \cdot \boldsymbol a_3 \; \boldsymbol a_3 \cdot \boldsymbol v)_{\boldsymbol x\in C_v} \\
                      &= 0
 \end{split}
 \end{equation}
-in which $\alpha_v$, $\alpha_\theta$ and $\alpha_C$ represent experimental artificial parameters. Further invoking the conventional reproducing kernel approximation of Eq. (\ref{approxv}) leads to the following discrete equilibrium equations:
+Further invoking the conventional reproducing kernel approximation of Eq. (\ref{approxv}) leads to the following discrete equilibrium equations:
 \begin{equation}
 \sum_{J=1}^{n_p}(\boldsymbol K_{IJ} + \boldsymbol K^c_{IJ} + \boldsymbol K^s_{IJ}) \boldsymbol d_J = \boldsymbol f_I + \boldsymbol f^c + \boldsymbol f^s
 \end{equation}
@@ -126,11 +126,19 @@ where the stiffness $\boldsymbol K_{IJ}$ is identical with Eq. (\ref{de1}). $\bo
 \end{subequations}
 \begin{subequations}\label{nde3}
 \begin{align}
-\boldsymbol K^s_{IJ} &= \alpha_v \int_{\Gamma_v} \Psi_I \Psi_J \boldsymbol 1 d\Gamma 
+\boldsymbol K^s_{IJ} &= \boldsymbol \alpha_v \int_{\Gamma_v} \Psi_I \Psi_J d\Gamma 
 + \alpha_\theta \int_{\Gamma_\theta} \Psi_{I,\eta} n^\eta \boldsymbol a_3 \boldsymbol a_3 n^\gamma\Psi_{J,\gamma} d\Gamma + \alpha_C [[\Psi_I \boldsymbol a_3 \boldsymbol a_3 \Psi_J]]_{\boldsymbol x \in C_v} \\
-\boldsymbol f^s_I &= \alpha_v \int_{\Gamma_v} \Psi_I \bar{\boldsymbol v} d\Gamma + \alpha_\theta \int_{\Gamma_\theta} \Psi_{I,\eta} n^\eta \boldsymbol a_3 \boldsymbol \bar \theta_{\boldsymbol n} d\Gamma + \alpha_C [[\Psi_I \boldsymbol a_3 \boldsymbol a_3 \cdot \bar{\boldsymbol v}]]_{\boldsymbol x \in C_v}
+\boldsymbol f^s_I &= \boldsymbol \alpha_v \int_{\Gamma_v} \Psi_I \bar{\boldsymbol v} d\Gamma + \alpha_\theta \int_{\Gamma_\theta} \Psi_{I,\eta} n^\eta \boldsymbol a_3 \boldsymbol \bar \theta_{\boldsymbol n} d\Gamma + \alpha_C [[\Psi_I \boldsymbol a_3 \boldsymbol a_3 \cdot \bar{\boldsymbol v}]]_{\boldsymbol x \in C_v}
 \end{align}
 \end{subequations}
+with
+\begin{equation}
+\boldsymbol \alpha_v = \begin{bmatrix}
+    \alpha_{v1} & 0 & 0 \\
+    0 & \alpha_{v2} & 0 \\
+    0 & 0 & \alpha_{v3} \\
+\end{bmatrix}
+\end{equation}
 
-On comparing with the consistent terms of Eqs. (\ref{de2}) and (\ref{nde2}), the expressions were almost identical, the major difference is that the higher order derivatives of shape functions have been replaced by smoothed gradients. Owing to the reproducing kernel framework, the construction of smoothed gradients only concerned about the computation of traditional meshfree shape functions and their first order derivatives, which avoid the costly computation of higher order derivatives. Moreover, the stabilized terms in Eq. (\ref{nde3}) employs the penalty method to ensure the coercivity of stiffness. In contrast, the stabilized term of Eq. (\ref{de3}) naturally exists in its weak form, and can stabilize the result without considering any artificial parameters.
+On comparing with the consistent terms of Eqs. (\ref{de2}) and (\ref{nde2}), the expressions were almost identical, the major difference is that the higher order derivatives of shape functions have been replaced by smoothed gradients. Owing to the reproducing kernel framework, the construction of smoothed gradients only concerned about the computation of traditional meshfree shape functions and their first order derivatives, which avoid the costly computation of higher order derivatives. Moreover, the stabilized terms in Eq. (\ref{nde3}) employs the penalty method with big enough artificial parameters to ensure the coercivity of stiffness. And the optimal values of these artificial parameters are proportional to the grid size of discrete model that can be represented by support size in meshfree approximation, where the $\alpha_{v\alpha} \propto s^{-1}$, $\alpha_{v3} \propto s^{-3}$, $\alpha_\theta \propto s^{-1}$, $\alpha_C \propto s^{-2}$\cite{benzaken2021}, and $s = \min\{s_{\alpha I}\}$. In contrast, the stabilized term of Eq. (\ref{de3}) naturally exists in its weak form, and can stabilize the result without considering any artificial parameters.
  

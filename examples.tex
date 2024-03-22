@@ -9,7 +9,7 @@ H_e\text{-Error} &= \frac{\sqrt{\int_\Omega \left ((\varepsilon_{\alpha\beta} - 
 \end{equation}
 
 \subsection{Patch tests}
-The linear and quadratic patch tests for flat and curved thin shells are firstly studied to verify the variational consistency of the proposed method. As shown in Fig. \ref{ptf1}, the flat and curved models are depicted by an identical parametric domain $\Omega = (0,1)\otimes(0,1)$, where the cylindrical coordinate system with radius $R=1$ is employed to describe the curved model, and the whole domain $\Omega$ is discretized by the $165$ meshfree nodes. The artificial parameters of $\alpha_v=, \alpha_\theta, \alpha_c$ All the boundaries are enforced as essential boundary conditions with the following manufactured exact solution:
+The linear and quadratic patch tests for flat and curved thin shells are firstly studied to verify the variational consistency of the proposed method. As shown in Fig. \ref{ptf1}, the flat and curved models are depicted by an identical parametric domain $\Omega = (0,1)\otimes(0,1)$, where the cylindrical coordinate system with radius $R=1$ is employed to describe the curved model, and the whole domain $\Omega$ is discretized by the $165$ meshfree nodes. The artificial parameters of $\alpha_v=10^5, \alpha_\theta=10^3, \alpha_C=10^5$ and $\alpha_v=10^9, \alpha_\theta=10^9, \alpha_C=10^9$ are used for Nitsche's method and penalty method respectively. All the boundaries are enforced as essential boundary conditions with the following manufactured exact solution:
 \begin{equation}
 \boldsymbol v = \begin{Bmatrix}
 (\xi^1+2\xi^2)^n \\ (3\xi^1+4\xi^2)^n \\ (5\xi^1+6\xi^2)^n
@@ -71,7 +71,7 @@ Table \ref{ptt1} lists the $L_2$- and $H_e$-Error results of patch test with fla
 \subsection{Scordelis-Lo roof}
 This example considers the classical Scordelis-Lo roof problem, as depicted in Fig. \ref{slf1}. The cylindrical roof has dimensions $R=25$, $L=50$, $h=0.25$, Young's modulus $E=4.32\times 10^8$ and Poisson's ratio $\nu=0.0$. The entire roof is subjected to an uniform body force of $b_z = -90$, with the straight edges remainning free and the the curved edges are enforced by $v_x=v_z=0$.
 
-Due to the symmetry, only a quadrant of the model is considered for meshfree analysis, which is discretized by the $11\times 16$, $13\times 20$, $17\times 24$ and $19\times28$ meshfree nodes, as listed in Fig. \ref{slf2}. The comparison of the displacement in $z-$direction at node $A$, $v_{A3}$, is used as the investigated quantity, with the reference value 0.3024 given by \cite{macneal1985}. Firstly, Fig. \ref{slf3} presents a sensitivity study for the artificial parameters of $\alpha_v$'s, $\alpha_\theta$'s in the RKGSI meshfree formulations with Nitsche's method and penalty method. The results of Fig. \ref{slf3} revealed, Nitsche's method observed less artificial sensitivity. However, both the methods cannot trivially determine the optimal values of the artificial parameters. The optimal artificial parameters from Fig. \ref{slf3} are adopted for the convergence study in Fig. \ref{slf4}. The convergence result showed that the RKGSI get satisfactory results while the traditional Gauss methods demonstrated noticeable errors.
+Due to the symmetry, only a quadrant of the model is considered for meshfree analysis, which is discretized by the $11\times 16$, $13\times 20$, $17\times 24$ and $19\times28$ meshfree nodes, as listed in Fig. \ref{slf2}. The comparison of the displacement in $z-$direction at node $A$, $v_{A3}$, is used as the investigated quantity, with the reference value 0.3006 given by \cite{kiendl2009}. Firstly, Fig. \ref{slf3} presents a sensitivity study for the artificial parameters of $\alpha_{vi}$'s and $\alpha_\theta$'s in the RKGSI meshfree formulations with Nitsche's method and penalty method, where all of the parameters are scaled by the support size as, $\alpha_{v\alpha} = s^{-1}\bar \alpha_v$, $\alpha_{v3} = s^{-3} \bar \alpha_v$ and $\alpha_\theta = s^{-1}\bar \alpha_\theta$. For a better comparison, the result of proposed RKGSI-HW is also listed in this figure. The results of Fig. \ref{slf3} revealed, Nitsche's method observed less artificial sensitivity. However, both the methods cannot trivially determine the optimal values of the artificial parameters. The optimal artificial parameters from Fig. \ref{slf3} are adopted for the convergence study in Fig. \ref{slf4}. The convergence result showed that the RKGSI get satisfactory results while the traditional Gauss methods demonstrated noticeable errors.
 
 \begin{figure}[!ht]
 \centering
@@ -85,19 +85,19 @@ Due to the symmetry, only a quadrant of the model is considered for meshfree ana
 \end{figure}
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=\textwidth]{figures/sla}
+\includegraphics[width=\textwidth]{figures/sla_r1}
 \caption{Sensitivity comparison of $\alpha_v$ and $\alpha_\theta$ for Scordelis-Lo problem.}\label{slf3}
 \end{figure}
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=\textwidth]{figures/sld}
+\includegraphics[width=\textwidth]{figures/sld_r1}
 \caption{Displacement convergence for Scordelis-Lo roof problem.}\label{slf4}
 \end{figure}
 
 \subsection{Pinched Hemispherical shell}
 Consider the hemispherical shell shown in Fig. \ref{phf1}, which is loaded at four points $P=\pm 2$ at $90^\circ$ interval at its bottom. The hemispherical shell has an radius $R=10$, thickness $h=0.04$, Young's modulus $E=6.825\times10^7$ and Poisson's ratio $\nu = 0.3$.
 
-Due to symmetry, only quadrant model, where the $8\times8$, $16\times16$, $24\times24$ and $32\times32$ meshfree nodes have been discretized, was considered. The quantity under investigation for convergence is the displacement at $x-$direction on point $A$, $v_{A1}$.
+Due to symmetry, only quadrant model, where the $16\times16$, $24\times24$, $32\times32$ and $40\times40$ meshfree nodes have been discretized as shown in Fig. (\ref{phfm}), was considered. The quantity under investigation for convergence is the displacement at $x-$direction on point $A$, $v_{A1}$.
 Fig. \ref{phf2} displays the corresponding convergence results, indicating the RKGSI scheme performed significantly better compared to the GI meshfree formulation. Meanwhile, the efficiency comparison for this problem is also shown in Fig. \ref{phf3}, in which the CPU time for assembly and calculation of shape functions are considered. Fig. \ref{phf3}(a) indicates that the RKGSI scheme observed high efficiency in assembly. This is due to the variational inconsistent Gauss meshfree formulation which require more Gaussian points to get satisfactory results. Fig. \ref{phf3}(b) lists the CPU time spent on enforcing essential boundary conditions for the penalty method, Nitsche's method and proposed HW method. The results highlighted that the proposed HW method consumed comparable CPU time in assembly compared to Nitsche's method. However, less time was spent to calculate the shape functions. Since both the HW method and penalty method were developed considering the shape functions first order derivatives. For this reason, both the methods shared an almost identical time in computing the shape functions.
 \begin{figure}[!ht]
 \centering
@@ -106,7 +106,12 @@ Fig. \ref{phf2} displays the corresponding convergence results, indicating the R
 \end{figure}
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=\textwidth]{figures/pfd}
+\includegraphics[width=\textwidth]{figures/pfmsh_r1}
+\caption{Meshfree discretizations for pinched hemispherical shell problem.}\label{phfm}
+\end{figure}
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\textwidth]{figures/pfd_r1}
 \caption{Displacement convergence for pinched hemispherical shell problem.}\label{phf2}
 \end{figure}
 \begin{figure}[!ht]
