@@ -10,14 +10,14 @@
 
 \maketitle
 
-The authors sincerely thank the reviewers for their further comments. Accordingly, the authors have meticulously revised the manuscript and the details are given as follows.
+Authors appreciate careful reading of the manuscript by the reviewers, and are thankful for helpful suggestions for its improvement. Authors have modified the manuscript substantially in light of the reviewer's comments. All the modifications and changes made are highlighted in the Marked Revised Manuscript. Issues and concerns raised by the reviewers are discussed as follows:
 
 \section*{Reviewer \#1}
 \textit{This manuscript provides a meshfree thin shell formulation based on the Hu-Washizu variational principle. The essential boundary conditions in the present formulation do not require additional artificial parameters, which can be considered insensitive to those in Nitsche and Penalty’s approaches. The derivation is rigorous however several issues must be properly addressed before the publication. I recommend a major revision.}
 
-\textbf{1.} \textit{After Eq. 5, the formulation of theta needs to be provided.}
+\textbf{Comment 1.} \textit{After Eq. 5, the formulation of theta needs to be provided.}
 
-\textbf{Reply:} Thanks. The expression of $\boldsymbol \theta$ is derived by:
+\textbf{Response:} Authors thank the reviewer for the suggestion. The expression to calcualte rotation ($\boldsymbol \theta$) is derived as follows:
 \begin{equation}
     \begin{split}
         \epsilon_{3i} = 0 \Rightarrow &
@@ -31,19 +31,19 @@ The authors sincerely thank the reviewers for their further comments. Accordingl
         + \underbrace{\boldsymbol \theta \cdot \boldsymbol a_3}_{0} \boldsymbol a^3 = - \boldsymbol v_{,\alpha} \cdot \boldsymbol a_3 \boldsymbol a^\alpha
     \end{split}
 \end{equation}
-The above derivation is given by Eq. (9). For a better understanding, the expression of Eq. (9) has been improved on Page 6.
+Based on reveiwers suggestion Eq. (9) on Page 6 (lines ??) has been modified to provide more clarity regarding the calculation of rotation ($\boldsymbol \theta$).
 
-\textbf{2.} \textit{Consider using different symbols for the mid-surface displacement, v is always referring to velocity.}
+\textbf{Comment 2.} \textit{Consider using different symbols for the mid-surface displacement, v is always referring to velocity.}
 
-\textbf{Reply:} Thanks to reviewer's suggestion. However, the velocity is not involved in this paper, it will not lead any misunstanding as $\boldsymbol v$ is denoted for deflection. So the $\boldsymbol v$ is still presented the mid-plane deflection.
+\textbf{Response:} Authors appreciate reviewer's suggestion regarding the representation of mid-surface displacement. However, it has to be noted that present research article doesnot deal with the calculation of velocity. Therefore, the authors believe that the use of notation $\boldsymbol v$ to represent mid-surface displacement will not create confusion. 
 
-\textbf{3.} $\boldsymbol \theta$ \textit{is the variation of $\boldsymbol a_3$, so $\boldsymbol \theta \cdot \boldsymbol a_3=0$. This relationship does not come from $\epsilon_{3i} = 0$, which was in Eq. (9).}
+\textbf{Comment 3.} $\boldsymbol \theta$ \textit{is the variation of $\boldsymbol a_3$, so $\boldsymbol \theta \cdot \boldsymbol a_3=0$. This relationship does not come from $\epsilon_{3i} = 0$, which was in Eq. (9).}
+% TODO: check the technical part of shear deformation to define Kirchoff hypothesis
+\textbf{Response:} Thanks, the reviewer is right, the rotation $\boldsymbol \theta$ is perpendicular to $\boldsymbol a_3$. However, this relationship is also equivalent with $\epsilon_{3i}=0$, which follows the Kirchhofff hypothesis []. and can be easily evidenced by expression of Eq. (9).
 
-\textbf{Reply:} Thanks, the reviewer is right, the rotation $\boldsymbol \theta$ is perpendicular to $\boldsymbol a_3$. However, this relationship is also equivalent with $\epsilon_{3i}=0$, which follows the Kirchhofff hypothesis and can be easily evidenced by expression of Eq. (9).
+\textbf{Comment 4.} \textit{Eq. (10) seems to be wrong. Where is $\boldsymbol a_{3,\alpha}$ and where is the most complicated term $\boldsymbol \theta_{,\alpha}$?}
 
-\textbf{4.} \textit{Eq. (10) seems to be wrong. Where is $\boldsymbol a_{3,\alpha}$ and where is the most complicated term $\boldsymbol \theta_{,\alpha}$?}
-
-\textbf{Reply:} Thank you for this comment. The detailed dervation of Eq. (10) is given by the following steps:
+\textbf{Reply:} Authors are thankful to the reviewer for the careful observation. The detailed dervation of curvature given in Eq. (10) is appended below:
 \begin{equation}
     \begin{split}
         \kappa_{\alpha\beta} &=\frac{1}{2}(\boldsymbol a_{3,\alpha} \cdot \boldsymbol v_{,\beta} + \boldsymbol v_{,\alpha} \cdot \boldsymbol a_{3,\beta} + \boldsymbol a_\alpha \cdot \boldsymbol \theta_{,\beta} + \boldsymbol \theta_{,\alpha} \cdot \boldsymbol a_\beta) \\
@@ -69,56 +69,52 @@ The above derivation is given by Eq. (9). For a better understanding, the expres
         &= (\Gamma_{\alpha\beta}^\gamma \boldsymbol v_{,\gamma} - \boldsymbol v_{,\alpha\beta}) \cdot \boldsymbol a_3
     \end{split}
 \end{equation}
-The detailed derivation can be found in reference (Benzaken et al. 2021). For the conciseness, the detailed derivation of Eq. (10) is not listed in manuscript, and the related statement has been added on Page 6.
+It has to bring to the notice of the reviewer that the detailed derivation of curvature can be found in previous studies by Benzaken et al. [4]. For the conciseness, a statement related to the derivation of curvature has been added on revised manuscript at page 6 (line???). 
 
-\textbf{5.} \textit{Patchtest: table 2 is interesting. Eq. (62) assumes the solution is only polynomials on the mid-surface, which is already not a polynomial in the Cartesian coordinate. The flat model is simple, in this case, the parametric domain is the same as Cartesian. I believe the error in the curved case is due to bad parametrization. In general, the solution should be able to reproduce the parametric polynomials if the integration and parametrization are both good.}
-
-\textbf{Reply:} Thank you for your comment. As we can find in Eqs. (32), (33), (35), (36),  the proposed approach was designated for polynomial strains and stresses. For flat model, the polynomial displacement leads to the polynomial strains and stresses. However, for curved model, the only polynomial strains can be got, the stresses turn to be non-polynomial due to the parametrization of curvilinear coordinates. As a result, even the integration and parametrization are well posed, the approximated smoothed stresses cannot exactly reproduce this non-polynomial stresses. That is why the approach was named with "quasi-consistent".
+\textbf{Comment 5.} \textit{Patchtest: table 2 is interesting. Eq. (62) assumes the solution is only polynomials on the mid-surface, which is already not a polynomial in the Cartesian coordinate. The flat model is simple, in this case, the parametric domain is the same as Cartesian. I believe the error in the curved case is due to bad parametrization. In general, the solution should be able to reproduce the parametric polynomials if the integration and parametrization are both good.}
+% TODO: please check the technicality related to the polynomial and error
+\textbf{Response:} Authors are thankful to the reviewer for the careful insight. In the present study, the proposed approach as given in Eqs. (32, 33, 35, 36) was used to designate polynomial strains and stresses. In the case of flat model, the polynomial mid-surface displacement leads to the polynomial strains and stresses. However, for curved model, the only polynomial strains can be got, the stresses turn to be non-polynomial due to the parametrization of curvilinear coordinates. As a result, even the integration and parametrization are well posed, the approximated smoothed stresses cannot exactly reproduce this non-polynomial stresses. That is why the approach was named with "quasi-consistent".
  
-\textbf{6.} \textit{Example 5.2, figure (7) is distracting. The purpose of the newly designed method is to get rid of the penalty parameters. In general, the final penalty parameter should be $E/h\times C$, where $C$ is a dimensionless coefficient. If one is testing the convergence rate of Nitsche or penalty methods, the penalty parameter needs to be scaled by the mesh size $h$, when the model is refined.}
+\textbf{Comment 6.} \textit{Example 5.2, figure (7) is distracting. The purpose of the newly designed method is to get rid of the penalty parameters. In general, the final penalty parameter should be $E/h\times C$, where $C$ is a dimensionless coefficient. If one is testing the convergence rate of Nitsche or penalty methods, the penalty parameter needs to be scaled by the mesh size $h$, when the model is refined.}
 
-\textbf{Reply:} Following the reviewer's suggestion, the artificial parameters using in Figure (7) are scaled by support size of shape function $s$ that can represent the grid size of discrete model $h$. In accordance with reference [4], the parameters were set as $\alpha_{v\alpha} = \bar\alpha_v / s$, $\alpha_{v3} = \bar\alpha_v / s^3$ and $\alpha_\theta = \bar \theta / s$, in which $\alpha_{v\alpha}$'s and $\alpha_{v3}$ have been redefined as the parameters referring to in-plane displacements $\boldsymbol v \cdot \boldsymbol a_\alpha$ and deflection $\boldsymbol v \cdot \boldsymbol a_3$ respectively. After these parameters scaling by support size, Nitsche's method and penalty method shows less parameter sensitivity, but cannot totally eliminate this. The related statements are added on Pages 17, 18 and 21.
+\textbf{Response:} Based on the reviewer's suggestion, the artificial parameters shown in Figure (7) were scaled by shape function support size ($s$) which can measure the grid size of discrete model ($h$) . In accordance with reference Benzaken et al. [4], the modified parameters were set as $\alpha_{v\alpha} = \bar\alpha_v / s$, $\alpha_{v3} = \bar\alpha_v / s^3$ and $\alpha_\theta = \bar \theta / s$. The parameters $\alpha_{v\alpha}$'s and $\alpha_{v3}$ were redefined to represent in-plane displacements $\boldsymbol v \cdot \boldsymbol a_\alpha$ and deflection $\boldsymbol v \cdot \boldsymbol a_3$ respectively. After the parameters were scaled by support size ($s$), both the Nitsche's method and penalty method observed less parameter sensitivity. However, the scaled up paramters cannot completely eliminate the \textbf{sensivity issue}. Tp provide further clarity, the related statements are added in revised mansucript on Pages 17, 18 and 21.
 
-\textbf{7.} \textit{In Example 5.2, the authors provided the wrong reference value. $-0.3024$ is the one under RM shell theory. In this case, I believe the value should be $-0.3006$. See [1] for more information.}
+\textbf{Comment 7.} \textit{In Example 5.2, the authors provided the wrong reference value. $-0.3024$ is the one under RM shell theory. In this case, I believe the value should be $-0.3006$. See [1] for more information.}
 
-\textbf{Reply:} Thank you for your suggestion, the reference value has been changed to $-0.3006$. Accordingly, the related statement on Page 21 has been modified.
+\textbf{Response:} Authors are thankful to the reviewer for pointing out the wrong reference value. The reference value has been changed to $-0.3006$. Accordingly, the related statement on Page 21 has been modified in the revised mansucript.
 
-\textbf{8.} \textit{In Example 6.2, also check if the reference value provided in this study is for RM shells [2].}
+\textbf{Comment 8.} \textit{In Example 6.2, also check if the reference value provided in this study is for RM shells [2].}
 
-\textbf{Reply:} Following the reviewer's suggestion, the reference value has been updated in Fig. 10 on Page 26. For showing a better convergence performance, the meshfree discretizations were changed to that ranging from $16\times16$ to $40\times40$. The relate description also has been revised on Page 21. 
+\textbf{Response:} Following the reviewer's suggestion, the reference values (???) has been updated in Fig. 10 on Page 26. In order to show a better convergence performance, the meshfree discretizations were modified ranging from $16\times16$ to $40\times40$. The related discussions were updated in the revised manuscript on Page 21. 
 
-\textbf{9.} \textit{Scodelis-Lo roof, pinched hemisphere, and pinched cylinder are the most famous shell benchmark problems. In [3], the authors named them ”shell obstacle course”. These 3 examples are even harder than those finite deformation shell simulations. So a good shell formulation should be capable of passing these three challenges. It is strongly suggested that the authors add the pinched cylinder simulation to this manuscript.}
+\textbf{Comment 9.} \textit{Scodelis-Lo roof, pinched hemisphere, and pinched cylinder are the most famous shell benchmark problems. In [3], the authors named them ”shell obstacle course”. These 3 examples are even harder than those finite deformation shell simulations. So a good shell formulation should be capable of passing these three challenges. It is strongly suggested that the authors add the pinched cylinder simulation to this manuscript.}
 
-\textbf{Reply:} Thank your for reviewer's suggestion. The pinched cylinder is one of the most famous benchmark example for thin shell formulation, and this example is also based on cylinder coordinate system, which is similar with Scodelis-Lo roof problem. So, in this manuscript, the pinched cylinder problem is not considered in this manuscript, and the authors will consider it in further work.
+\textbf{Response:} Authors appreciate reviewer's suggestion. Authors also believe the pinched cylinder is one of the most common benchmark example for thin shell formulation. Besides, this example was also based on cylinder coordinate system, which is similar to that of Scodelis-Lo roof problem. Therefore, taking into account the limitations of the current manuscript content, the pinched cylinder problem was not considered. It will be considered as a  further prospective.
 
 \section*{Reviewer \#2}
 \textit{With the aid of the Hu-Washizu variational principle and reproducing kernel smoothed gradients, an efficient and quasi-consistent meshfree Galerkin method is presented in this manuscript to solve thin shell problems. An outstanding merit of the method is that the essential boundary conditions can be enforced naturally. Computational formulas of the method are presented with some details. Numerical results are given to demonstrate the efficiency of the method.}
 
 \textit{The current manuscript is well presented and contains material worthy of publication. Acceptance of the manuscript is recommended. The authors are, however, encouraged to address the comments listed below.}
 
-\textbf{1.} \textit{Please check the gramma of the sentence below Eq. (22).}
+\textbf{Comment 1.} \textit{Please check the grammar of the sentence below Eq. (22).}
 
-\textbf{Reply:} Thanks, following the suggestion, this sentence have been revised on Page 9 and the authors have also doubly checked the writing of this revised.
+\textbf{Response:} Authors are thankful to the reviewer for identifying the grammatical error. The sentence below Eq. (22)  has beeen modified in the revised mansucript on Page 9 as "?????". Besides, the manuscript was double checked to address other grammatical and typo issues.
 
-\textbf{2.} \textit{Why is only the quadratic function used for the basis function vector p in Eq. (23)?}
+\textbf{Comment 2.} \textit{Why is only the quadratic function used for the basis function vector p in Eq. (23)?}
 
-\textbf{Reply:} Thank you for this advised suggestion. The proposed method is in the context of RKGSI framework that can be easily extended for the high order basis functions. However, for conciseness, only quadratic basis function was considered in this study, and the formulation with high order basis functions will be considered in the further work. The related discussion has been added in conclusion on Page 27.
+\textbf{Response:} In the present study, the proposed method is in the context of RKGSI framework that can be easily extended for the high order basis functions. However, for conciseness, only quadratic basis function was considered in this study which can be considered as a limitation. The formulation with high order basis functions will be considered in the further work and the related statements has been added  in the conclusion of the revised manuscript on Page 27.
 
-\textbf{3.} \textit{Please provide the meaning of the symbol $s_{\alpha I}$ in Eq. (25). What is the parameter value used in this paper?}
+\textbf{Comment 3.} \textit{Please provide the meaning of the symbol $s_{\alpha I}$ in Eq. (25). What is the parameter value used in this paper?}
+% TODO: please check the parameter assignment
+\textbf{Response:} The parameter $s_{\alpha I}$ represents the support size of the shape function $\Psi_I$. Following the suggestion, this related statement has been added on Page 9 and the authors have also doubly checked that all the symbols in manuscript have been properly defined.
 
-\textbf{Reply:} Thanks for this comment. $s_{\alpha I}$ means the support size of the shape function $\Psi_I$. Following the suggestion, this related statement has been added on Page 9 and the authors have also doubly checked that all the symbols in manuscript have been properly defined.
+\textbf{Comment 4.} \textit{Fig. 2 contains two sets of integration points. Considering the computational burden, using only one set of integration points may be more beneficial for Galerkin meshfree methods. Therefore, it is recommended to provide some explanations.}
 
-\textbf{4.} \textit{Fig. 2 contains two sets of integration points. Considering the computational burden, using only one set of integration points may be more beneficial for Galerkin meshfree methods. Therefore, it is recommended to provide some explanations.}
+\textbf{Response:} In the present study, two integration schemes (blue circular integration points and red cross integration points) were considered depending on their contribution. For instance, in the case of blue circular integration scheme both domain integration and boundary integration were exist in each integration cell. Further, the total number of these blue integration points has been optimized from a global point of view to reduce the computation of meshfree shape functions and their first order derivatives [5]. On the other hand, the red cross integration scheme was employed for the assembly of stiffness matrix which involve only the integration accuracy and does not consider any boundary integration. Thus, the traditional 3-point integration scheme is sufficient to carry out this task. Therefore, if the Galerkin formulation adopts the identical points with the blue circular integration scheme, the number of integration points for assembly were increased by two-fold. This will reduce the efficiency of the Galerkin meshfree method. Taking into account the computational burden, the two different integration schemes adopted in the present study were found to be the ideal choice for the proposed method. To provide more clarity, the related discussion has been added in the revised mansucript on Page 16 (lines???). 
 
-\textbf{Reply:} Thanks for this comment. These two integration scheme contribute different procedures. For instance, in the procedures with blue integration points, there exist both domain integration and boundary integration in each integration cells. The total number of these blue integration points has been optimized from a global point of view to reduce the computation of meshfree shape functions and their first order derivatives. The detailed discussion of these optimized integration scheme can be found in [5].
+\textbf{Comment 5.} \textit{On page 13, the authors stated that "Even with p-th order variational consistency, the proposed formulation can not exactly reproduce the solution spanned by basis functions". The reproducibility is important for Galerkin meshfree methods. So, just suggestion, is it possible to give some more explicit explanations.}
 
-On the other hand, the red cross integration points are employed for assembly of stiffness matrix that does not involve any boundary integration, only the integration accuracy is considered for choosing a proper scheme. Thus, the traditional 3-point integration scheme is sufficient for this task. If this integration scheme uses the identical points with blue ones, the number of integration points for assembly have to be two-fold increased, which will lower the efficiency. 
-
-Consequently, so far, the integration schemes are the best choice for the proposed method. The related discussion has been added on Page 16. 
-
-\textbf{5.} \textit{On page 13, the authors stated that "Even with p-th order variational consistency, the proposed formulation can not exactly reproduce the solution spanned by basis functions". The reproducibility is important for Galerkin meshfree methods. So, just suggestion, is it possible to give some more explicit explanations.}
-
-\textbf{Reply:} Thanks a lot for this helpful comment. This reproducibility is a requirement for the variational consistency, and it is the necessary to achieve the optimal accuracy for Galerkin formulations. The related discussions about the reproducibility and consistency condition have been added on Page 2.
+\textbf{Response:} Thanks a lot for this helpful comment. This reproducibility is a requirement for the variational consistency, and it is the necessary to achieve the optimal accuracy for Galerkin formulations. The related discussions about the reproducibility and consistency condition have been added on Page 2.
 
 \textbf{6.} \textit{Numerical results of Nitsche's method and penalty method are also shown in Section 5.1. The values of penalty parameters used in the two methods should be provided. In addition, it is encouraged to provide some observations on numerical results of the RKGSI-penalty in Figure 4 and Tables 1 and 2.}
 
