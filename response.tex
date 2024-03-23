@@ -31,7 +31,7 @@ Authors appreciate careful reading of the manuscript by the reviewers, and are t
         + \underbrace{\boldsymbol \theta \cdot \boldsymbol a_3}_{0} \boldsymbol a^3 = - \boldsymbol v_{,\alpha} \cdot \boldsymbol a_3 \boldsymbol a^\alpha
     \end{split}
 \end{equation}
-Based on reveiwers suggestion Eq. (9) on Page 6 (lines ??) has been modified to provide more clarity regarding the calculation of rotation ($\boldsymbol \theta$).
+Based on reveiwers suggestion Eq. (9) on Page 6 (lines 150) has been modified to provide more clarity regarding the calculation of rotation ($\boldsymbol \theta$).
 
 \textbf{Comment 2.} \textit{Consider using different symbols for the mid-surface displacement, v is always referring to velocity.}
 
@@ -39,7 +39,9 @@ Based on reveiwers suggestion Eq. (9) on Page 6 (lines ??) has been modified to 
 
 \textbf{Comment 3.} $\boldsymbol \theta$ \textit{is the variation of $\boldsymbol a_3$, so $\boldsymbol \theta \cdot \boldsymbol a_3=0$. This relationship does not come from $\epsilon_{3i} = 0$, which was in Eq. (9).}
 % TODO: check the technical part of shear deformation to define Kirchoff hypothesis
-\textbf{Response:} Thanks, the reviewer is right, the rotation $\boldsymbol \theta$ is perpendicular to $\boldsymbol a_3$. However, this relationship is also equivalent with $\epsilon_{3i}=0$, which follows the Kirchhofff hypothesis []. and can be easily evidenced by expression of Eq. (9).
+% NOTE: revised
+
+\textbf{Response:} Thanks for this comment. In the authors' opinion, the equation $\epsilon_{3i}=0$ is equivalent with $\boldsymbol \theta \cdot \boldsymbol a_3$, which follows the Kirchhoff hypothesis. And the identical statements can be found in previous work by Benzaken et al. [4]. 
 
 \textbf{Comment 4.} \textit{Eq. (10) seems to be wrong. Where is $\boldsymbol a_{3,\alpha}$ and where is the most complicated term $\boldsymbol \theta_{,\alpha}$?}
 
@@ -69,15 +71,22 @@ Based on reveiwers suggestion Eq. (9) on Page 6 (lines ??) has been modified to 
         &= (\Gamma_{\alpha\beta}^\gamma \boldsymbol v_{,\gamma} - \boldsymbol v_{,\alpha\beta}) \cdot \boldsymbol a_3
     \end{split}
 \end{equation}
-It has to bring to the notice of the reviewer that the detailed derivation of curvature can be found in previous studies by Benzaken et al. [4]. For the conciseness, a statement related to the derivation of curvature has been added on revised manuscript at page 6 (line???). 
+It has to bring to the notice of the reviewer that the detailed derivation of curvature can be found in previous studies by Benzaken et al. [4]. For the conciseness, a statement related to the derivation of curvature has been added on revised manuscript at page 6 (line150). 
 
 \textbf{Comment 5.} \textit{Patchtest: table 2 is interesting. Eq. (62) assumes the solution is only polynomials on the mid-surface, which is already not a polynomial in the Cartesian coordinate. The flat model is simple, in this case, the parametric domain is the same as Cartesian. I believe the error in the curved case is due to bad parametrization. In general, the solution should be able to reproduce the parametric polynomials if the integration and parametrization are both good.}
 % TODO: please check the technicality related to the polynomial and error
-\textbf{Response:} Authors are thankful to the reviewer for the careful insight. In the present study, the proposed approach as given in Eqs. (32, 33, 35, 36) was used to designate polynomial strains and stresses. In the case of flat model, the polynomial mid-surface displacement leads to the polynomial strains and stresses. However, for curved model, the only polynomial strains can be got, the stresses turn to be non-polynomial due to the parametrization of curvilinear coordinates. As a result, even the integration and parametrization are well posed, the approximated smoothed stresses cannot exactly reproduce this non-polynomial stresses. That is why the approach was named with "quasi-consistent".
+% NOTE: revised
+
+\textbf{Response:} Authors are thankful to the reviewer for the careful insight. In the present study, the proposed approach as given in Eqs. (32, 33, 35, 36) was used to designate polynomial strains and stresses. 
+It can be found from Eqs. (7) and (8), the strains were expressed by the in-plane covariant base ($\boldsymbol a_i$) and the derivatives of displacement ($\boldsymbol v_{,i}$).
+For the flat model, both of $\boldsymbol a_i$ and $\boldsymbol v_{,i}$ are polynomials, so the formulation can easily pass the patch test. 
+However, for the curved model, the $\boldsymbol a_i$ turns to be non-polynomial due the parametrization of curvilinear coordinate system.
+As a result, even the integration and parametrization are well posed, the approximated smoothed stresses cannot exactly reproduce this non-polynomial stresses. 
+That is why the approach was named with "quasi-consistent".
  
 \textbf{Comment 6.} \textit{Example 5.2, figure (7) is distracting. The purpose of the newly designed method is to get rid of the penalty parameters. In general, the final penalty parameter should be $E/h\times C$, where $C$ is a dimensionless coefficient. If one is testing the convergence rate of Nitsche or penalty methods, the penalty parameter needs to be scaled by the mesh size $h$, when the model is refined.}
 
-\textbf{Response:} Based on the reviewer's suggestion, the artificial parameters shown in Figure (7) were scaled by shape function support size ($s$) which can measure the grid size of discrete model ($h$) . In accordance with reference Benzaken et al. [4], the modified parameters were set as $\alpha_{v\alpha} = \bar\alpha_v / s$, $\alpha_{v3} = \bar\alpha_v / s^3$ and $\alpha_\theta = \bar \theta / s$. The parameters $\alpha_{v\alpha}$'s and $\alpha_{v3}$ were redefined to represent in-plane displacements $\boldsymbol v \cdot \boldsymbol a_\alpha$ and deflection $\boldsymbol v \cdot \boldsymbol a_3$ respectively. After the parameters were scaled by support size ($s$), both the Nitsche's method and penalty method observed less parameter sensitivity. However, the scaled up paramters cannot completely eliminate the \textbf{sensivity issue}. Tp provide further clarity, the related statements are added in revised mansucript on Pages 17, 18 and 21.
+\textbf{Response:} Based on the reviewer's suggestion, the artificial parameters shown in Figure (7) were scaled by shape function support size ($s$) which can measure the grid size of discrete model ($h$) . In accordance with reference Benzaken et al. [4], the modified parameters were set as $\alpha_{v\alpha} = \bar\alpha_v / s$, $\alpha_{v3} = \bar\alpha_v / s^3$ and $\alpha_\theta = \bar \theta / s$. The parameters $\alpha_{v\alpha}$'s and $\alpha_{v3}$ were redefined to represent in-plane displacements $\boldsymbol v \cdot \boldsymbol a_\alpha$ and deflection $\boldsymbol v \cdot \boldsymbol a_3$ respectively. After the parameters were scaled by support size ($s$), both the Nitsche's method and penalty method observed less parameter sensitivity. However, the scaled up paramters cannot completely eliminate the parameter sensitivity problem. Tp provide further clarity, the related statements are added in revised mansucript on Pages 17, 18 and 21.
 
 \textbf{Comment 7.} \textit{In Example 5.2, the authors provided the wrong reference value. $-0.3024$ is the one under RM shell theory. In this case, I believe the value should be $-0.3006$. See [1] for more information.}
 
@@ -85,7 +94,7 @@ It has to bring to the notice of the reviewer that the detailed derivation of cu
 
 \textbf{Comment 8.} \textit{In Example 6.2, also check if the reference value provided in this study is for RM shells [2].}
 
-\textbf{Response:} Following the reviewer's suggestion, the reference values (???) has been updated in Fig. 10 on Page 26. In order to show a better convergence performance, the meshfree discretizations were modified ranging from $16\times16$ to $40\times40$. The related discussions were updated in the revised manuscript on Page 21. 
+\textbf{Response:} Following the reviewer's suggestion, the reference values (0.094) has been updated in Fig. 10 on Page 26. In order to show a better convergence performance, the meshfree discretizations were modified ranging from $16\times16$ to $40\times40$. The related discussions were updated in the revised manuscript on Page 21. 
 
 \textbf{Comment 9.} \textit{Scodelis-Lo roof, pinched hemisphere, and pinched cylinder are the most famous shell benchmark problems. In [3], the authors named them ”shell obstacle course”. These 3 examples are even harder than those finite deformation shell simulations. So a good shell formulation should be capable of passing these three challenges. It is strongly suggested that the authors add the pinched cylinder simulation to this manuscript.}
 
@@ -98,7 +107,7 @@ It has to bring to the notice of the reviewer that the detailed derivation of cu
 
 \textbf{Comment 1.} \textit{Please check the grammar of the sentence below Eq. (22).}
 
-\textbf{Response:} Authors are thankful to the reviewer for identifying the grammatical error. The sentence below Eq. (22)  has beeen modified in the revised mansucript on Page 9 as "?????". Besides, the manuscript was double checked to address other grammatical and typo issues.
+\textbf{Response:} Authors are thankful to the reviewer for identifying the grammatical error. The sentence below Eq. (22)  has beeen modified in the revised mansucript on Page 9 as "208". Besides, the manuscript was double checked to address other grammatical and typo issues.
 
 \textbf{Comment 2.} \textit{Why is only the quadratic function used for the basis function vector p in Eq. (23)?}
 
@@ -106,11 +115,13 @@ It has to bring to the notice of the reviewer that the detailed derivation of cu
 
 \textbf{Comment 3.} \textit{Please provide the meaning of the symbol $s_{\alpha I}$ in Eq. (25). What is the parameter value used in this paper?}
 % TODO: please check the parameter assignment
-\textbf{Response:} The parameter $s_{\alpha I}$ represents the support size of the shape function $\Psi_I$. Following the suggestion, this related statement has been added on Page 9 and the authors have also doubly checked that all the symbols in manuscript have been properly defined.
+% NOTE: add some statements.
+
+\textbf{Response:} The parameter $s_{\alpha I}$ represents the support size of the shape function $\Psi_I$. Following the suggestion, this related statement has been added on Page 9 and the authors have also doubly checked that all the symbols in manuscript have been properly defined. The value of charactorized support size is 2.5 for all examples, which is presented on Page 20 (line 342).
 
 \textbf{Comment 4.} \textit{Fig. 2 contains two sets of integration points. Considering the computational burden, using only one set of integration points may be more beneficial for Galerkin meshfree methods. Therefore, it is recommended to provide some explanations.}
 
-\textbf{Response:} In the present study, two integration schemes (blue circular integration points and red cross integration points) were considered depending on their contribution. For instance, in the case of blue circular integration scheme both domain integration and boundary integration were exist in each integration cell. Further, the total number of these blue integration points has been optimized from a global point of view to reduce the computation of meshfree shape functions and their first order derivatives [5]. On the other hand, the red cross integration scheme was employed for the assembly of stiffness matrix which involve only the integration accuracy and does not consider any boundary integration. Thus, the traditional 3-point integration scheme is sufficient to carry out this task. Therefore, if the Galerkin formulation adopts the identical points with the blue circular integration scheme, the number of integration points for assembly were increased by two-fold. This will reduce the efficiency of the Galerkin meshfree method. Taking into account the computational burden, the two different integration schemes adopted in the present study were found to be the ideal choice for the proposed method. To provide more clarity, the related discussion has been added in the revised mansucript on Page 16 (lines???). 
+\textbf{Response:} In the present study, two integration schemes (blue circular integration points and red cross integration points) were considered depending on their contribution. For instance, in the case of blue circular integration scheme both domain integration and boundary integration were existed in each integration cell. Further, the total number of these blue integration points has been optimized from a global point of view to reduce the computation of meshfree shape functions and their first order derivatives [5]. On the other hand, the red cross integration scheme was employed for the assembly of stiffness matrix which involve only the integration accuracy and does not consider any boundary integration. Thus, the traditional 3-point integration scheme is sufficient to carry out this task. Therefore, if the Galerkin formulation adopts the identical points with the blue circular integration scheme, the number of integration points for assembly were increased by two-fold. This will reduce the efficiency of the Galerkin meshfree method. Taking into account the computational burden, the two different integration schemes adopted in the present study were found to be the ideal choice for the proposed method. To provide more clarity, the related discussion has been added in the revised mansucript on Page 16 (lines287). 
 
 \textbf{Comment 5.} \textit{On page 13, the authors stated that "Even with p-th order variational consistency, the proposed formulation can not exactly reproduce the solution spanned by basis functions". The reproducibility is important for Galerkin meshfree methods. So, just suggestion, is it possible to give some more explicit explanations.}
 
@@ -119,10 +130,12 @@ It has to bring to the notice of the reviewer that the detailed derivation of cu
 \textbf{6.} \textit{Numerical results of Nitsche's method and penalty method are also shown in Section 5.1. The values of penalty parameters used in the two methods should be provided. In addition, it is encouraged to provide some observations on numerical results of the RKGSI-penalty in Figure 4 and Tables 1 and 2.}
 
 \textbf{Reply:} Based on reviewer's suggestion, to provide further clarity the artificial parameters used in Nitsche's method and penalty method were updated on Page 19. Additional discussions for RKGSI-penalty were also added on Pages 19 and 20 of the revised manuscript. 
-%did you modify the figures.. if so please mention that figures were also modified in the revised manuscript. 
+% WARN:did you modify the figures.. if so please mention that figures were also modified in the revised manuscript. 
+% NOTE: I modify the figures, however it is not for the comment, it's for the reviewer 1 's Comment 6 
 
 \textbf{7.} \textit{On pages 32-34, some reference information such as journal title and year of publication is missed.}
 
+% NOTE: too many references has been modified, do we list all?
 \textbf{Reply:} Authors thank the reviewer for the careful observation. The reference information "??? write the details of the reference" has been modified in the revised manuscript.
 
 \section*{References}
