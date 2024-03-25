@@ -38,10 +38,9 @@ Based on reveiwers suggestion Eq. (9) on Page 6 (lines 150) has been modified to
 \textbf{Response:} Authors appreciate reviewer's suggestion regarding the representation of mid-surface displacement. However, it has to be noted that present research article doesnot deal with the calculation of velocity. Therefore, the authors believe that the use of notation $\boldsymbol v$ to represent mid-surface displacement will not create confusion. 
 
 \textbf{Comment 3.} $\boldsymbol \theta$ \textit{is the variation of $\boldsymbol a_3$, so $\boldsymbol \theta \cdot \boldsymbol a_3=0$. This relationship does not come from $\epsilon_{3i} = 0$, which was in Eq. (9).}
-% TODO: check the technical part of shear deformation to define Kirchoff hypothesis
-% NOTE: revised
+% TODO: please check it i have modified it
 
-\textbf{Response:} Thanks for this comment. In the authors' opinion, the equation $\epsilon_{3i}=0$ is equivalent with $\boldsymbol \theta \cdot \boldsymbol a_3$, which follows the Kirchhoff hypothesis. And the identical statements can be found in previous work by Benzaken et al. [4]. 
+\textbf{Response:} Authors appreciate the reviewers insight regarding the calculation of ??? (is it strain or what please add the technical term here). In the authors' opinion, the equation $\epsilon_{3i}=0$ is equivalent with $\boldsymbol \theta \cdot \boldsymbol a_3$, which follows the Kirchhoff hypothesis of shear deformation. Previoulsy, Benzaken et al. [4] also adopted similar approach to calculate the rotation. 
 
 \textbf{Comment 4.} \textit{Eq. (10) seems to be wrong. Where is $\boldsymbol a_{3,\alpha}$ and where is the most complicated term $\boldsymbol \theta_{,\alpha}$?}
 
@@ -76,13 +75,8 @@ It has to bring to the notice of the reviewer that the detailed derivation of cu
 \textbf{Comment 5.} \textit{Patchtest: table 2 is interesting. Eq. (62) assumes the solution is only polynomials on the mid-surface, which is already not a polynomial in the Cartesian coordinate. The flat model is simple, in this case, the parametric domain is the same as Cartesian. I believe the error in the curved case is due to bad parametrization. In general, the solution should be able to reproduce the parametric polynomials if the integration and parametrization are both good.}
 % TODO: please check the technicality related to the polynomial and error
 % NOTE: revised
-
-\textbf{Response:} Authors are thankful to the reviewer for the careful insight. In the present study, the proposed approach as given in Eqs. (32, 33, 35, 36) was used to designate polynomial strains and stresses. 
-It can be found from Eqs. (7) and (8), the strains were expressed by the in-plane covariant base ($\boldsymbol a_i$) and the derivatives of displacement ($\boldsymbol v_{,i}$).
-For the flat model, both of $\boldsymbol a_i$ and $\boldsymbol v_{,i}$ are polynomials, so the formulation can easily pass the patch test. 
-However, for the curved model, the $\boldsymbol a_i$ turns to be non-polynomial due the parametrization of curvilinear coordinate system.
-As a result, even the integration and parametrization are well posed, the approximated smoothed stresses cannot exactly reproduce this non-polynomial stresses. 
-That is why the approach was named with "quasi-consistent".
+% NOTE: checked and modified
+\textbf{Response:} Authors are thankful to the reviewer for the careful insight. In the present study, the proposed approach as given in Eqs. (32, 33, 35, 36) was used to designate polynomial strains and stresses. It can be found from Eqs. (7) and (8), of the revised manuscript the strains were expressed by the in-plane covariant base ($\boldsymbol a_i$) and the derivatives of displacement ($\boldsymbol v_{,i}$). For the flat surface model, both of $\boldsymbol a_i$ and $\boldsymbol v_{,i}$ are polynomials, so the mesh free formulation can easily pass the patch test. However, in the case of the curved surface model, the $\boldsymbol a_i$ turns to be non-polynomial due the parametrization of curvilinear coordinate system. As a result, even though the integration and parametrization are well poised, the approximated smoothed stresses cannot exactly reproduce the non-polynomial stresses. For this reason, the adopted approach in the present study was termed as "quasi-consistent".
  
 \textbf{Comment 6.} \textit{Example 5.2, figure (7) is distracting. The purpose of the newly designed method is to get rid of the penalty parameters. In general, the final penalty parameter should be $E/h\times C$, where $C$ is a dimensionless coefficient. If one is testing the convergence rate of Nitsche or penalty methods, the penalty parameter needs to be scaled by the mesh size $h$, when the model is refined.}
 
@@ -116,8 +110,8 @@ That is why the approach was named with "quasi-consistent".
 \textbf{Comment 3.} \textit{Please provide the meaning of the symbol $s_{\alpha I}$ in Eq. (25). What is the parameter value used in this paper?}
 % TODO: please check the parameter assignment
 % NOTE: add some statements.
-
-\textbf{Response:} The parameter $s_{\alpha I}$ represents the support size of the shape function $\Psi_I$. Following the suggestion, this related statement has been added on Page 9 and the authors have also doubly checked that all the symbols in manuscript have been properly defined. The value of charactorized support size is 2.5 for all examples, which is presented on Page 20 (line 342).
+% NOTE: modified accordingly.. please check
+\textbf{Response:} The parameter $s_{\alpha I}$ represents the support size of the shape function $\Psi_I$. Accordingly, the statements related  to support size has been added on Page 9 (line??). Besides, the authors have also checked the definitions of all the symbols in the revised manuscript. The value of characterized support size of shape function is taken ad 2.5 for all the considered examples, which is reported on Page 20 (line 342).
 
 \textbf{Comment 4.} \textit{Fig. 2 contains two sets of integration points. Considering the computational burden, using only one set of integration points may be more beneficial for Galerkin meshfree methods. Therefore, it is recommended to provide some explanations.}
 
@@ -132,10 +126,12 @@ That is why the approach was named with "quasi-consistent".
 \textbf{Reply:} Based on reviewer's suggestion, to provide further clarity the artificial parameters used in Nitsche's method and penalty method were updated on Page 19. Additional discussions for RKGSI-penalty were also added on Pages 19 and 20 of the revised manuscript. 
 % WARN:did you modify the figures.. if so please mention that figures were also modified in the revised manuscript. 
 % NOTE: I modify the figures, however it is not for the comment, it's for the reviewer 1 's Comment 6 
+% NOTE: you can add the modifications here also.. no problem
 
 \textbf{7.} \textit{On pages 32-34, some reference information such as journal title and year of publication is missed.}
 
 % NOTE: too many references has been modified, do we list all?
+% TODO: Its just numbers we can add them here also
 \textbf{Reply:} Authors thank the reviewer for the careful observation. The reference information "??? write the details of the reference" has been modified in the revised manuscript.
 
 \section*{References}
