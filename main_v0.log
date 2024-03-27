@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.3.22)  25 MAR 2024 18:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.3.22)  26 MAR 2024 15:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -329,27 +329,27 @@ Package: lineno 2023/05/20 line numbers on paragraphs v5.3
 \bframebox=\box60
 \linenoamsmath@ams@eqpen=\count306
 LaTeX Info: Redefining \\ on input line 3180.
-) (./main_v0.aux (./frontmatter.aux) (./introduction.aux) (./kinematics.aux) (./mix.aux) (./boundary.aux) (./examples.aux) (./conclusion.aux) (./derivative.aux) (./derivation.aux))
+) (./main_v0.aux (./frontmatter_v0.aux) (./introduction_v0.aux) (./kinematics_v0.aux) (./mix_v0.aux) (./boundary_v0.aux) (./examples_v0.aux) (./conclusion_v0.aux) (./derivative.aux) (./derivation_v0.aux))
 \openout1 = `main_v0.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
  (c:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count307
@@ -369,19 +369,19 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (c:/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 14.
+Package hyperref Info: Link coloring OFF on input line 16.
  (./main_v0.out) (./main_v0.out)
 \@outlinefile=\write4
 \openout4 = `main_v0.out'.
 
-\openout2 = `frontmatter.aux'.
+\openout2 = `frontmatter_v0.aux'.
 
- (./frontmatter.tex
-LaTeX Font Info:    Trying to load font information for U+msa on input line 29.
+ (./frontmatter_v0.tex
+LaTeX Font Info:    Trying to load font information for U+msa on input line 43.
  (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 29.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 43.
  (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ))
@@ -391,35 +391,51 @@ Overfull \hbox (2.22221pt too wide) has occurred while \output is active
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<def>-command' on input line 15.
+(hyperref)                removing `\<def>-command' on input line 17.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\cnotenum' on input line 15.
+(hyperref)                removing `\cnotenum' on input line 17.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<def>-command' on input line 15.
+(hyperref)                removing `\<def>-command' on input line 17.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@corref' on input line 15.
+(hyperref)                removing `\@corref' on input line 17.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 17.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\cnotenum' on input line 17.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\<def>-command' on input line 17.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@corref' on input line 17.
 
 [1
 
 
 
 {c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-\openout2 = `introduction.aux'.
+\openout2 = `introduction_v0.aux'.
 
- (./introduction.tex [2
+ (./introduction_v0.tex [2
 
 
 
 ] [3]) [4]
-\openout2 = `kinematics.aux'.
+\openout2 = `kinematics_v0.aux'.
 
- (./kinematics.tex
+ (./kinematics_v0.tex
 <figures/1.png, id=167, 436.5108pt x 254.8722pt>
 File: figures/1.png Graphic file (type png)
 <use figures/1.png>
@@ -435,14 +451,14 @@ Package amsmath Warning: Cannot use `split' here;
 (amsmath)                trying to recover with `aligned' on input line 59.
 
 [6] [7]) [8]
-\openout2 = `mix.aux'.
+\openout2 = `mix_v0.aux'.
 
- (./mix.tex [9
+ (./mix_v0.tex [9
 
 
 
 ]
-<figures/2.png, id=259, 592.614pt x 309.7974pt>
+<figures/2.png, id=257, 592.614pt x 309.7974pt>
 File: figures/2.png Graphic file (type png)
 <use figures/2.png>
 Package pdftex.def Info: figures/2.png  used on input line 70.
@@ -484,26 +500,26 @@ Package amsmath Warning: Cannot use `split' here;
 (amsmath)                trying to recover with `aligned' on input line 197.
 
 [12]) [13]
-\openout2 = `boundary.aux'.
+\openout2 = `boundary_v0.aux'.
 
- (./boundary.tex [14
+ (./boundary_v0.tex [14
 
 
 
-] [15]
-Overfull \hbox (14.41211pt too wide) detected at line 111
+] [15] [16]
+Overfull \hbox (0.56189pt too wide) detected at line 132
 []
  []
 
-[16] [17]) [18]
-\openout2 = `examples.aux'.
+[17]) [18]
+\openout2 = `examples_v0.aux'.
 
- (./examples.tex
+ (./examples_v0.tex
 Overfull \hbox (16.80608pt too wide) detected at line 9
 []
  []
 
-<figures/ptmsh.png, id=401, 448.074pt x 236.5638pt>
+<figures/ptmsh.png, id=396, 448.074pt x 236.5638pt>
 File: figures/ptmsh.png Graphic file (type png)
 <use figures/ptmsh.png>
 Package pdftex.def Info: figures/ptmsh.png  used on input line 25.
@@ -513,64 +529,59 @@ Package pdftex.def Info: figures/ptmsh.png  used on input line 25.
 
 
 ]
-<figures/ptc.png, id=417, 948.1824pt x 542.025pt>
+<figures/ptc.png, id=412, 948.1824pt x 542.025pt>
 File: figures/ptc.png Graphic file (type png)
 <use figures/ptc.png>
 Package pdftex.def Info: figures/ptc.png  used on input line 67.
 (pdftex.def)             Requested size: 345.0pt x 197.22131pt.
- [20 <./figures/ptmsh.png>] [21 <./figures/ptc.png>]
-<figures/slm.png, id=443, 457.71pt x 322.3242pt>
+ [20 <./figures/ptmsh.png>]
+<figures/slm.png, id=427, 457.71pt x 322.3242pt>
 File: figures/slm.png Graphic file (type png)
 <use figures/slm.png>
 Package pdftex.def Info: figures/slm.png  used on input line 78.
 (pdftex.def)             Requested size: 241.49895pt x 170.06375pt.
-<figures/slmsh.png, id=444, 541.5432pt x 448.5558pt>
+<figures/slmsh.png, id=428, 541.5432pt x 448.5558pt>
 File: figures/slmsh.png Graphic file (type png)
 <use figures/slmsh.png>
 Package pdftex.def Info: figures/slmsh.png  used on input line 83.
 (pdftex.def)             Requested size: 345.0pt x 285.76059pt.
-<figures/sla_r1.png, id=445, 326.6604pt x 542.025pt>
-File: figures/sla_r1.png Graphic file (type png)
-<use figures/sla_r1.png>
-Package pdftex.def Info: figures/sla_r1.png  used on input line 88.
-(pdftex.def)             Requested size: 345.0pt x 572.45956pt.
+<figures/sla.png, id=429, 324.7332pt x 542.025pt>
+File: figures/sla.png Graphic file (type png)
+<use figures/sla.png>
+Package pdftex.def Info: figures/sla.png  used on input line 88.
+(pdftex.def)             Requested size: 345.0pt x 575.87532pt.
 
 
-LaTeX Warning: Float too large for page by 43.51512pt on input line 90.
+LaTeX Warning: Float too large for page by 46.93088pt on input line 90.
 
-<figures/sld_r1.png, id=446, 644.6484pt x 504.9264pt>
-File: figures/sld_r1.png Graphic file (type png)
-<use figures/sld_r1.png>
-Package pdftex.def Info: figures/sld_r1.png  used on input line 93.
+<figures/sld.png, id=430, 644.6484pt x 504.9264pt>
+File: figures/sld.png Graphic file (type png)
+<use figures/sld.png>
+Package pdftex.def Info: figures/sld.png  used on input line 93.
 (pdftex.def)             Requested size: 345.0pt x 270.22926pt.
-<figures/pfm.png, id=453, 608.9952pt x 443.7378pt>
+<figures/pfm.png, id=436, 608.9952pt x 443.7378pt>
 File: figures/pfm.png Graphic file (type png)
 <use figures/pfm.png>
 Package pdftex.def Info: figures/pfm.png  used on input line 104.
 (pdftex.def)             Requested size: 276.00105pt x 201.10881pt.
-<figures/pfmsh_r1.png, id=454, 445.665pt x 498.663pt>
-File: figures/pfmsh_r1.png Graphic file (type png)
-<use figures/pfmsh_r1.png>
-Package pdftex.def Info: figures/pfmsh_r1.png  used on input line 109.
-(pdftex.def)             Requested size: 345.0pt x 386.02611pt.
-<figures/pfd_r1.png, id=455, 636.09645pt x 495.0495pt>
-File: figures/pfd_r1.png Graphic file (type png)
-<use figures/pfd_r1.png>
-Package pdftex.def Info: figures/pfd_r1.png  used on input line 114.
-(pdftex.def)             Requested size: 345.0pt x 268.49359pt.
-<figures/efficient.png, id=456, 642.7212pt x 260.6538pt>
+<figures/pfd.png, id=437, 618.26985pt x 495.0495pt>
+File: figures/pfd.png Graphic file (type png)
+<use figures/pfd.png>
+Package pdftex.def Info: figures/pfd.png  used on input line 109.
+(pdftex.def)             Requested size: 345.0pt x 276.24382pt.
+<figures/efficient.png, id=438, 642.7212pt x 260.6538pt>
 File: figures/efficient.png Graphic file (type png)
 <use figures/efficient.png>
-Package pdftex.def Info: figures/efficient.png  used on input line 119.
+Package pdftex.def Info: figures/efficient.png  used on input line 114.
 (pdftex.def)             Requested size: 345.0pt x 139.91174pt.
-) [22 <./figures/slm.png>] [23 <./figures/slmsh.png>] [24 <./figures/sla_r1.png>] [25 <./figures/sld_r1.png (PNG copy)> <./figures/pfm.png>] [26 <./figures/pfmsh_r1.png>] [27 <./figures/pfd_r1.png (PNG copy)> <./figures/efficient.png>]
-\openout2 = `conclusion.aux'.
+[21 <./figures/ptc.png>] [22 <./figures/slm.png> <./figures/slmsh.png>]) [23] [24 <./figures/sla.png>] [25 <./figures/sld.png (PNG copy)> <./figures/pfm.png>] [26 <./figures/pfd.png (PNG copy)> <./figures/efficient.png>]
+\openout2 = `conclusion_v0.aux'.
 
- (./conclusion.tex) [28
+ (./conclusion_v0.tex) [27
 
 
 
-] [29
+] [28
 
 
 ]
@@ -580,17 +591,17 @@ Package pdftex.def Info: figures/efficient.png  used on input line 119.
 
 LaTeX Font Warning: Command \small invalid in math mode on input line 15.
 
-) [30
+) [29
 
 ]
-\openout2 = `derivation.aux'.
+\openout2 = `derivation_v0.aux'.
 
- (./derivation.tex
+ (./derivation_v0.tex
 Overfull \hbox (6.5416pt too wide) detected at line 39
 []
  []
 
-[31
+[30
 
 
 
@@ -599,10 +610,10 @@ Overfull \hbox (6.5416pt too wide) detected at line 39
 Package amsmath Warning: Cannot use `split' here;
 (amsmath)                trying to recover with `aligned' on input line 50.
 
-) [32] (./main_v0.bbl [33
+) [31] (./main_v0.bbl [32
 
 
-] [34]) [35] (./main_v0.aux (./frontmatter.aux) (./introduction.aux) (./kinematics.aux) (./mix.aux) (./boundary.aux) (./examples.aux) (./conclusion.aux) (./derivative.aux) (./derivation.aux))
+] [33]) [34] (./main_v0.aux (./frontmatter_v0.aux) (./introduction_v0.aux) (./kinematics_v0.aux) (./mix_v0.aux) (./boundary_v0.aux) (./examples_v0.aux) (./conclusion_v0.aux) (./derivative.aux) (./derivation_v0.aux))
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
@@ -611,18 +622,18 @@ Package rerunfilecheck Info: File `main_v0.out' has not changed.
 (rerunfilecheck)             Checksum: B9794FC3A47EBB06C6EA7FE7C4D2F91A;4389.
  ) 
 Here is how much of TeX's memory you used:
- 11715 strings out of 474103
- 178846 string characters out of 5747481
+ 11700 strings out of 474103
+ 178950 string characters out of 5747481
  1952496 words of memory out of 5000000
- 33653 multiletter control sequences out of 15000+600000
+ 33638 multiletter control sequences out of 15000+600000
  571753 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,30n,79p,2402b,671s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,30n,79p,2405b,671s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main_v0.pdf (35 pages, 4273768 bytes).
+Output written on main_v0.pdf (34 pages, 3979513 bytes).
 PDF statistics:
- 728 PDF objects out of 1000 (max. 8388607)
- 599 compressed objects within 6 object streams
- 207 named destinations out of 1000 (max. 500000)
- 197 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 715 PDF objects out of 1000 (max. 8388607)
+ 589 compressed objects within 6 object streams
+ 205 named destinations out of 1000 (max. 500000)
+ 192 words of extra memory for PDF output out of 10000 (max. 10000000)
 

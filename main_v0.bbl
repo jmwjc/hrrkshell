@@ -41,9 +41,6 @@ P.~Suchde, T.~Jacquemin, O.~Davydov, Point {{Cloud Generation}} for {{Meshfree M
 \bibitem{deng2023a}
 L.~Deng, D.~Wang, An accuracy analysis framework for meshfree collocation methods with particular emphasis on boundary effects, Computer Methods in Applied Mechanics and Engineering 404 (2023) 115782.
 
-\bibitem{wang2024}
-J.~Wang, M.~Hillman, Upwind reproducing kernel collocation method for convection-dominated problems, Computer Methods in Applied Mechanics and Engineering 420 (2024) 116711.
-
 \bibitem{fernandez-mendez2004}
 S.~{Fern{\'a}ndez-M{\'e}ndez}, A.~Huerta, Imposing essential boundary conditions in mesh-free methods, Computer Methods in Applied Mechanics and Engineering 193 (2004) 1257--1275.
 
@@ -92,16 +89,16 @@ J.~Wu, X.~Wu, Y.~Zhao, D.~Wang, A consistent and efficient method for imposing m
 \bibitem{wu2023}
 J.~Wu, X.~Wu, Y.~Zhao, D.~Wang, A rotation-free {{Hellinger-Reissner}} meshfree thin plate formulation naturally accommodating essential boundary conditions, Engineering Analysis with Boundary Elements 154 (2023) 122--140.
 
-\bibitem{benzaken2021}
-J.~Benzaken, J.~A. Evans, S.~F. McCormick, R.~Tamstorf, Nitsche's method for linear {{Kirchhoff}}--{{Love}} shells: {{Formulation}}, error analysis, and verification, Computer Methods in Applied Mechanics and Engineering 374 (2021) 113544.
-
 \bibitem{dah-wei1985}
 H.~{Dah-wei}, A method for establishing generalized variational principle, Applied Mathematics and Mechanics 6 (1985) 501--509.
+
+\bibitem{benzaken2021}
+J.~Benzaken, J.~A. Evans, S.~F. McCormick, R.~Tamstorf, Nitsche's method for linear {{Kirchhoff}}--{{Love}} shells: {{Formulation}}, error analysis, and verification, Computer Methods in Applied Mechanics and Engineering 374 (2021) 113544.
 
 \bibitem{du2022}
 H.~Du, J.~Wu, D.~Wang, J.~Chen, A unified reproducing kernel gradient smoothing {{Galerkin}} meshfree approach to strain gradient elasticity, Computational Mechanics 70 (2022) 73--100.
 
-\bibitem{kiendl2009}
-J.~Kiendl, K.~U. Bletzinger, J.~Linhard, R.~W{\"u}chner, Isogeometric shell analysis with {{Kirchhoff}}--{{Love}} elements, Computer Methods in Applied Mechanics and Engineering 198 (2009) 3902--3914.
+\bibitem{macneal1985}
+R.~H. Macneal, R.~L. Harder, A proposed standard set of problems to test finite element accuracy, Finite Elements in Analysis and Design 1 (1985) 3--20.
 
 \end{thebibliography}
