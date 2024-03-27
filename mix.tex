@@ -71,7 +71,7 @@ and the $\boldsymbol d^\varepsilon_{\alpha}$, $\boldsymbol d^\kappa_{\alpha\beta
 \caption{Integration scheme for Hu-Washizu weak form.}\label{fig2}
 \end{figure}
 
-In order to meet the integration constraint of thin shell problem, the approximated stresses $N^{\alpha\beta h}$, $M^{\alpha\beta h}$ are assumed to be a similar form with strains, yields:
+To satisfy the integration constraint of thin shell problem, the approximated stresses $N^{\alpha\beta h}$, $M^{\alpha\beta h}$ were assumed to have a comparable form to strains, and yields:
 \begin{equation}\label{approxse1}
 N^{\alpha\beta h}(\boldsymbol \xi) = \boldsymbol q^T(\boldsymbol \xi) \boldsymbol a^\alpha \cdot \boldsymbol d^{\beta}_N,\quad
 \boldsymbol a_\alpha N^{\alpha\beta h}(\boldsymbol \xi) = \boldsymbol q^T(\boldsymbol \xi) \boldsymbol d_N^\beta
@@ -122,7 +122,7 @@ with
 \end{split}
 \end{align}
 \end{subequations}
-where evaluations of $\boldsymbol q_{\vert \beta}$, $\boldsymbol q_{,\alpha\vert\beta}$ are detail in \ref{derivative}. Further plugging Eqs. (\ref{depsilon}) and (\ref{dkappa}) back into Eqs. (\ref{approxsn1}) and (\ref{approxsn2}) respectively gives the final expression of $\boldsymbol v^h_{,\alpha}$, $\varepsilon^h_{\alpha\beta}$ and $-\boldsymbol v^h_{,\alpha\beta}$, $\boldsymbol \kappa^h_{\alpha\beta}$ as: \begin{subequations}
+where the derivations of $\boldsymbol q_{\vert \beta}$, $\boldsymbol q_{,\alpha\vert\beta}$ are discussed in detail in \ref{derivative}. Further plugging Eqs. (\ref{depsilon}) and (\ref{dkappa}) back into Eqs. (\ref{approxsn1}) and (\ref{approxsn2}), respectively gives the final expression of $\boldsymbol v^h_{,\alpha}$, $\varepsilon^h_{\alpha\beta}$ and $-\boldsymbol v^h_{,\alpha\beta}$, $\boldsymbol \kappa^h_{\alpha\beta}$ as: \begin{subequations}
 \begin{equation}
 \boldsymbol v^h_{,\alpha} = \sum_{I=1}^{n_p}(
 \tilde \Psi_{I,\alpha} - \bar \Psi_{I,\alpha}) \boldsymbol d_I +
@@ -222,5 +222,5 @@ with
 % M^{\alpha\beta h} = \boldsymbol q^T \boldsymbol G^{-1} \boldsymbol a_3 \cdot \boldsymbol G^{\alpha\beta\gamma\eta}_M \cdot \boldsymbol d^\kappa_{\gamma\eta}
 % \end{equation}
 
-It has to be noted that, referring to reproducing kernel gradient smoothing framework \cite{wang2019a}, $\tilde \Psi_{I,\alpha}$, $\tilde \Psi_{I,\alpha\beta}$ are actually the first and second order smoothed gradients in curvilinear coordinates. $\tilde{\boldsymbol g}_{\alpha I}$ and $\tilde{\boldsymbol g}_{\alpha \beta I}$ are the right hand side integration constraints for first and second order gradients, then this formulation can meet the variational consistency for the second order polynomials. It should be known that, in curved model, the variational consistency for non-polynomial functions, like trigonometric functions, should be required for the polynomial solution. Even with high order polynomial variational consistency, the proposed formulation can not exactly reproduce the solution spanned by basis functions. However, the accuracy of reproducing kernel smoothed gradients is still better that traditional meshfree formulation. Numerical examples in the section below will provide better evidence to prove the accuracy of the reproducing kernel smoothed gradients.
+It has to be noted that, referring to reproducing kernel gradient smoothing framework \cite{wang2019a}, $\tilde \Psi_{I,\alpha}$, $\tilde \Psi_{I,\alpha\beta}$ are actually the first and second order smoothed gradients in curvilinear coordinates.If the right hand side integration constraints for first and second order gradients are $\tilde{\boldsymbol g}_{\alpha I}$ and $\tilde{\boldsymbol g}_{\alpha \beta I}$, respectively, then this formulation can satisfy  the variational consistency for the second order polynomials. It should be mentioned that in curved model, the variational consistency for non-polynomial functions, such as trigonometric functions, should be required for the polynomial solution. Even with high order polynomial variational consistency, the proposed formulation cannot exactly reproduce the solution spanned by the basis functions. However, the accuracy of reproducing kernel smoothed gradients is still superior than the traditional meshfree formulation. The numerical examples in the following section will better demonstrate to the precision of the reproducing kernel smoothed gradients.
 
