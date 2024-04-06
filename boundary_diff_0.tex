@@ -3,7 +3,7 @@
 With the approximated effective stresses and strains, the last equation of weak form Eq. (\ref{w5}) becomes:
 \begin{equation}\label{w51}
 - \sum_{C=1}^{n_e}\sum_{I=1}^{n_p} \delta \boldsymbol d_I \cdot \left ( (\tilde{\boldsymbol g}^T_{\alpha I} - \bar{\boldsymbol g}^T_{\alpha I}) \boldsymbol d_N^{\alpha}
-    + (\tilde{\boldsymbol g}^T_{\alpha\beta I} - \bar{\boldsymbol g}^T_{\alpha\beta I}) \boldsymbol d_M^{\alpha\beta} \right ) = - \sum_{I=1}^{n_p}\delta \DIFdel{d} \DIFadd{\boldsymbol d}_I \cdot \boldsymbol f_I
++ (\tilde{\boldsymbol g}^T_{\alpha\beta I} - \bar{\boldsymbol g}^T_{\alpha\beta I}) \boldsymbol d_M^{\alpha\beta} \right ) = - \sum_{I=1}^{n_p}\delta \DIFaddbegin \boldsymbol \DIFaddend d_I \cdot \boldsymbol f_I
 \end{equation}
 where $\boldsymbol f_I$'s \DIFdelbegin \DIFdel{are }\DIFdelend \DIFaddbegin \DIFadd{denote }\DIFaddend the components of the traditional force vector:
 \begin{equation}
@@ -74,6 +74,7 @@ With a close look at }\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
 \cite{wang2019a, du2022}}\hskip0pt%DIFAUXCMD
 .  Examining }\DIFaddend Eqs. (\ref{de2}) and (\ref{de3}), \DIFdelbegin \DIFdel{the proposed approach for enforcing }\DIFdelend \DIFaddbegin \DIFadd{closely reveal that the structure of the suggested approach to enforce }\DIFaddend essential boundary conditions \DIFdelbegin \DIFdel{show an identical structure with traditional }\DIFdelend \DIFaddbegin \DIFadd{is identical to that of the conventional }\DIFaddend Nitsche's method, \DIFdelbegin \DIFdel{both have }\DIFdelend \DIFaddbegin \DIFadd{with both having }\DIFaddend the consistent and stabilized terms. \DIFdelbegin \DIFdel{So, the next subsection will review the }\DIFdelend \DIFaddbegin \DIFadd{Thus, a review of }\DIFaddend Nitsche's method and \DIFdelbegin \DIFdel{compare it }\DIFdelend \DIFaddbegin \DIFadd{a comparison }\DIFaddend with the proposed \DIFdelbegin \DIFdel{method. 
 }%DIFDELCMD < 
+
 %DIFDELCMD < %%%
 \DIFdelend \DIFaddbegin \DIFadd{approach will be provided in the next subsection. 
 }\DIFaddend \subsection{Comparison with Nitsche's method}
@@ -89,12 +90,15 @@ The Nitsche's method for enforcing essential boundaries can be regarded as a com
                      &- \underbrace{\int_{\Gamma_v} \boldsymbol t \cdot (\boldsymbol v - \bar{\boldsymbol v}) d\Gamma
                      + \int_{\Gamma_\theta} M_{\boldsymbol{nn}}(\theta_{\boldsymbol n} - \bar \theta_{\boldsymbol n})d\Gamma
                      + (P\boldsymbol a_3 \cdot (\boldsymbol v - \bar{\boldsymbol v}))_{\boldsymbol x \in C_v}}_{\text{consistent term}} \\
-                     &+ \underbrace{\DIFaddbegin \DIFadd{\sum_{i=1}^{3}}\DIFaddend \frac{\alpha\DIFdelbegin \DIFdel{_v }\DIFdelend \DIFaddbegin \DIFadd{_{vi}}}{2}\DIFaddend \int_{\Gamma_v} \DIFaddbegin \DIFadd{(}\DIFaddend \boldsymbol v \cdot \DIFaddbegin \DIFadd{\boldsymbol a_i)^2}\DIFaddend \DIFdel{\boldsymbol v} d\Gamma 
+                     &+ \DIFdelbegin %DIFDELCMD < \underbrace{\frac{\alpha_v}{2} \int_{\Gamma_v} \boldsymbol v \cdot \boldsymbol v d\Gamma 
+%DIFDELCMD <                      + \frac{\alpha_\theta}{2} \int_{\Gamma_\theta} \theta_{\boldsymbol n}^2 d\Gamma
+%DIFDELCMD <              + \frac{\alpha_C}{2}(\boldsymbol v \cdot \boldsymbol v)_{\boldsymbol x\in C_v}}%%%
+\DIFdelend \DIFaddbegin \underbrace{\sum_{i=1}^3\frac{\alpha_{vi}}{2} \int_{\Gamma_v} (\boldsymbol v \cdot \boldsymbol a_i)^2 d\Gamma 
                      + \frac{\alpha_\theta}{2} \int_{\Gamma_\theta} \theta_{\boldsymbol n}^2 d\Gamma
-                     + \frac{\alpha_C}{2}(\boldsymbol v \cdot \DIFaddbegin \DIFadd{\boldsymbol a_3)^2} \DIFaddend \DIFdel{\boldsymbol v)}_{\boldsymbol x\in C_v}}_{\text{stabilized term}} \\
+             + \frac{\alpha_C}{2}(\boldsymbol v \cdot \boldsymbol a_3)^2_{\boldsymbol x\in C_v}}\DIFaddend _{\text{stabilized term}}
 \end{split}
 \end{equation}
-where the consistent term generated from the Lagrangian multiplier method contributes to enforce the essential boundary, and meet the variational consistency condition. However, the consistent term can not always ensure the coercivity of stiffness, so the penalty method is introduced to serve as a stabilized term\DIFaddbegin \DIFadd{, in which $\alpha_{vi}$ is the experimental artificial parameter to enforce the displacement towards the $\boldsymbol a_i$ direction, $\alpha_\theta$ and $\alpha_C$ are parameters to enforce rotation and corner deflection, respectively}\DIFaddend . With a standard variational argument, the corresponding weak form can be stated as:
+where the consistent term generated from the Lagrangian multiplier method contributes to enforce the essential boundary, and meet the variational consistency condition. However, the consistent term can not always ensure the coercivity of stiffness, so the penalty method is introduced to serve as a stabilized term\DIFaddbegin \DIFadd{, in which $\alpha_{vi}$ is the experimental artificial parameter for enforcing the displacement towards $\boldsymbol a_i$ direction, $\alpha_\theta$ and $\alpha_C$ are parameters for enforcing rotation and corner deflection}\DIFaddend . With a standard variational argument, the corresponding weak form can be stated as:
 \begin{equation}
 \begin{split}
 \delta \Pi_P(\boldsymbol v) &= \int_\Omega\delta \varepsilon_{\alpha\beta} N^{\alpha\beta} d\Omega +
@@ -109,9 +113,9 @@ where the consistent term generated from the Lagrangian multiplier method contri
                      &- \int_{\Gamma_v} \delta \boldsymbol t \cdot (\boldsymbol v - \bar{\boldsymbol v}) d\Gamma
                      + \int_{\Gamma_\theta} \delta M_{\boldsymbol{nn}}(\theta_{\boldsymbol n} - \bar \theta_{\boldsymbol n})d\Gamma
                      + (\delta P\boldsymbol a_3 \cdot (\boldsymbol v - \bar{\boldsymbol v}))_{\boldsymbol x \in C_v} \\
-                     &+ \DIFaddbegin \DIFadd{\sum_{i=1}^{3}}\DIFaddend \alpha\DIFdelbegin \DIFdel{_v }\DIFdelend \DIFaddbegin \DIFadd{_{vi} }\DIFaddend \int_{\Gamma_v} \DIFaddbegin \DIFadd{(}\DIFaddend \delta \boldsymbol v \cdot \DIFaddbegin \DIFadd{\boldsymbol a_i) (}\DIFadd{\boldsymbol a_i \cdot }\DIFaddend \boldsymbol v\DIFaddbegin \DIFadd{) }\DIFaddend d\Gamma 
+                     &+ \DIFaddbegin \DIFadd{\sum_{i=1}^{3}}\DIFaddend \alpha\DIFdelbegin \DIFdel{_v }\DIFdelend \DIFaddbegin \DIFadd{_{vi} }\DIFaddend \int_{\Gamma_v} \DIFaddbegin \DIFadd{(}\DIFaddend \delta \boldsymbol v \cdot \boldsymbol \DIFaddbegin \DIFadd{a_i) (}\boldsymbol \DIFadd{a_i \cdot }\boldsymbol \DIFaddend v\DIFaddbegin \DIFadd{) }\DIFaddend d\Gamma 
                      + \alpha_\theta \int_{\Gamma_\theta} \delta \theta_{\boldsymbol n}\theta_{\boldsymbol n} d\Gamma
-                     + \alpha_C(\delta \boldsymbol v \cdot \DIFaddbegin \DIFadd{\boldsymbol a_3 \; }\DIFadd{\boldsymbol a_3 \cdot} \DIFaddend \boldsymbol v)_{\boldsymbol x\in C_v} \\
+                     + \alpha_C(\delta \boldsymbol v \cdot \boldsymbol \DIFaddbegin \DIFadd{a_3 \; }\boldsymbol \DIFadd{a_3 \cdot }\boldsymbol \DIFaddend v)_{\boldsymbol x\in C_v} \\
                      &= 0
 \end{split}
 \end{equation}
@@ -133,10 +137,10 @@ where the stiffness \DIFdelbegin \DIFdel{$\boldsymbol K_{IJ}$ }\DIFdelend \DIFad
 \end{subequations}
 \begin{subequations}\label{nde3}
 \begin{align}
-    \boldsymbol K^s_{IJ} &= \DIFdel{\alpha_v} \DIFadd{\boldsymbol \alpha_v} \int_{\Gamma_v} \Psi_I \Psi_J \DIFdelbegin %DIFDELCMD < \boldsymbol %%%
-\DIFdel{\boldsymbol 1 }\DIFdelend d\Gamma 
+\boldsymbol K^s_{IJ} &= \DIFaddbegin \boldsymbol \DIFaddend \alpha_v \int_{\Gamma_v} \Psi_I \Psi_J \DIFdelbegin %DIFDELCMD < \boldsymbol %%%
+\DIFdel{1 }\DIFdelend d\Gamma 
 + \alpha_\theta \int_{\Gamma_\theta} \Psi_{I,\eta} n^\eta \boldsymbol a_3 \boldsymbol a_3 n^\gamma\Psi_{J,\gamma} d\Gamma + \alpha_C [[\Psi_I \boldsymbol a_3 \boldsymbol a_3 \Psi_J]]_{\boldsymbol x \in C_v} \\
-    \boldsymbol f^s_I &= \DIFdel{\alpha_v}\DIFadd{\boldsymbol \alpha_v} \int_{\Gamma_v} \Psi_I \bar{\boldsymbol v} d\Gamma + \alpha_\theta \int_{\Gamma_\theta} \Psi_{I,\eta} n^\eta \boldsymbol a_3 \boldsymbol \bar \theta_{\boldsymbol n} d\Gamma + \alpha_C [[\Psi_I \boldsymbol a_3 \boldsymbol a_3 \cdot \bar{\boldsymbol v}]]_{\boldsymbol x \in C_v}
+\boldsymbol f^s_I &= \DIFaddbegin \boldsymbol \DIFaddend \alpha_v \int_{\Gamma_v} \Psi_I \bar{\boldsymbol v} d\Gamma + \alpha_\theta \int_{\Gamma_\theta} \Psi_{I,\eta} n^\eta \boldsymbol a_3 \boldsymbol \bar \theta_{\boldsymbol n} d\Gamma + \alpha_C [[\Psi_I \boldsymbol a_3 \boldsymbol a_3 \cdot \bar{\boldsymbol v}]]_{\boldsymbol x \in C_v}
 \end{align}
 \end{subequations}
 \DIFaddbegin \DIFadd{with

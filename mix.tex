@@ -1,10 +1,11 @@
-\section{Mixed meshfree formulation for modified Hellinger-Reissner weak form}\label{mixed}
+\section{Mixed meshfree formulation for modified Hu-Washizu’s weak form}\label{mixed}
 \subsection{Reproducing kernel approximation for displacement}
 This study approximates the displacement by adopting reproducing kernel approximation. As shown in Fig. \ref{fig2}, the mid-surface of the shell $\Omega$ is discretized by a set of meshfree nodes $\{\boldsymbol \xi_I\}_{I=1}^{n_p}$ in parametric configuration, where $n_p$ is the total number of meshfree nodes. The approximated displacement namely $\boldsymbol v^h$ can be expressed as:
 \begin{equation}\label{approxv}
 \boldsymbol v(\boldsymbol \xi) = \sum_{I=1}^{n_p} \Psi_I(\boldsymbol \xi) \boldsymbol d_I
 \end{equation}
-in which $\Psi_I$ and $\boldsymbol d_I$ is the shape function and nodal coefficient tensor related by node $\boldsymbol \xi_I$. According to reproducing kernel approximation \cite{liu1995}, the shape function takes the following form:
+where $\Psi_I$ and $\boldsymbol d_I$ represent the shape function and nodal coefficient tensor related by node $\boldsymbol \xi_I$. 
+According to reproducing kernel approximation \cite{liu1995}, the shape function takes the following form:
 \begin{equation}
 \Psi_I(\boldsymbol \xi) = \boldsymbol p^T(\boldsymbol \xi) \boldsymbol c(\boldsymbol \xi) \phi(\boldsymbol \xi_I - \boldsymbol \xi)
 \end{equation}
@@ -122,7 +123,7 @@ with
 \end{split}
 \end{align}
 \end{subequations}
-where the derivations of $\boldsymbol q_{\vert \beta}$, $\boldsymbol q_{,\alpha\vert\beta}$ are discussed in detail in \ref{derivative}. Further plugging Eqs. (\ref{depsilon}) and (\ref{dkappa}) back into Eqs. (\ref{approxsn1}) and (\ref{approxsn2}), respectively gives the final expression of $\boldsymbol v^h_{,\alpha}$, $\varepsilon^h_{\alpha\beta}$ and $-\boldsymbol v^h_{,\alpha\beta}$, $\boldsymbol \kappa^h_{\alpha\beta}$ as: \begin{subequations}
+where evaluations of $\boldsymbol q_{\vert \beta}$, $\boldsymbol q_{,\alpha\vert\beta}$ are discussed in \ref{derivative}. Further plugging Eqs. (\ref{depsilon}) and (\ref{dkappa}) back into Eqs. (\ref{approxsn1}) and (\ref{approxsn2}) respectively gives the final expression of $\boldsymbol v^h_{,\alpha}$, $\varepsilon^h_{\alpha\beta}$ and $-\boldsymbol v^h_{,\alpha}\vert_{\beta}$, $\boldsymbol \kappa^h_{\alpha\beta}$ as: \begin{subequations}
 \begin{equation}
 \boldsymbol v^h_{,\alpha} = \sum_{I=1}^{n_p}(
 \tilde \Psi_{I,\alpha} - \bar \Psi_{I,\alpha}) \boldsymbol d_I +
@@ -222,5 +223,5 @@ with
 % M^{\alpha\beta h} = \boldsymbol q^T \boldsymbol G^{-1} \boldsymbol a_3 \cdot \boldsymbol G^{\alpha\beta\gamma\eta}_M \cdot \boldsymbol d^\kappa_{\gamma\eta}
 % \end{equation}
 
-It has to be noted that, referring to reproducing kernel gradient smoothing framework \cite{wang2019a}, $\tilde \Psi_{I,\alpha}$, $\tilde \Psi_{I,\alpha\beta}$ are actually the first and second order smoothed gradients in curvilinear coordinates.If the right hand side integration constraints for first and second order gradients are $\tilde{\boldsymbol g}_{\alpha I}$ and $\tilde{\boldsymbol g}_{\alpha \beta I}$, respectively, then this formulation can satisfy  the variational consistency for the second order polynomials. It should be mentioned that in curved model, the variational consistency for non-polynomial functions, such as trigonometric functions, should be required for the polynomial solution. Even with high order polynomial variational consistency, the proposed formulation cannot exactly reproduce the solution spanned by the basis functions. However, the accuracy of reproducing kernel smoothed gradients is still superior than the traditional meshfree formulation. The numerical examples in the following section will better demonstrate to the precision of the reproducing kernel smoothed gradients.
+It has to be noted that, referring to reproducing kernel gradient smoothing framework \cite{wang2019a}, $\tilde \Psi_{I,\alpha}$, $\tilde \Psi_{I,\alpha\beta}$ are actually the first and second order smoothed gradients in curvilinear coordinates.If the right hand side integration constraints for first and second order gradients are $\tilde{\boldsymbol g}_{\alpha I}$ and $\tilde{\boldsymbol g}_{\alpha \beta I}$, respectively, then this formulation can satisfy  the variational consistency for the second order polynomials. It should be mentioned that in curved model, the variational consistency for non-polynomial functions, such as trigonometric functions, should be required for the polynomial solution. Even with high order polynomial variational consistency, the proposed formulation cannot exactly reproduce the solution spanned by the basis functions. However, the accuracy of reproducing kernel smoothed gradients is still superior than the traditional meshfree formulation. The numerical examples in the following section will better demonstrate the precision of the reproducing kernel smoothed gradients.
 

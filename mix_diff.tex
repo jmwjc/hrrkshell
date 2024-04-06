@@ -1,10 +1,11 @@
-\section{Mixed meshfree formulation for modified Hellinger-Reissner weak form}\label{mixed}
+\section{Mixed meshfree formulation for modified \DIFdelbegin \DIFdel{Hellinger-Reissner }\DIFdelend \DIFaddbegin \DIFadd{Hu-Washizu’s }\DIFaddend weak form}\label{mixed}
 \subsection{Reproducing kernel approximation for displacement}
 This study approximates the displacement by adopting reproducing kernel approximation. As shown in Fig. \ref{fig2}, the mid-surface of the shell $\Omega$ is discretized by a set of meshfree nodes $\{\boldsymbol \xi_I\}_{I=1}^{n_p}$ in parametric configuration, where $n_p$ is the total number of meshfree nodes. The approximated displacement namely $\boldsymbol v^h$ can be expressed as:
 \begin{equation}\label{approxv}
 \boldsymbol v(\boldsymbol \xi) = \sum_{I=1}^{n_p} \Psi_I(\boldsymbol \xi) \boldsymbol d_I
 \end{equation}
-in which $\Psi_I$ and $\boldsymbol d_I$ is the shape function and nodal coefficient tensor related by node $\boldsymbol \xi_I$. According to reproducing kernel approximation \cite{liu1995}, the shape function takes the following form:
+\DIFdelbegin \DIFdel{in which }\DIFdelend \DIFaddbegin \DIFadd{where }\DIFaddend $\Psi_I$ and $\boldsymbol d_I$ \DIFdelbegin \DIFdel{is }\DIFdelend \DIFaddbegin \DIFadd{represent }\DIFaddend the shape function and nodal coefficient tensor related by node $\boldsymbol \xi_I$. 
+According to reproducing kernel approximation \cite{liu1995}, the shape function takes the following form:
 \begin{equation}
 \Psi_I(\boldsymbol \xi) = \boldsymbol p^T(\boldsymbol \xi) \boldsymbol c(\boldsymbol \xi) \phi(\boldsymbol \xi_I - \boldsymbol \xi)
 \end{equation}
@@ -71,7 +72,7 @@ and the $\boldsymbol d^\varepsilon_{\alpha}$, $\boldsymbol d^\kappa_{\alpha\beta
 \caption{Integration scheme for Hu-Washizu weak form.}\label{fig2}
 \end{figure}
 
-In order to meet the integration constraint of thin shell problem, the approximated stresses $N^{\alpha\beta h}$, $M^{\alpha\beta h}$ are assumed to be a similar form with strains, yields:
+\DIFdelbegin \DIFdel{In order to meet }\DIFdelend \DIFaddbegin \DIFadd{To satisfy }\DIFaddend the integration constraint of thin shell problem, the approximated stresses $N^{\alpha\beta h}$, $M^{\alpha\beta h}$ \DIFdelbegin \DIFdel{are assumed to be a similar form with strains, }\DIFdelend \DIFaddbegin \DIFadd{were assumed to have a comparable form to strains, and }\DIFaddend yields:
 \begin{equation}\label{approxse1}
 N^{\alpha\beta h}(\boldsymbol \xi) = \boldsymbol q^T(\boldsymbol \xi) \boldsymbol a^\alpha \cdot \boldsymbol d^{\beta}_N,\quad
 \boldsymbol a_\alpha N^{\alpha\beta h}(\boldsymbol \xi) = \boldsymbol q^T(\boldsymbol \xi) \boldsymbol d_N^\beta
@@ -122,7 +123,7 @@ with
 \end{split}
 \end{align}
 \end{subequations}
-where evaluations of $\boldsymbol q_{\vert \beta}$, $\boldsymbol q_{,\alpha\vert\beta}$ are detail in \ref{derivative}. Further plugging Eqs. (\ref{depsilon}) and (\ref{dkappa}) back into Eqs. (\ref{approxsn1}) and (\ref{approxsn2}) respectively gives the final expression of $\boldsymbol v^h_{,\alpha}$, $\varepsilon^h_{\alpha\beta}$ and $-\boldsymbol v^h_{,\alpha\beta}$, $\boldsymbol \kappa^h_{\alpha\beta}$ as: \begin{subequations}
+where evaluations of $\boldsymbol q_{\vert \beta}$, $\boldsymbol q_{,\alpha\vert\beta}$ are \DIFdelbegin \DIFdel{detail }\DIFdelend \DIFaddbegin \DIFadd{discussed }\DIFaddend in \ref{derivative}. Further plugging Eqs. (\ref{depsilon}) and (\ref{dkappa}) back into Eqs. (\ref{approxsn1}) and (\ref{approxsn2}) respectively gives the final expression of $\boldsymbol v^h_{,\alpha}$, $\varepsilon^h_{\alpha\beta}$ and \DIFdelbegin \DIFdel{$-\boldsymbol v^h_{,\alpha\beta}$}\DIFdelend \DIFaddbegin \DIFadd{$-\boldsymbol v^h_{,\alpha}\vert_{\beta}$}\DIFaddend , $\boldsymbol \kappa^h_{\alpha\beta}$ as: \begin{subequations}
 \begin{equation}
 \boldsymbol v^h_{,\alpha} = \sum_{I=1}^{n_p}(
 \tilde \Psi_{I,\alpha} - \bar \Psi_{I,\alpha}) \boldsymbol d_I +
@@ -222,5 +223,5 @@ with
 % M^{\alpha\beta h} = \boldsymbol q^T \boldsymbol G^{-1} \boldsymbol a_3 \cdot \boldsymbol G^{\alpha\beta\gamma\eta}_M \cdot \boldsymbol d^\kappa_{\gamma\eta}
 % \end{equation}
 
-It has to be noted that, referring to reproducing kernel gradient smoothing framework \cite{wang2019a}, $\tilde \Psi_{I,\alpha}$, $\tilde \Psi_{I,\alpha\beta}$ are actually the first and second order smoothed gradients in curvilinear coordinates. $\tilde{\boldsymbol g}_{\alpha I}$ and $\tilde{\boldsymbol g}_{\alpha \beta I}$ are the right hand side integration constraints for first and second order gradients, then this formulation can meet the variational consistency for the \DIFdelbegin \DIFdel{$p$-th }\DIFdelend \DIFaddbegin \DIFadd{second }\DIFaddend order polynomials. It should be known that, in curved model, the variational consistency for non-polynomial functions, like trigonometric functions, should be required for the polynomial solution. Even with \DIFdelbegin \DIFdel{$p$-th order }\DIFdelend \DIFaddbegin \DIFadd{high order polynomial }\DIFaddend variational consistency, the proposed formulation can not exactly reproduce the solution spanned by basis functions. However, the accuracy of reproducing kernel smoothed gradients is still better that traditional meshfree formulation. Numerical examples in the section below will provide better evidence to prove the accuracy of the reproducing kernel smoothed gradients.
+It has to be noted that, referring to reproducing kernel gradient smoothing framework \cite{wang2019a}, $\tilde \Psi_{I,\alpha}$, $\tilde \Psi_{I,\alpha\beta}$ are actually the first and second order smoothed gradients in curvilinear coordinates.\DIFdelbegin \DIFdel{$\tilde{\boldsymbol g}_{\alpha I}$ and $\tilde{\boldsymbol g}_{\alpha \beta I}$ are }\DIFdelend \DIFaddbegin \DIFadd{If }\DIFaddend the right hand side integration constraints for first and second order gradients \DIFdelbegin \DIFdel{, }\DIFdelend \DIFaddbegin \DIFadd{are $\tilde{\boldsymbol g}_{\alpha I}$ and $\tilde{\boldsymbol g}_{\alpha \beta I}$, respectively, }\DIFaddend then this formulation can \DIFdelbegin \DIFdel{meet }\DIFdelend \DIFaddbegin \DIFadd{satisfy  }\DIFaddend the variational consistency for the \DIFdelbegin \DIFdel{$p$-th }\DIFdelend \DIFaddbegin \DIFadd{second }\DIFaddend order polynomials. It should be \DIFdelbegin \DIFdel{known that , }\DIFdelend \DIFaddbegin \DIFadd{mentioned that }\DIFaddend in curved model, the variational consistency for non-polynomial functions, \DIFdelbegin \DIFdel{like }\DIFdelend \DIFaddbegin \DIFadd{such as }\DIFaddend trigonometric functions, should be required for the polynomial solution. Even with \DIFdelbegin \DIFdel{$p$-th order }\DIFdelend \DIFaddbegin \DIFadd{high order polynomial }\DIFaddend variational consistency, the proposed formulation \DIFdelbegin \DIFdel{can not }\DIFdelend \DIFaddbegin \DIFadd{cannot }\DIFaddend exactly reproduce the solution spanned by \DIFaddbegin \DIFadd{the }\DIFaddend basis functions. However, the accuracy of reproducing kernel smoothed gradients is still \DIFdelbegin \DIFdel{better that }\DIFdelend \DIFaddbegin \DIFadd{superior than the }\DIFaddend traditional meshfree formulation. \DIFdelbegin \DIFdel{Numerical }\DIFdelend \DIFaddbegin \DIFadd{The numerical }\DIFaddend examples in the \DIFdelbegin \DIFdel{section below will provide better evidence to prove the accuracy }\DIFdelend \DIFaddbegin \DIFadd{following section will better demonstrate the precision }\DIFaddend of the reproducing kernel smoothed gradients.
 

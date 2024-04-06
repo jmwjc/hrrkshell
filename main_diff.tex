@@ -1,4 +1,4 @@
-%! TEX program = xelatex
+%! TEX program = xelatexp
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL main_v0.tex   Mon Mar 25 18:35:25 2024
 %DIF ADD main.tex      Mon Mar 25 17:21:14 2024
@@ -234,11 +234,14 @@ J.~Benzaken, J.~A. Evans, S.~F. McCormick, R.~Tamstorf, Nitsche's method for lin
 }
 
 \DIFaddend \bibitem{du2022}
-H.~Du, J.~Wu, D.~Wang, J.~Chen, A unified reproducing kernel gradient smoothing {{Galerkin}} meshfree approach to strain gradient elasticity, Computational Mechanics 70 (2022) 73--100.
+H.~Du, J.~Wu, D.~Wang, J.~Chen, A unified reproducing kernel gradient smoothing {{Galerkin}} meshfree approach to strain gradient elasticity, Computational Mechanics 70 (2022) 73--100\DIFaddbegin \DIFadd{.
+}
 
-\DIFdelbegin \bibitem{macneal1985}
-\DIFdel{R.~H.Macneal, R.~L.Harder, A proposed standard set of problems to test finite element accuracy, Finite Elements in Analysis and Design 1 (1985) 3--20}\DIFdelend \DIFaddbegin \bibitem{kiendl2009}
+\bibitem{kiendl2009}
 \DIFadd{J.~Kiendl, K.~U. Bletzinger, J.~Linhard, R.~W}{\DIFadd{\"u}}\DIFadd{chner, Isogeometric shell analysis with }{{\DIFadd{Kirchhoff}}}\DIFadd{--}{{\DIFadd{Love}}} \DIFadd{elements, Computer Methods in Applied Mechanics and Engineering 198 (2009) 3902--3914}\DIFaddend .
+
+\bibitem{macneal1985}
+R.~H. Macneal, R.~L. Harder, A proposed standard set of problems to test finite element accuracy, Finite Elements in Analysis and Design 1 (1985) 3--20.
 
 \end{thebibliography}
 \end{document}

@@ -60,13 +60,13 @@ In accordance with the Kirchhoff hypothesis, the thickness of shell will not cha
 \right .
 \Rightarrow \boldsymbol \theta = - \boldsymbol v_{,\alpha} \cdot \boldsymbol a_3 \boldsymbol a^\alpha
 \end{equation}
-where $\boldsymbol a^\alpha$'s is the in-plane contravariant base vector, $\boldsymbol a^\alpha \cdot \boldsymbol a_\beta = \delta^\alpha_\beta$, $\delta$ is the Kronecker delta function. The detailed derivation of Eq. \ref{a3} can be found in reference \cite{benzaken2021}.
+where $\boldsymbol a^\alpha$'s is the in-plane contravariant base vector, $\boldsymbol a^\alpha \cdot \boldsymbol a_\beta = \delta^\alpha_\beta$, $\delta$ is the Kronecker delta function. The detailed derivation of Eq. \ref{a3} can be found in \cite{benzaken2021}.
 
-Furthermore, substituting Eq. (\ref{a3}) into Eq. (\ref{kappa1}) leads to:
+Furthermore, on substituting Eq. (\ref{a3}) into Eq. (\ref{kappa1}) leads to:
 \begin{equation}
 \kappa_{\alpha\beta} = (\Gamma^\gamma_{\alpha\beta} \boldsymbol v_{,\gamma} - \boldsymbol v_{,\alpha\beta}) \cdot \boldsymbol a_3 = - \boldsymbol v_{,\alpha}\vert_\beta \cdot \boldsymbol a_3
 \end{equation}
-in which $\Gamma^\gamma_{\alpha\beta} = \boldsymbol a_{\alpha,\beta} \cdot \boldsymbol a^\gamma$ is namely the Christoffel symbol of the second kind, and $\boldsymbol v_{,\alpha}\vert\beta$ is the in-plane covariant derivative of $\boldsymbol v_{,\alpha}$, i.e. $\boldsymbol v_{,\alpha}\vert_\beta = \Gamma^\gamma_{\alpha\beta}\boldsymbol v_{,\gamma} - \boldsymbol v_{,\alpha\beta}$.
+in which $\Gamma^\gamma_{\alpha\beta} = \boldsymbol a_{\alpha,\beta} \cdot \boldsymbol a^\gamma$ is namely the Christoffel symbol of the second kind, and $\boldsymbol v_{,\alpha}\vert_\beta$ is the in-plane covariant derivative of $\boldsymbol v_{,\alpha}$, i.e. $\boldsymbol v_{,\alpha}\vert_\beta = \Gamma^\gamma_{\alpha\beta}\boldsymbol v_{,\gamma} - \boldsymbol v_{,\alpha\beta}$.
 
 \subsection{Galerkin weak form for Hu-Washizu principle of complementary energy}
 In this study, the Hu-Washizu variational principle of complementary energy \cite{dah-wei1985} was adopted for the development of the proposed analytical approach, the corresponding complementary functional, denoted by $\Pi_C$, is listed as follows:
@@ -122,7 +122,7 @@ Moreover, the natural boundary conditions should be applied by Lagrangian multip
 - \int_\Omega \boldsymbol v \cdot (\boldsymbol b - \bar{\boldsymbol b}) d\Omega 
 \end{split}
 \end{equation}
-where $\bar{\boldsymbol T}$, $\bar M_{\boldsymbol nn}$ and $\bar P$ are the prescribed traction, bending moment and concentrated force on the edges $\Gamma_T$, $\Gamma_M$ and corner $C_P$, respectively. All the specified boundaries meet the following geometric relationships:
+where $\bar{\boldsymbol T}$, $\bar M_{\boldsymbol{nn}}$ and $\bar P$ are the prescribed traction, bending moment and concentrated force on edges $\Gamma_T$, $\Gamma_M$ and corner $C_P$ respectively. All the specified boundaries meet the following geometric relationships:
 \begin{equation}\label{geo}
 \begin{cases}
 \Gamma=\Gamma_v \cup \Gamma_T \cup \Gamma_\theta \cup \Gamma_M, \quad C = C_v \cup C_P, \\

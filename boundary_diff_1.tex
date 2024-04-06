@@ -5,7 +5,7 @@ With the approximated effective stresses and strains, the last equation of weak 
 - \sum_{C=1}^{n_e}\sum_{I=1}^{n_p} \delta \boldsymbol d_I \cdot \left ( (\tilde{\boldsymbol g}^T_{\alpha I} - \bar{\boldsymbol g}^T_{\alpha I}) \boldsymbol d_N^{\alpha}
     + (\tilde{\boldsymbol g}^T_{\alpha\beta I} - \bar{\boldsymbol g}^T_{\alpha\beta I}) \boldsymbol d_M^{\alpha\beta} \right ) = - \sum_{I=1}^{n_p}\delta \DIFdel{d} \DIFadd{\boldsymbol d}_I \cdot \boldsymbol f_I
 \end{equation}
-where $\boldsymbol f_I$'s \DIFdelbegin \DIFdel{are }\DIFdelend \DIFaddbegin \DIFadd{denote }\DIFaddend the components of the traditional force vector:
+where $\boldsymbol f_I$'s are the components of the traditional force vector:
 \begin{equation}
         \boldsymbol f_I = \int_{\Gamma_t} \Psi_I \bar{\boldsymbol t} d\Gamma - \int_{\Gamma_M} \Psi_{I,\gamma} n^\gamma \bar M_{\boldsymbol{nn}} d\Gamma + [[\Psi_I\boldsymbol a_3 \bar P]]_{\boldsymbol x\in C_P} + \int_\Omega \Psi_I \bar{\boldsymbol b} d\Omega
 \end{equation}
@@ -42,12 +42,13 @@ following the above procedure and including the weak form of Eqs. (\ref{w1}), (\
 + \int_{\Omega_C}(\delta \tilde \kappa^h_{\alpha\beta} - \delta \bar \kappa^h_{\alpha\beta})\frac{h^3}{12}C^{\alpha\beta\gamma\eta}\hat \kappa^h_{\gamma\eta}d\Omega \\
 \end{split}
 \end{equation}
-\DIFdelbegin \DIFdel{on }\DIFdelend \DIFaddbegin \DIFadd{The complete discrete equilibrium equations can be obtained by }\DIFaddend further substituting Eqs. (\ref{epsilon2}) and (\ref{kappa2}) into above equation\DIFdelbegin \DIFdel{gives the final discrete equilibrium equations}\DIFdelend , respectively: 
+on further substituting Eqs. (\ref{epsilon2}) and (\ref{kappa2}) into above equation gives the final discrete equilibrium equations, respectively: 
 \begin{equation}
         (\boldsymbol K + \tilde{\boldsymbol K} + \bar{\boldsymbol K} )\boldsymbol d = \boldsymbol f + \tilde{\boldsymbol f} + \bar{\boldsymbol f}
 \end{equation}
-where \DIFaddbegin \DIFadd{the components of stiffness matrices and force vectors in discrete equilibrium equations can be evaluated as follows:
-}\DIFaddend \begin{equation}\label{de1}
+where 
+\DIFadd{the components of stiffness matrices and force vectors in discrete equilibrium equations can be evaluated as follows:}
+\begin{equation}\label{de1}
         \boldsymbol K_{IJ} = \int_\Omega \tilde{\boldsymbol \varepsilon}_{\alpha\beta I} hC^{\alpha\beta\gamma\eta}\tilde{\boldsymbol \varepsilon}_{\gamma\eta J} d\Omega + \int_\Omega \tilde{\boldsymbol \kappa}_{\alpha\beta I} \frac{h^3}{12}C^{\alpha\beta\gamma\eta} \tilde{\boldsymbol \kappa}\DIFdelbegin \DIFdel{_{\alpha\beta J} }\DIFdelend \DIFaddbegin \DIFadd{_{\gamma\eta J} }\DIFaddend d\Omega
 \end{equation}
 \begin{subequations}\label{de2}
@@ -68,15 +69,13 @@ where \DIFaddbegin \DIFadd{the components of stiffness matrices and force vector
 \end{align}
 \end{subequations}
 
-The detailed derivations of Eqs (\ref{de1})-(\ref{de3}) are listed in the \ref{derivations}. As shown in these equations, Eq. (\ref{de1}) is the conventional stiffness matrix evaluated by smoothed gradients $\tilde \Psi_{I,\alpha}$, $\tilde \Psi_{I,\alpha}\vert_\beta$, and the Eqs. (\ref{de2}) and (\ref{de3}) contribute for the enforcement of essential boundary. It should be \DIFdelbegin \DIFdel{mentioned }\DIFdelend \DIFaddbegin \DIFadd{noticed }\DIFaddend that, in accordance with reproducing kernel smoothed gradient framework, the integration scheme of Eqs. (\ref{de1}-\ref{de3}) should be aligned with \DIFdelbegin \DIFdel{the }\DIFdelend those used in the construction of smoothed gradients. The integration scheme used for \DIFaddbegin \DIFadd{the }\DIFaddend proposed method is shown in Fig. \ref{fig2}, \DIFdelbegin \DIFdel{the }\DIFdelend \DIFaddbegin \DIFadd{in which the total number of the blue circular integration points has been optimized from a global point of view, aiming to reduce the computation of traditional meshfree shape functions and its first order derivatives. In contrast, for assembly stiffness matrix $\boldsymbol K$, the low order Gauss integration rule is suitable to ensure the accuracy due to the inherently variational consistency in the smoothed gradients. The }\DIFaddend detailed positions and weight of \DIFdelbegin \DIFdel{integration points }\DIFdelend \DIFaddbegin \DIFadd{the integration points and the efficiency demonstration of this optimized integration scheme }\DIFaddend can be found in \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+The detailed derivations of Eqs (\ref{de1})-(\ref{de3}) are listed in the \ref{derivations}. As shown in these equations, Eq. (\ref{de1}) is the conventional stiffness matrix evaluated by smoothed gradients $\tilde \Psi_{I,\alpha}$, $\tilde \Psi_{I,\alpha}\vert_\beta$, and the Eqs. (\ref{de2}) and (\ref{de3}) contribute for the enforcement of essential boundary. It should be mentioned that, in accordance with reproducing kernel smoothed gradient framework, the integration scheme of Eqs. (\ref{de1}-\ref{de3}) should be aligned with the those used in the construction of smoothed gradients. The integration scheme used for proposed method is shown in Fig. \ref{fig2}, \DIFdelbegin \DIFdel{the }\DIFdelend \DIFaddbegin \DIFadd{in which the total number of the blue circular integration points has been optimized from a global point of view, aiming to reduce the computation of traditional meshfree shape functions and its first order derivatives. In contrast, for assembly stiffness matrix $\boldsymbol K$, the low order Gauss integration rule is suitable to ensure the accuracy due to the inherently variational consistency in smoothed gradients. The }\DIFaddend detailed positions and weight of integration points \DIFaddbegin \DIFadd{and the efficiency demonstration of this optimized integration scheme }\DIFaddend can be found in \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
 \cite{du2022}  }\hskip0pt%DIFAUXCMD
-With a close look at }\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
-\cite{wang2019a, du2022}}\hskip0pt%DIFAUXCMD
-.  Examining }\DIFaddend Eqs. (\ref{de2}) and (\ref{de3}), \DIFdelbegin \DIFdel{the proposed approach for enforcing }\DIFdelend \DIFaddbegin \DIFadd{closely reveal that the structure of the suggested approach to enforce }\DIFaddend essential boundary conditions \DIFdelbegin \DIFdel{show an identical structure with traditional }\DIFdelend \DIFaddbegin \DIFadd{is identical to that of the conventional }\DIFaddend Nitsche's method, \DIFdelbegin \DIFdel{both have }\DIFdelend \DIFaddbegin \DIFadd{with both having }\DIFaddend the consistent and stabilized terms. \DIFdelbegin \DIFdel{So, the next subsection will review the }\DIFdelend \DIFaddbegin \DIFadd{Thus, a review of }\DIFaddend Nitsche's method and \DIFdelbegin \DIFdel{compare it }\DIFdelend \DIFaddbegin \DIFadd{a comparison }\DIFaddend with the proposed \DIFdelbegin \DIFdel{method. 
-}%DIFDELCMD < 
-%DIFDELCMD < %%%
-\DIFdelend \DIFaddbegin \DIFadd{approach will be provided in the next subsection. 
-}\DIFaddend \subsection{Comparison with Nitsche's method}
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\cite{wang2019a, du2022}  }\hskip0pt%DIFAUXCMD
+}\DIFaddend With a close look at Eqs. (\ref{de2}) and (\ref{de3}), the proposed approach for enforcing essential boundary conditions show an identical structure with traditional Nitsche's method, both have the consistent and stabilized terms. So, the next subsection will review the Nitsche's method and compare it with the proposed method.
+
+\subsection{Comparison with Nitsche's method}
 The Nitsche's method for enforcing essential boundaries can be regarded as a combination of Lagrangian multiplier method and penalty method, in which the Lagrangian multiplier is represented by the approximated displacement. The corresponding total potential energy functional $\Pi_P$ is given by:
 \begin{equation}
 \begin{split}
@@ -94,7 +93,7 @@ The Nitsche's method for enforcing essential boundaries can be regarded as a com
                      + \frac{\alpha_C}{2}(\boldsymbol v \cdot \DIFaddbegin \DIFadd{\boldsymbol a_3)^2} \DIFaddend \DIFdel{\boldsymbol v)}_{\boldsymbol x\in C_v}}_{\text{stabilized term}} \\
 \end{split}
 \end{equation}
-where the consistent term generated from the Lagrangian multiplier method contributes to enforce the essential boundary, and meet the variational consistency condition. However, the consistent term can not always ensure the coercivity of stiffness, so the penalty method is introduced to serve as a stabilized term\DIFaddbegin \DIFadd{, in which $\alpha_{vi}$ is the experimental artificial parameter to enforce the displacement towards the $\boldsymbol a_i$ direction, $\alpha_\theta$ and $\alpha_C$ are parameters to enforce rotation and corner deflection, respectively}\DIFaddend . With a standard variational argument, the corresponding weak form can be stated as:
+where the consistent term generated from the Lagrangian multiplier method contributes to enforce the essential boundary, and meet the variational consistency condition. However, the consistent term can not always ensure the coercivity of stiffness, so the penalty method is introduced to serve as a stabilized term\DIFaddbegin \DIFadd{, in which $\alpha_{vi}$ is the experimental artificial parameter for enforcing the displacement towards $\boldsymbol a_i$ direction, $\alpha_\theta$ and $\alpha_C$ are parameters for enforcing rotation and corner deflection}\DIFaddend . With a standard variational argument, the corresponding weak form can be stated as:
 \begin{equation}
 \begin{split}
 \delta \Pi_P(\boldsymbol v) &= \int_\Omega\delta \varepsilon_{\alpha\beta} N^{\alpha\beta} d\Omega +
@@ -115,13 +114,34 @@ where the consistent term generated from the Lagrangian multiplier method contri
                      &= 0
 \end{split}
 \end{equation}
-\DIFdelbegin \DIFdel{in which $\alpha_v$, $\alpha_\theta$ and $\alpha_C$ represent experimental artificial parameters. Further }\DIFdelend \DIFaddbegin \DIFadd{Upon further }\DIFaddend invoking the conventional reproducing kernel approximation of Eq. (\ref{approxv})\DIFdelbegin \DIFdel{leads to the following }\DIFdelend \DIFaddbegin \DIFadd{, the subsequent }\DIFaddend discrete equilibrium equations \DIFdelbegin \DIFdel{:
-}\DIFdelend \DIFaddbegin \DIFadd{can be obtained:
-}\DIFaddend \begin{equation}
+\DIFdelbegin \DIFdel{in which $\alpha_v$, $\alpha_\theta$ and $\alpha_C$ represent experimental artificial parameters. }\DIFdelend Further invoking the conventional reproducing kernel approximation of Eq. (\ref{approxv}) leads to the following discrete equilibrium equations:
+\begin{equation}
 \DIFdelbegin \DIFdel{\sum_{J=1}^{n_p}}\DIFdelend (\boldsymbol K \DIFdelbegin \DIFdel{_{IJ} }\DIFdelend + \boldsymbol K^c \DIFdelbegin \DIFdel{_{IJ} }\DIFdelend + \boldsymbol K^s\DIFdelbegin \DIFdel{_{IJ}}\DIFdelend ) \boldsymbol d \DIFdelbegin \DIFdel{_J }\DIFdelend = \boldsymbol f \DIFdelbegin \DIFdel{_I }\DIFdelend + \boldsymbol f^c + \boldsymbol f^s
 \end{equation}
+% \DIFdelbegin \begin{displaymath}
+% \DIFdel{\sum_{J=1}^{n_p}(\boldsymbol K_{IJ} + \boldsymbol K^c_{IJ} + \boldsymbol K^s_{IJ}) \boldsymbol d_J = \boldsymbol f_I + \boldsymbol f^c + \boldsymbol f^s
+% }\end{displaymath}%DIFAUXCMD
+% \DIFdelend \DIFaddbegin \begin{equation}
+% \DIFadd{(\boldsymbol K + \boldsymbol K^c + \boldsymbol K^s) \boldsymbol d = \boldsymbol f + \boldsymbol f^c + \boldsymbol f^s
+% }\end{equation}\DIFaddend 
 where the stiffness \DIFdelbegin \DIFdel{$\boldsymbol K_{IJ}$ }\DIFdelend \DIFaddbegin \DIFadd{$\boldsymbol K$ }\DIFaddend is identical with Eq. (\ref{de1}). \DIFdelbegin \DIFdel{$\boldsymbol K^c_{IJ}$ and $\boldsymbol K^s_{IJ}$ }\DIFdelend \DIFaddbegin \DIFadd{$\boldsymbol K^c$ and $\boldsymbol K^s$ }\DIFaddend are the stiffness matrices for consistent and stabilized terms, respectively, and \DIFaddbegin \DIFadd{their components }\DIFaddend have the following form:
 \begin{subequations}\label{nde2}
+% \DIFdelbegin \begin{align*}
+% \begin{split}
+% \DIFdel{\boldsymbol K^c_{IJ} = }&\DIFdel{- \int_{\Gamma_v} (\Psi_I \boldsymbol T_{NJ} + \boldsymbol T_{NJ} \Psi_J) d\Gamma }\\
+%                                      &\DIFdel{+ \int_{\Gamma_\theta} (\Psi_{I,\gamma} n^\gamma \boldsymbol a_3 \boldsymbol M_{\boldsymbol{nn}J} + \boldsymbol a_3 \boldsymbol M_{\boldsymbol{nn}I} \Psi_{I,\gamma}n^\gamma)d\Gamma }\\
+%                                      & \DIFdel{+ (}[[\DIFdel{\Psi_I \boldsymbol a_3 \boldsymbol P_J}]] \DIFdel{+ }[[\DIFdel{\boldsymbol P_I \boldsymbol a_3 \Psi_J}]]\DIFdel{)_{\boldsymbol x \in C_v}
+% }\end{split} \\
+% \DIFdel{\boldsymbol f^c_I = }&\DIFdel{- \int_{\Gamma_v} \boldsymbol T_I \cdot \bar{\boldsymbol v} d\Gamma + \int_{\Gamma_\theta} \boldsymbol M_{\boldsymbol{nn}I} \bar{\theta}_{\boldsymbol n} d\Gamma + }[[\DIFdel{\boldsymbol P_I\boldsymbol a_3 \cdot \bar{\boldsymbol v}}]]\DIFdel{_{\boldsymbol x \in C_v}
+% }\end{align*}%DIFAUXCMD
+% \DIFdelend \DIFaddbegin \begin{align}
+% \begin{split}
+% \DIFadd{\boldsymbol K^c_{IJ} = }&\DIFadd{- \int_{\Gamma_v} (\Psi_I \boldsymbol T_{NJ} + \boldsymbol T_{NI} \Psi_J) d\Gamma }\\
+%                                      &\DIFadd{+ \int_{\Gamma_\theta} (\Psi_{I,\gamma} n^\gamma \boldsymbol a_3 \boldsymbol M_{\boldsymbol{nn}J} + \boldsymbol a_3 \boldsymbol M_{\boldsymbol{nn}I} \Psi_{J,\gamma}n^\gamma)d\Gamma }\\
+%                                      & \DIFadd{+ (}[[\DIFadd{\Psi_I \boldsymbol a_3 \boldsymbol P_J}]] \DIFadd{+ }[[\DIFadd{\boldsymbol P_I \boldsymbol a_3 \Psi_J}]]\DIFadd{)_{\boldsymbol x \in C_v}
+% }\end{split} \\
+% \DIFadd{\boldsymbol f^c_I = }&\DIFadd{- \int_{\Gamma_v} \boldsymbol T_I \cdot \bar{\boldsymbol v} d\Gamma + \int_{\Gamma_\theta} \boldsymbol M_{\boldsymbol{nn}I} \bar{\theta}_{\boldsymbol n} d\Gamma + }[[\DIFadd{\boldsymbol P_I\boldsymbol a_3 \cdot \bar{\boldsymbol v}}]]\DIFadd{_{\boldsymbol x \in C_v}
+% }\end{align}\DIFaddend 
 \begin{align}
 \begin{split}
 \boldsymbol K^c_{IJ} = &- \int_{\Gamma_v} (\Psi_I \boldsymbol T_{NJ} + \boldsymbol T\DIFdelbegin \DIFdel{_{NJ} }\DIFdelend \DIFaddbegin \DIFadd{_{NI} }\DIFaddend \Psi_J) d\Gamma \\
@@ -138,6 +158,16 @@ where the stiffness \DIFdelbegin \DIFdel{$\boldsymbol K_{IJ}$ }\DIFdelend \DIFad
 + \alpha_\theta \int_{\Gamma_\theta} \Psi_{I,\eta} n^\eta \boldsymbol a_3 \boldsymbol a_3 n^\gamma\Psi_{J,\gamma} d\Gamma + \alpha_C [[\Psi_I \boldsymbol a_3 \boldsymbol a_3 \Psi_J]]_{\boldsymbol x \in C_v} \\
     \boldsymbol f^s_I &= \DIFdel{\alpha_v}\DIFadd{\boldsymbol \alpha_v} \int_{\Gamma_v} \Psi_I \bar{\boldsymbol v} d\Gamma + \alpha_\theta \int_{\Gamma_\theta} \Psi_{I,\eta} n^\eta \boldsymbol a_3 \boldsymbol \bar \theta_{\boldsymbol n} d\Gamma + \alpha_C [[\Psi_I \boldsymbol a_3 \boldsymbol a_3 \cdot \bar{\boldsymbol v}]]_{\boldsymbol x \in C_v}
 \end{align}
+% \DIFdelbegin \begin{align*}
+% \DIFdel{\boldsymbol K^s_{IJ} }&\DIFdel{= \alpha_v \int_{\Gamma_v} \Psi_I \Psi_J \boldsymbol 1 d\Gamma 
+% + \alpha_\theta \int_{\Gamma_\theta} \Psi_{I,\eta} n^\eta \boldsymbol a_3 \boldsymbol a_3 n^\gamma\Psi_{J,\gamma} d\Gamma + \alpha_C }[[\DIFdel{\Psi_I \boldsymbol a_3 \boldsymbol a_3 \Psi_J}]]\DIFdel{_{\boldsymbol x \in C_v} }\\
+% \DIFdel{\boldsymbol f^s_I }&\DIFdel{= \alpha_v \int_{\Gamma_v} \Psi_I \bar{\boldsymbol v} d\Gamma + \alpha_\theta \int_{\Gamma_\theta} \Psi_{I,\eta} n^\eta \boldsymbol a_3 \boldsymbol \bar \theta_{\boldsymbol n} d\Gamma + \alpha_C }[[\DIFdel{\Psi_I \boldsymbol a_3 \boldsymbol a_3 \cdot \bar{\boldsymbol v}}]]\DIFdel{_{\boldsymbol x \in C_v}
+% }\end{align*}%DIFAUXCMD
+% \DIFdelend \DIFaddbegin \begin{align}
+% \DIFadd{\boldsymbol K^s_{IJ} }&\DIFadd{= \boldsymbol \alpha_v \int_{\Gamma_v} \Psi_I \Psi_J d\Gamma 
+% + \alpha_\theta \int_{\Gamma_\theta} \Psi_{I,\eta} n^\eta \boldsymbol a_3 \boldsymbol a_3 n^\gamma\Psi_{J,\gamma} d\Gamma + \alpha_C }[[\DIFadd{\Psi_I \boldsymbol a_3 \boldsymbol a_3 \Psi_J}]]\DIFadd{_{\boldsymbol x \in C_v} }\\
+% \DIFadd{\boldsymbol f^s_I }&\DIFadd{= \boldsymbol \alpha_v \int_{\Gamma_v} \Psi_I \bar{\boldsymbol v} d\Gamma + \alpha_\theta \int_{\Gamma_\theta} \Psi_{I,\eta} n^\eta \boldsymbol a_3 \boldsymbol \bar \theta_{\boldsymbol n} d\Gamma + \alpha_C }[[\DIFadd{\Psi_I \boldsymbol a_3 \boldsymbol a_3 \cdot \bar{\boldsymbol v}}]]\DIFadd{_{\boldsymbol x \in C_v}
+% }\end{align}\DIFaddend 
 \end{subequations}
 \DIFaddbegin \DIFadd{with
 }\begin{equation}
@@ -149,7 +179,7 @@ where the stiffness \DIFdelbegin \DIFdel{$\boldsymbol K_{IJ}$ }\DIFdelend \DIFad
 }\end{equation}
 \DIFaddend 
 
-On comparing with the consistent terms of Eqs. (\ref{de2}) and (\ref{nde2}), the expressions were almost identical, the major difference is that the higher order derivatives of shape functions have been replaced by \DIFaddbegin \DIFadd{the }\DIFaddend smoothed gradients. Owing to the reproducing kernel framework, the construction of \DIFaddbegin \DIFadd{the }\DIFaddend smoothed gradients only concerned about the computation of traditional meshfree shape functions and their first order derivatives, which avoid the costly computation of higher order derivatives. Moreover, the stabilized terms in Eq. (\ref{nde3}) employs the penalty method \DIFaddbegin \DIFadd{with big enough artificial parameters }\DIFaddend to ensure the coercivity of stiffness\DIFaddbegin \DIFadd{. Besides, the optimal values of these artificial parameters are proportional to the grid size of discrete model that can be represented by the support size in meshfree approximation, where $\alpha_{v\alpha} \propto s^{-1}$, $\alpha_{v3} \propto s^{-3}$, $\alpha_\theta \propto s^{-1}$, $\alpha_C \propto s^{-2}$\mbox{%DIFAUXCMD
+On comparing with the consistent terms of Eqs. (\ref{de2}) and (\ref{nde2}), the expressions were almost identical, the major difference is that the higher order derivatives of shape functions have been replaced by smoothed gradients. Owing to the reproducing kernel framework, the construction of smoothed gradients only concerned about the computation of traditional meshfree shape functions and their first order derivatives, which avoid the costly computation of higher order derivatives. Moreover, the stabilized terms in Eq. (\ref{nde3}) employs the penalty method \DIFaddbegin \DIFadd{with big enough artificial parameters }\DIFaddend to ensure the coercivity of stiffness\DIFaddbegin \DIFadd{. And the optimal values of these artificial parameters are proportional to the grid size of discrete model that can be represented by support size in meshfree approximation, where the $\alpha_{v\alpha} \propto s^{-1}$, $\alpha_{v3} \propto s^{-3}$, $\alpha_\theta \propto s^{-1}$, $\alpha_C \propto s^{-2}$\mbox{%DIFAUXCMD
 \cite{benzaken2021}}\hskip0pt%DIFAUXCMD
 , and $s = \min\{s_{\alpha I}\}$}\DIFaddend . In contrast, the stabilized term of Eq. (\ref{de3}) naturally exists in its weak form, and can stabilize the result without considering any artificial parameters.
 
