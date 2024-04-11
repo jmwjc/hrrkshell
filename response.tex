@@ -17,127 +17,67 @@
 Authors appreciate careful reading of the manuscript by the reviewers, and are thankful for helpful suggestions for its improvement. Authors have modified the manuscript substantially in light of the reviewer's comments. All the modifications and changes made are highlighted in the Marked Revised Manuscript. Issues and concerns raised by the reviewers are discussed as follows:
 
 \section*{Reviewer \#1}
-\textit{This manuscript provides a meshfree thin shell formulation based on the Hu-Washizu variational principle. The essential boundary conditions in the present formulation do not require additional artificial parameters, which can be considered insensitive to those in Nitsche and Penalty’s approaches. The derivation is rigorous however several issues must be properly addressed before the publication. I recommend a major revision.}
+\textit{The authors have fully addressed most of my comments. However, there are small issues and typos in the present manuscript, which need to be fixed before publishing on EABE. I recommend a minor revision.}
 
-\textbf{Comment 1.} \textit{After Eq. 5, the formulation of theta needs to be provided.}
+\textbf{Comment 1.} \textit{In Figure 8, the reference value of the Scodelis-Lo roof was wrong. This needs to be changed to -0.3006.}
 
-\textbf{Response:} Authors thank the reviewer for the suggestion. The expression to calcualte rotation ($\boldsymbol \theta$) is derived as follows:
-\begin{equation}
-    \begin{split}
-        \epsilon_{3i} = 0 \Rightarrow &
-        \left \{
-        \begin{split}
-            \boldsymbol \theta \cdot \boldsymbol a_\alpha &= - \boldsymbol v_{,\alpha} \cdot \boldsymbol a_3 \\
-            \boldsymbol \theta \cdot \boldsymbol a_3 &= 0
-        \end{split}
-        \right . \\ \Rightarrow &
-        \boldsymbol \theta = \underbrace{\boldsymbol \theta \cdot \boldsymbol a_{\alpha}}_{- \boldsymbol v_{,\alpha} \cdot \boldsymbol a_3} \boldsymbol a^\alpha 
-        + \underbrace{\boldsymbol \theta \cdot \boldsymbol a_3}_{0} \boldsymbol a^3 = - \boldsymbol v_{,\alpha} \cdot \boldsymbol a_3 \boldsymbol a^\alpha
-    \end{split}
-\end{equation}
-Based on reveiwer's suggestion Eq. (9) on Page 6 (lines 151) has been modified to provide more clarity regarding the calculation of rotation ($\boldsymbol \theta$).
+\textbf{Response:} Authors appreciate the reviewer's identification of the incorrect reference value in Figure 8. This value has been corrected to $-0.3006$ on Page 26.
 
-\textbf{Comment 2.} \textit{Consider using different symbols for the mid-surface displacement, v is always referring to velocity.}
+\textbf{Comment 2.} \textit{On Page 2, line 19, ”furhter” needs to be changed to ”further”.}
 
-\textbf{Response:} Authors appreciate reviewer's suggestion regarding the representation of mid-surface displacement. However, it has to be noted that present research article doesnot deal with the calculation of velocity. Therefore, the authors believe that the use of notation $\boldsymbol v$ to represent mid-surface displacement will not create confusion. 
+\textbf{Response:} Authors appreciate reviewer for pointing out this typo. The ``furhter" has been modified to ``further" on Page 2 (line 28), and the authors have double checked the manuscript to address other grammatical and type issues.
 
-\textbf{Comment 3.} $\boldsymbol \theta$ \textit{is the variation of $\boldsymbol a_3$, so $\boldsymbol \theta \cdot \boldsymbol a_3=0$. This relationship does not come from $\epsilon_{3i} = 0$, which was in Eq. (9).}
+\textbf{Comment 3.} \textit{On Page 2, the authors discussed the nodally integrated meshfree methods. However, most of the node-based meshfree methods suffer from instability. Recent work [1] provides the idea about how to use nodal integration in meshfree methods to achieve stable and accurate results. It is suggested that authors discuss this together with the other methods that are originally cited to deliver a detailed literature review.}
 
-\textbf{Response:} Authors appreciate the reviewer's insight regarding the calculation of rotation ($\boldsymbol \theta$). In the authors' opinion, the equation $\epsilon_{3i}=0$ is equivalent with $\boldsymbol \theta \cdot \boldsymbol a_3$, which follows the Kirchhoff hypothesis of shear deformation. Previoulsy, Benzaken et al. [4] also adopted similar approach to calculate the rotation. 
 
-\textbf{Comment 4.} \textit{Eq. (10) seems to be wrong. Where is $\boldsymbol a_{3,\alpha}$ and where is the most complicated term $\boldsymbol \theta_{,\alpha}$?}
+\textbf{Response:} Authors thank the reviewer for highlighting the valuable work by Wang et al. It has to be acknowledged that the term ``node-based meshfree methods" used on Page 2 refers to meshfree approximations that construct the shape functions based on nodal information, rather than specifically node-based meshfree integration schemes. 
+We agree that this work represents an important advancement in meshfree methods and have cited it as Ref. [18] on Page 2 (line 23). 
+Additionally, we have clarified the terminology by replacing the original phrase with ''node-based MLS/RK approximations" on Page 2 (line 30).
 
-\textbf{Reply:} Authors are thankful to the reviewer for the careful observation. The detailed dervation of curvature given in Eq. (10) is appended below:
-\begin{equation}
-    \begin{split}
-        \kappa_{\alpha\beta} &=\frac{1}{2}(\boldsymbol a_{3,\alpha} \cdot \boldsymbol v_{,\beta} + \boldsymbol v_{,\alpha} \cdot \boldsymbol a_{3,\beta} + \boldsymbol a_\alpha \cdot \boldsymbol \theta_{,\beta} + \boldsymbol \theta_{,\alpha} \cdot \boldsymbol a_\beta) \\
-        &=\frac{1}{2} \left ( 
-        \begin{split}
-            &\underbrace{(\boldsymbol a_3 \cdot \boldsymbol v_{,\beta})_{,\alpha} - \boldsymbol a_3 \cdot \boldsymbol v_{,\alpha\beta}}_{\boldsymbol a_{3,\alpha} \cdot \boldsymbol v_{,\beta}} \\
-            +&\underbrace{(\boldsymbol a_3 \cdot \boldsymbol v_{,\alpha})_{,\beta} - \boldsymbol a_3 \cdot \boldsymbol v_{,\alpha\beta}}_{\boldsymbol v_{,\beta} \cdot \boldsymbol a_{3,\alpha}} \\
-            -& \boldsymbol a_\alpha \cdot \underbrace{((\boldsymbol v_{,\gamma} \cdot \boldsymbol a_3)_{,\beta} \boldsymbol a^\gamma + \boldsymbol v_{,\gamma} \cdot \boldsymbol a_3 \boldsymbol a^\gamma_{,\beta})}_{-\boldsymbol \theta_{,\beta}} \\
-            -& \boldsymbol a_\beta \cdot \underbrace{((\boldsymbol v_{,\gamma} \cdot \boldsymbol a_3)_{,\alpha} \boldsymbol a^\gamma + \boldsymbol v_{,\gamma} \cdot \boldsymbol a_3 \boldsymbol a^\gamma_{,\alpha})}_{-\boldsymbol \theta_{,\alpha}} \\
-        \end{split}
-        \right ) \\
-        &=\frac{1}{2} \left ( 
-        \begin{split}
-            &\underbrace{(\boldsymbol a_3 \cdot \boldsymbol v_{,\beta})_{,\alpha}
-            +(\boldsymbol a_3 \cdot \boldsymbol v_{,\alpha})_{,\beta}
-            -(\boldsymbol v_{,\alpha} \cdot \boldsymbol a_3)_{,\beta}
-            -(\boldsymbol v_{,\beta} \cdot \boldsymbol a_3)_{,\alpha}}_{0} \\
-            -&2\boldsymbol a_3 \cdot \boldsymbol v_{,\alpha\beta}
-            - \boldsymbol v_{,\gamma} \cdot \boldsymbol a_3 \underbrace{\boldsymbol a_\alpha \cdot \boldsymbol a^\gamma_{,\beta}}_{-\Gamma_{\alpha\beta}^\gamma}
-            - \boldsymbol v_{,\gamma} \cdot \boldsymbol a_3 \underbrace{\boldsymbol a_\beta \cdot \boldsymbol a^\gamma_{,\alpha}}_{-\Gamma_{\alpha\beta}^\gamma} \\
-        \end{split}
-        \right ) \\
-        &= (\Gamma_{\alpha\beta}^\gamma \boldsymbol v_{,\gamma} - \boldsymbol v_{,\alpha\beta}) \cdot \boldsymbol a_3
-    \end{split}
-\end{equation}
-It has to bring to the notice of the reviewer that the detailed derivation of curvature can be found in previous studies by Benzaken et al. [4]. For the conciseness, a statement related to the derivation of curvature has been added in the revised manuscript on page 6 (line151). 
+\textbf{Comment 4.} \textit{On Page 2, line 45-46, ”In the absence of a meshfree node, accuracy enforcement might be poor.” this statement is confusing. Please clarify or rephrase it.}
 
-\textbf{Comment 5.} \textit{Patchtest: table 2 is interesting. Eq. (62) assumes the solution is only polynomials on the mid-surface, which is already not a polynomial in the Cartesian coordinate. The flat model is simple, in this case, the parametric domain is the same as Cartesian. I believe the error in the curved case is due to bad parametrization. In general, the solution should be able to reproduce the parametric polynomials if the integration and parametrization are both good.}
+\textbf{Reply:} Authors appreciate the reviewer's careful observation. We have revised this sentence and changed it to ``The accuracy maybe poor at locations away from the sample points" on Page 3 (line 53-54).
 
-\textbf{Response:} Authors are thankful to the reviewer for the careful insight. In the present study, the proposed approach as given in Eqs. (32, 33, 35, 36) was used to designate polynomial strains and stresses. It can be found from Eqs. (7) and (8), of the revised manuscript the strains were expressed by the in-plane covariant base ($\boldsymbol a_i$) and the derivatives of displacement ($\boldsymbol v_{,i}$). For the flat surface model, both of $\boldsymbol a_i$ and $\boldsymbol v_{,i}$ are polynomials, so the meshfree formulation can easily pass the patch test. However, in the case of the curved surface model, the $\boldsymbol a_i$ turns to be non-polynomial due the parametrization of curvilinear coordinate system. As a result, even though the integration and parametrization are well poised, the approximated smoothed stresses cannot exactly reproduce the non-polynomial stresses. For this reason, the adopted approach in the present study was termed as "quasi-consistent".
+\textbf{Comment 5.} \textit{[2] also discussed the surface-type and volume-type Nitsche’s methods as well as the choice of the penalty parameters.}
+
+\textbf{Response:} Thank you for highlighting the valuable work by Wang et al. We acknowledge that the Nitsche method, as employed in their work to ensure variational consistency between background and immersed domains in composite elasticity problems, utilizes artificial parameters. Since this aspect is not directly relevant to our proposed method, we believe it's more appropriate to discuss this as an extended application of the Nitsche method.
+Therefore, we have added the following statement on page 3 (line 76-79):
+
+``Additionally, the Nitsche's method has been successfully applied to maintain the variational consistency between different geometrical or material domains in problems with multiple patches [30] and composite materials [31]."
  
-\textbf{Comment 6.} \textit{Example 5.2, figure (7) is distracting. The purpose of the newly designed method is to get rid of the penalty parameters. In general, the final penalty parameter should be $E/h\times C$, where $C$ is a dimensionless coefficient. If one is testing the convergence rate of Nitsche or penalty methods, the penalty parameter needs to be scaled by the mesh size $h$, when the model is refined.}
+\textbf{Comment 6.} \textit{The authors well discussed the history of meshfree methods in dealing with the accuracy and boundary conditions. However, the literature review of shells is generally needed for the readers to understand the long history of developments. It is suggested that the authors create a small paragraph to discuss several milestones in the shell history. Thick shells by [3] (almost the first work); Well-known Hughes–Liu shell[4]; Belytschko—Lin—Tsay shell [5]; Geometry exact shell by Simo et al. [6]. [7] the first EFG paper for K–L shells;[8] first did the crack simulation based on the K–L shell theory;[9] presented a reformulation of K-L shell theory to accommodate arbitrary nonlinear materials; [10] first IGA K–L shell. Some of them are already in the original reference list.}
 
-\textbf{Response:} Based on the reviewer's suggestion, the artificial parameters shown in Figure (7) were scaled by shape function support size ($s$) which can measure the grid size of discrete model ($h$) . In accordance with reference Benzaken et al. [4], the modified parameters were set as $\alpha_{v\alpha} = \bar\alpha_v / s$, $\alpha_{v3} = \bar\alpha_v / s^3$ and $\alpha_\theta = \bar \theta / s$. The parameters $\alpha_{v\alpha}$'s and $\alpha_{v3}$ were redefined to represent in-plane displacements $\boldsymbol v \cdot \boldsymbol a_\alpha$ and deflection $\boldsymbol v \cdot \boldsymbol a_3$ respectively. After the parameters were scaled by support size ($s$), both Nitsche's method and penalty method observed less parameter sensitivity. However, the scaled up paramters cannot completely eliminate the parameter sensitivity problem. To provide further clarity, the related statements are added in revised mansucript on Pages 17, 18 and 21.
+\textbf{Response:} Authors are thankful to the reviewer's suggestion to incorporate relevant discussion on conventional thin- and thick-shell formulation. We have added the following discussion on Page 2 (line 11-23): 
 
-\textbf{Comment 7.} \textit{In Example 5.2, the authors provided the wrong reference value. $-0.3024$ is the one under RM shell theory. In this case, I believe the value should be $-0.3006$. See [1] for more information.}
+``Traditional finite element methods typically employ $C^0$ continuous shape functions, and it prefers hybrid and mixed shell models, like linear and nonlinear Mindlin model [2, 3] and the one inextensible director model [4]. 
+Over the past thirty years, various novel formulations with high order smoothed shape functions have been applied to thin shell formulations. These include element-free Galerkin method [5], maximum-entropy meshfree method [6], Hermite reproducing kernel particle method [7], peridynamics [8], isogeometric analysis [9], and others.
+For a more comprehensive review of advances and applications of high order formulations in various scientific and engineering fields, refer to [10, 12, 13, 14, 15, 16, 17, 18]."
 
-\textbf{Response:} Authors are thankful to the reviewer for pointing out the wrong reference value. The reference value has been changed to $-0.3006$. Accordingly, the related statement on Page 21 has been modified in the revised mansucript.
+\textbf{Comment 7.} \textit{Section 5.1, the thickness is $h = 0.1$ but the radius is $R = 1$, which the radio is slightly large for employing the K–L theory. In general, $R/h > 20$ is considered as thin shell [10]. Will it be possible to have the patch test done with a smaller thickness value?}
 
-\textbf{Comment 8.} \textit{In Example 6.2, also check if the reference value provided in this study is for RM shells [2].}
-
-\textbf{Response:} Following the reviewer's suggestion, the reference values (0.094) has been updated in Fig. 10 on Page 26. In order to show a better convergence performance, the meshfree discretizations were modified ranging from $16\times16$ to $40\times40$. The related discussions were updated in the revised manuscript on Page 21. 
-
-\textbf{Comment 9.} \textit{Scodelis-Lo roof, pinched hemisphere, and pinched cylinder are the most famous shell benchmark problems. In [3], the authors named them ”shell obstacle course”. These 3 examples are even harder than those finite deformation shell simulations. So a good shell formulation should be capable of passing these three challenges. It is strongly suggested that the authors add the pinched cylinder simulation to this manuscript.}
-
-\textbf{Response:} Authors appreciate reviewer's suggestion. Authors also believe the pinched cylinder is one of the most common benchmark example for thin shell formulation. Besides, this example was also based on cylindrical coordinate system, which is similar to that of Scodelis-Lo roof problem. Therefore, taking into account the limitations of the content of current manuscript, the pinched cylinder problem was not considered. It will be considered as a  further prospective.
+\textbf{Response:} Authors are thankful to the reviewer for the suggestion regarding the radius-thickness radio of thin shell. The shell thickness used in patch test has been changed to $h=0.05$, i.e. $\frac{R}{h} = 20$. Accordingly, the following elements have been updated in revised manuscript
+\begin{itemize}
+    \item The relevant statement regarding the shell thickness on Page 20 (line 366). 
+    \item The patch test results in Table 1 and 2 on Pages 21 and 22.
+    \item The moment contour plot in Figure 4 on Page 22. 
+\end{itemize}
 
 \section*{Reviewer \#2}
-\textit{With the aid of the Hu-Washizu variational principle and reproducing kernel smoothed gradients, an efficient and quasi-consistent meshfree Galerkin method is presented in this manuscript to solve thin shell problems. An outstanding merit of the method is that the essential boundary conditions can be enforced naturally. Computational formulas of the method are presented with some details. Numerical results are given to demonstrate the efficiency of the method.}
+\textit{I have read the authors' revised manuscript and the associated responses to the review comments. The revised manuscript is well written and my review comments have been well addressed and implemented. I thereby recommend the acceptance of this manuscript.}
 
-\textit{The current manuscript is well presented and contains material worthy of publication. Acceptance of the manuscript is recommended. The authors are, however, encouraged to address the comments listed below.}
-
-\textbf{Comment 1.} \textit{Please check the grammar of the sentence below Eq. (22).}
-
-\textbf{Response:} Authors are thankful to the reviewer for identifying the grammatical error. The sentence below Eq. (22)  has beeen modified in the revised mansucript on Page 9 as 
-``\DIFdeltex{in which} \DIFaddtex{where} $\Psi_I$ and $\boldsymbol d_I$ \DIFdeltex{is } \DIFaddtex{represent } the shape function and nodal coefficient tensor related by node $\boldsymbol \xi_I$". 
-Besides, the manuscript was double checked to address other grammatical and typo issues.
-
-\textbf{Comment 2.} \textit{Why is only the quadratic function used for the basis function vector p in Eq. (23)?}
-
-\textbf{Response:} In the present study, the proposed method is in the context of RKGSI framework that can be easily extended for the high order basis functions. However, for conciseness, only quadratic basis function was considered in this study which can be considered as a limitation. The formulation with high order basis functions will be considered in the further work and the related statements has been added  in the conclusion of the revised manuscript on Page 28.
-
-\textbf{Comment 3.} \textit{Please provide the meaning of the symbol $s_{\alpha I}$ in Eq. (25). What is the parameter value used in this paper?}
-
-\textbf{Response:} The parameter $s_{\alpha I}$ represents the support size of the shape function $\Psi_I$. Accordingly, the statements related  to support size has been added on Page 9 (line 209). Besides, the authors have also checked the definitions of all the symbols in the revised manuscript. The value of characterized support size of shape function is taken as 2.5 for all the considered examples, which is reported on Page 20 (line 342).
-
-\textbf{Comment 4.} \textit{Fig. 2 contains two sets of integration points. Considering the computational burden, using only one set of integration points may be more beneficial for Galerkin meshfree methods. Therefore, it is recommended to provide some explanations.}
-
-\textbf{Response:} In the present study, two integration schemes (blue circular integration points and red cross integration points) were considered depending on their contribution. For instance, in the case of blue circular integration scheme both domain integration and boundary integration were existed in each integration cell. Further, the total number of these blue integration points has been optimized from a global point of view to reduce the computation of meshfree shape functions and their first order derivatives [5]. On the other hand, the red cross integration scheme was employed for the assembly of stiffness matrix which involve only the integration accuracy and does not consider any boundary integration. Thus, the traditional 3-point integration scheme is sufficient to carry out this task. Therefore, if the Galerkin formulation adopts the identical points with the blue circular integration scheme, the number of integration points for assembly were increased by two-fold. This will reduce the efficiency of the Galerkin meshfree method. Taking into account the computational burden, the two different integration schemes adopted in the present study were found to be the ideal choice for the proposed method. To provide more clarity, the related discussion has been added in the revised mansucript on Page 16 (lines297). 
-
-\textbf{Comment 5.} \textit{On page 13, the authors stated that "Even with p-th order variational consistency, the proposed formulation can not exactly reproduce the solution spanned by basis functions". The reproducibility is important for Galerkin meshfree methods. So, just suggestion, is it possible to give some more explicit explanations.}
-
-\textbf{Response:} The reproducibility is one of the essential requirement for the Galerkin formulation variational consistency to achieve an optimal accuracy. Based on reviewer's suggestion, the discussion related to the reproducibility and consistency conditions were added on Page 2 of the revised manuscript.
-
-\textbf{6.} \textit{Numerical results of Nitsche's method and penalty method are also shown in Section 5.1. The values of penalty parameters used in the two methods should be provided. In addition, it is encouraged to provide some observations on numerical results of the RKGSI-penalty in Figure 4 and Tables 1 and 2.}
-
-\textbf{Reply:} Based on reviewer's suggestion, to provide further clarity the artificial parameters used in Nitsche's method and penalty method were updated on Page 19. Additional discussions for RKGSI-penalty were also added on Pages 19 and 20 of the revised manuscript. 
-
-\textbf{7.} \textit{On pages 32-34, some reference information such as journal title and year of publication is missed.}
-
-% NOTE: too many references has been modified, do we list all?
-% TODO: Its just numbers we can add them here also
-\textbf{Reply:} Authors thank the reviewer for the careful observation. All the reference information were checked and modified in the revised manuscript.
+\textbf{Response:} Authors are thankful for the comments and suggestions, which definitely help the authors to improve this manuscript.
 
 \section*{References}
 \begin{enumerate}[{[1]}]
-    \item P. Krysl, J.S. Chen, Benchmarking computational shell models, Archives of Computational Methods in Engineering 30 (2023) 301–315. 
-    \item J. Kiendl, K.U. Bletzinger, J. Linhard, R. Wüchner, Isogeometric shell analysis with Kirchhoff–Love elements, Computer Methods in Applied Mechanics and Engineering 198 (2009) 3902–3914. 
-    \item T. Belytschko, H. Stolarski, W.K. Liu, Stress projection for membrane and shear locking in shell finite elements, Computer Methods in Applied Mechanics and Engineering 51 (1985) 221–258. 
-    \item J. Benzaken, J.A. Evans, S.F. McCormick, R. Tamstorf, Nitsche’s method for linear Kirchhoff–Love shells: Formulation, error analysis, and verification, Computer Methods in Applied Mechanics and Engineering 374 (2021) 113544. 
-    \item D. Wang, J. Wu, An inherently consistent reproducing kernel gradient smoothing framework toward efficient Galerkin meshfree formulation with explicit quadrature, Computer Methods in Applied Mechanics and Engineering 349 (2019) 628–672. 
+    \item J. Wang, M. Behzadinasab, W. Li, Y. Bazilevs, A stable formulation of correspondence-based peridynamics with a computational structure of a method using nodal integration, International journal for numerical methods in engineering (2024) e7465. 
+    \item J. Wang, G. Zhou, M. Hillman, A. Madra, Y. Bazilevs, J. Du, K. Su, Con- sistent immersed volumetric nitsche methods for composite analysis, Com- puter Methods in Applied Mechanics and Engineering 385 (2021) 114042. 
+    \item S. Ahmad, B. M. Irons, O. Zienkiewicz, Analysis of thick and thin shell structures by curved finite elements, International Journal for Numerical Methods in Engineering 2 (3) (1970) 419–451. 
+    \item T. J. Hughes, W. K. Liu, Nonlinear finite element analysis of shells: Part I. three-dimensional shells, Computer Methods in Applied Mechanics and Engineering 26 (3) (1981) 331–362. 
+    \item T. Belytschko, J. I. Lin, T. Chen-Shyh, Explicit algorithms for the non- linear dynamics of shells, Computer Methods in Applied Mechanics and Engineering 42 (2) (1984) 225–251.
+    \item J. C. Simo, D. D. Fox, On a stress resultant geometrically exact shell model. Part I: Formulation and optimal parametrization, Computer Methods in Applied Mechanics and Engineering 72 (3) (1989) 267–304.
+    \item P. Krysl, T. Belytschko, Analysis of thin shells by the element-free Galerkin method, International Journal of Solids and Structures 33 (20-22) (1996) 3057–3080.
+    \item T. Rabczuk, P. Areias, T. Belytschko, A meshfree thin shell method for non-linear dynamic fracture, International Journal for Numerical Methods in Engineering 72 (5) (2007) 524–548.
+    \item M. Behzadinasab, M. Alaydin, N. Trask, Y. Bazilevs, A general-purpose, inelastic, rotation-free Kirchhoff–Love shell formulation for peridynamics, Computer Methods in Applied Mechanics and Engineering 389 (2022) 114422.
+    \item J. Kiendl, K.U. Bletzinger, J. Linhard, R. Wüchner, Isogeometric shell analysis with Kirchhoff–Love elements, Computer Methods in Applied Mechanics and Engineering 198 (49-52) (2009) 3902–3914.
 \end{enumerate}
 \end{document}

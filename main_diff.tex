@@ -108,21 +108,18 @@
 %DIFDELCMD < \include{examples_v0}
 %DIFDELCMD < \include{conclusion_v0}
 %DIFDELCMD < %%%
-\DIFdelend \DIFaddbegin \include{frontmatter_diff}
+\DIFdelend \DIFaddbegin \include{frontmatter}
 \include{introduction_diff}
-\include{kinematics_diff}
-\include{mix_diff}
-\include{boundary_diff}
+\include{kinematics}
+\include{mix}
+\include{boundary}
 \include{examples_diff}
-\include{conclusion_diff}
+\include{conclusion}
 \DIFaddend \section*{Acknowledgment}
 The support of this work by the National Natural Science Foundation of China (12102138, 52350410467) and the Natural Science Foundation of Fujian Province of China (2023J01108, 2022J05056) is gratefully acknowledged.
 \appendix
 \include{derivative}
-\DIFdelbegin %DIFDELCMD < \include{derivation_v0}
-%DIFDELCMD < %%%
-\DIFdelend \DIFaddbegin \include{derivation_diff}
-\DIFaddend 
+\include{derivation}
 
 \begin{thebibliography}{10}
 \expandafter\ifx\csname url\endcsname\relax
@@ -134,41 +131,90 @@ The support of this work by the National Natural Science Foundation of China (12
 \bibitem{donnell1976}
 L.~H. Donnell, Beams, {{Plates}} and {{Shells}}, McGraw-Hill, 1976.
 
-\bibitem{hughes2000}
+\DIFaddbegin \bibitem{ahmad1970}
+\DIFadd{S.~Ahmad, B.~M. Irons, O.~C. Zienkiewicz, Analysis of thick and thin shell structures by curved finite elements, International Journal for Numerical Methods in Engineering 2 (1970) 419--451.
+}
+
+\DIFaddend \bibitem{hughes2000}
 T.~J. Hughes, The {{Finite Element Method}}: {{Linear Static}} and {{Dynamic Finite Element Analysis}}, Dover Publications, Mineola, New York, 2000.
 
-\bibitem{belytschko1994}
-T.~Belytschko, Y.~Y. Lu, L.~Gu, Element-free {{Galerkin}} methods, International Journal for Numerical Methods in Engineering 37 (1994) 229--256.
+\DIFdelbegin
+\DIFdel{T.~Belytschko, Y.~Y. Lu, L. ~Gu, Element-free Galerkin methods, International Journal for Numerical Methods in Engineering 37 (1994) 229--256.}\DIFdelend \DIFaddbegin \bibitem{simo1989b}
+\DIFadd{J.~C. Simo, D.~D. Fox, On a stress resultant geometrically exact shell model. Part I: Formulation and optimal parametrization, Computer Methods in Applied Mechanics and Engineering 72 (1989) 267--304.}\DIFaddend
 
-\bibitem{liu1995}
-W.~K. Liu, S.~Jun, Y.~F. Zhang, Reproducing kernel particle methods, International Journal for Numerical Methods in Fluids 20 (1995) 1081--1106.
+\DIFdelbegin
+\DIFdel{W.~K.Liu, S.
+~Jun, Y.~F.Zhang, Reproducing kernel particle methods, International Journal for Numerical Methods in Fluids 20 (1995) 1081--1106.}\DIFdelend 
+\DIFaddbegin \bibitem{krysl1996}
+\DIFadd{P.~Krysl, T.~Belytschko, Analysis of thin shells by the }{{\DIFadd{Element-Free Galerkin}}} \DIFadd{method, International Journal of Solids and Structures 33 (1996) 3057--3080.}
 
-\bibitem{chen2017}
-J.~S. Chen, M.~Hillman, S.~W. Chi, {Meshfree methods: Progress made after 20 Years}, Journal of Engineering Mechanics 143 (2017) 04017001.
+\bibitem{millan2011}
+\DIFadd{D.~Mill}{\DIFadd{\'a}}\DIFadd{n, A.~Rosolen, M.~Arroyo, Thin shell analysis from scattered points with maximum-entropy approximants, International Journal for Numerical Methods in Engineering 85 (2011) 723--751.}\DIFaddend .
 
-\bibitem{krysl1996}
-P.~Krysl, T.~Belytschko, Analysis of thin shells by the {{Element-Free Galerkin}} method, International Journal of Solids and Structures 33 (1996) 3057--3080.
+\DIFdelbegin
+\DIFdel{J.~S. Chen, M.~Hillman, S.~W. Chi, Meshfree methods: Progress made after 20 Years, Journal of Engineering Mechanics 143 (2017) 04017001.}\DIFdelend 
+
+\DIFaddbegin \bibitem{wang2015a}
+\DIFadd{D.~Wang, C.~Song, H.~Peng, A circumferentially enhanced Hermite reproducing kernel meshfree method for buckling analysis of Kirchhoff--Love cylindrical shells, International Journal of Structural Stability and Dynamics 15 (2015) 1450090.}\DIFaddend 
+
+\DIFdelbegin
+\DIFdel{P.~Krysl, T.~Belytschko, Analysis of thin shells by the Element-Free Galerkin method, International Journal of Solids and Structures 33 (1996) 3057--3080.}\DIFdelend 
+\DIFaddbegin \bibitem{behzadinasab2022}
+\DIFadd{M.~Behzadinasab, M.~Alaydin, N.~Trask, Y.~Bazilevs, A general-purpose, inelastic, rotation-free Kirchhoff--Love shell formulation for peridynamics, Computer Methods in Applied Mechanics and Engineering 389 (2022) 114422.}
+
+\bibitem{kiendl2009}
+\DIFadd{J.~Kiendl, K.~U. Bletzinger, J.~Linhard, R.~W}{\DIFadd{\"u}}\DIFadd{chner, Isogeometric shell analysis with }{{\DIFadd{Kirchhoff}}}\DIFadd{--}{{\DIFadd{Love}}} \DIFadd{elements, Computer Methods in Applied Mechanics and Engineering 198 (2009) 3902--3914}\DIFaddend .
 
 \bibitem{liu2009}
 G.~R. Liu, Meshfree {{Methods}}: {{Moving Beyond}} the {{Finite Element Method}}, {{Second Edition}}, Crc Press, 2009.
 
-\bibitem{zhang2000}
-X.~Zhang, K.~Z. Song, M.~W. Lu, X.~Liu, Meshless methods based on collocation with radial basis functions, Computational Mechanics 26 (2000) 333--343.
+\DIFdelbegin \bibitem{zhang2000}
+\DIFdel{X.~Zhang, K.~Z. Song, M.~W. Lu, X.~Liu, Meshless methods based on collocation with radial basis functions, Computational Mechanics 26 (2000) 333--343.}\DIFdelend 
+\DIFaddbegin \bibitem{chen2017}
+\DIFadd{J.~S. Chen, M.~Hillman, S.~W. Chi, Meshfree methods: Progress made after 20 Years, Journal of Engineering Mechanics 143 (2017) 04017001.}\DIFaddend 
 
-\bibitem{millan2011}
-D.~Mill{\'a}n, A.~Rosolen, M.~Arroyo, Thin shell analysis from scattered points with maximum-entropy approximants, International Journal for Numerical Methods in Engineering 85 (2011) 723--751.
+\DIFdelbegin
+\DIFdel{D.~Mill\'an, A.~Rosolen, M.~Arroyo, Thin shell analysis from scattered points with maximum-entropy approximants, International Journal for Numerical Methodsin Engineering 85 (2011) 723--751.}\DIFdelend 
+\DIFaddbegin \bibitem{zhang2017a}
+\DIFadd{X.~Zhang, Z.~Chen, Y.~Liu, The Material Point Method: A Continuum-Based Particle Method for Extreme Loading Cases, Academic Press, Oxford, 2017.}
+
+\bibitem{suchde2022}
+\DIFadd{P.~Suchde, T.~Jacquemin, O.~Davydov, Point Cloud Generation for Meshfree Methods: An Overview, Archives of Computational Methods in Engineering 30 (2022) 889--915.}\DIFaddend 
 
 \bibitem{wang2023b}
 L.~Wang, M.~Hu, Z.~Zhong, F.~Yang, Stabilized {{Lagrange Interpolation Collocation Method}}: {{A}} meshfree method incorporating the advantages of finite element method, Computer Methods in Applied Mechanics and Engineering 404 (2023) 115780.
 
-\bibitem{suchde2022}
-P.~Suchde, T.~Jacquemin, O.~Davydov, Point {{Cloud Generation}} for {{Meshfree Methods}}: {{An Overview}}, Archives of Computational Methods in Engineering 30 (2022) 889--915.
+\DIFdelbegin
+\DIFdel{P.~Suchde, T.~Jacquemin, O.~Davydov, Point }%DIFDELCMD < {{%%%
+\DIFdel{Cloud Generation}%DIFDELCMD < }} %%%
+\DIFdel{for }%DIFDELCMD < {{%%%
+\DIFdel{Meshfree Methods}%DIFDELCMD < }}%%%
+\DIFdel{: }%DIFDELCMD < {{%%%
+\DIFdel{An Overview}%DIFDELCMD < }}%%%
+\DIFdel{, Archives of Computational Methods in Engineering 30 (2022) 889--915.
+}%DIFDELCMD < 
 
-\bibitem{deng2023a}
+%DIFDELCMD < %%%
+\DIFdelend \bibitem{deng2023a}
 L.~Deng, D.~Wang, An accuracy analysis framework for meshfree collocation methods with particular emphasis on boundary effects, Computer Methods in Applied Mechanics and Engineering 404 (2023) 115782.
 
-\DIFaddbegin \bibitem{wang2024}
-\DIFadd{J.~Wang, M.~Hillman, Upwind reproducing kernel collocation method for convection-dominated problems, Computer Methods in Applied Mechanics and Engineering 420 (2024) 116711.
+\bibitem{wang2024}
+J.~Wang, M.~Hillman, Upwind reproducing kernel collocation method for convection-dominated problems, Computer Methods in Applied Mechanics and Engineering 420 (2024) 116711.
+
+\DIFaddbegin 
+\bibitem{wang2024a}
+\DIFadd{J.~Wang, M.~Behzadinasab, W.~Li, Y.~Bazilevs, A stable formulation of
+  correspondence-based peridynamics with a computational structure of a method
+  using nodal integration, International Journal for Numerical Methods in
+  Engineering (2024) e7465.
+} \DIFaddend
+
+\DIFaddbegin \bibitem{belytschko1994}
+\DIFadd{T.~Belytschko, Y.~Y. Lu, L.~Gu, Element-free }{{\DIFadd{Galerkin}}} \DIFadd{methods, International Journal for Numerical Methods in Engineering 37 (1994) 229--256.
+}
+
+\bibitem{liu1995}
+\DIFadd{W.~K. Liu, S.~Jun, Y.~F. Zhang, Reproducing kernel particle methods, International Journal for Numerical Methods in Fluids 20 (1995) 1081--1106.
 }
 
 \DIFaddend \bibitem{fernandez-mendez2004}
@@ -198,7 +244,15 @@ T.~Zhu, S.~N. Atluri, A modified collocation method and a penalty formulation fo
 \bibitem{skatulla2008}
 S.~Skatulla, C.~Sansour, Essential boundary conditions in meshfree methods via a modified variational principle: {{Applications}} to shell computations, Computer Assisted Mechanics and Engineering Sciences 15 (2008) 123--142.
 
-\bibitem{chen2001}
+\DIFaddbegin \bibitem{guo2021}
+\DIFadd{Y.~Guo, Z.~Zou, M.~Ruess, Isogeometric multi-patch analyses for mixed thin shells in the framework of non-linear elasticity, Computer Methods in Applied Mechanics and Engineering 380 (2021) 113771.
+}
+
+\bibitem{wang2021b}
+\DIFadd{J.~Wang, G.~Zhou, M.~Hillman, A.~Madra, Y.~Bazilevs, J.~Du, K.~Su, Consistent immersed volumetric }{{\DIFadd{Nitsche}}} \DIFadd{methods for composite analysis, Computer Methods in Applied Mechanics and Engineering 385 (2021) 114042.
+}
+
+\DIFaddend \bibitem{chen2001}
 J.~S. Chen, C.~T. Wu, S.~Yoon, Y.~You, A stabilized conforming nodal integration for {{Galerkin}} mesh-free methods, International Journal for Numerical Methods in Engineering 50 (2001) 435--466.
 
 \bibitem{chen2013a}
@@ -219,26 +273,24 @@ J.~Wu, X.~Wu, Y.~Zhao, D.~Wang, A consistent and efficient method for imposing m
 \bibitem{wu2023}
 J.~Wu, X.~Wu, Y.~Zhao, D.~Wang, A rotation-free {{Hellinger-Reissner}} meshfree thin plate formulation naturally accommodating essential boundary conditions, Engineering Analysis with Boundary Elements 154 (2023) 122--140.
 
-\DIFdelbegin \bibitem{dah-wei1985}
-\DIFdel{H.~}%DIFDELCMD < {%%%
-\DIFdel{Dah-wei}%DIFDELCMD < }%%%
-\DIFdel{, A method for establishing generalized variational principle, Applied Mathematics and Mechanics 6 (1985) 501--509.
-}%DIFDELCMD < 
-
-%DIFDELCMD < %%%
-\DIFdelend \bibitem{benzaken2021}
+\bibitem{benzaken2021}
 J.~Benzaken, J.~A. Evans, S.~F. McCormick, R.~Tamstorf, Nitsche's method for linear {{Kirchhoff}}--{{Love}} shells: {{Formulation}}, error analysis, and verification, Computer Methods in Applied Mechanics and Engineering 374 (2021) 113544.
 
-\DIFaddbegin \bibitem{dah-wei1985}
-\DIFadd{H.~}{\DIFadd{Dah-wei}}\DIFadd{, A method for establishing generalized variational principle, Applied Mathematics and Mechanics 6 (1985) 501--509.
-}
+\bibitem{dah-wei1985}
+H.~{Dah-wei}, A method for establishing generalized variational principle, Applied Mathematics and Mechanics 6 (1985) 501--509.
 
-\DIFaddend \bibitem{du2022}
-H.~Du, J.~Wu, D.~Wang, J.~Chen, A unified reproducing kernel gradient smoothing {{Galerkin}} meshfree approach to strain gradient elasticity, Computational Mechanics 70 (2022) 73--100\DIFaddbegin \DIFadd{.
-}
+\bibitem{du2022}
+H.~Du, J.~Wu, D.~Wang, J.~Chen, A unified reproducing kernel gradient smoothing {{Galerkin}} meshfree approach to strain gradient elasticity, Computational Mechanics 70 (2022) 73--100\DIFdelbegin \DIFdel{.
+}%DIFDELCMD < 
 
-\bibitem{kiendl2009}
-\DIFadd{J.~Kiendl, K.~U. Bletzinger, J.~Linhard, R.~W}{\DIFadd{\"u}}\DIFadd{chner, Isogeometric shell analysis with }{{\DIFadd{Kirchhoff}}}\DIFadd{--}{{\DIFadd{Love}}} \DIFadd{elements, Computer Methods in Applied Mechanics and Engineering 198 (2009) 3902--3914}\DIFaddend .
+%DIFDELCMD < \bibitem{kiendl2009}
+\DIFdel{J.~Kiendl, K.~U. Bletzinger, J.~Linhard, R.~W}%DIFDELCMD < {%%%
+\DIFdel{\"u}%DIFDELCMD < }%%%
+\DIFdel{chner, Isogeometric shell analysis with }%DIFDELCMD < {{%%%
+\DIFdel{Kirchhoff}%DIFDELCMD < }}%%%
+\DIFdel{--}%DIFDELCMD < {{%%%
+\DIFdel{Love}%DIFDELCMD < }} %%%
+\DIFdel{elements, Computer Methods in Applied Mechanics and Engineering 198 (2009) 3902--3914}\DIFdelend .
 
 \bibitem{macneal1985}
 R.~H. Macneal, R.~L. Harder, A proposed standard set of problems to test finite element accuracy, Finite Elements in Analysis and Design 1 (1985) 3--20.
