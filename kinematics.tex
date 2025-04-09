@@ -60,13 +60,13 @@ In accordance with the Kirchhoff hypothesis, the thickness of shell will not cha
 \right .
 \Rightarrow \boldsymbol \theta = - \boldsymbol v_{,\alpha} \cdot \boldsymbol a_3 \boldsymbol a^\alpha
 \end{equation}
-where $\boldsymbol a^\alpha$'s is the in-plane contravariant base vector, $\boldsymbol a^\alpha \cdot \boldsymbol a_\beta = \delta^\alpha_\beta$, $\delta$ is the Kronecker delta function. The detailed derivation of Eq. \ref{a3} can be found in \cite{benzaken2021}.
+where $\boldsymbol a^\alpha$'s are the in-plane contravariant base vectors, $\boldsymbol a^\alpha \cdot \boldsymbol a_\beta = \delta^\alpha_\beta$, $\delta$ is the Kronecker delta function. The detailed derivation of Eq. \ref{a3} can be found in \cite{benzaken2021}.
 
 Furthermore, on substituting Eq. (\ref{a3}) into Eq. (\ref{kappa1}) leads to:
 \begin{equation}
 \kappa_{\alpha\beta} = (\Gamma^\gamma_{\alpha\beta} \boldsymbol v_{,\gamma} - \boldsymbol v_{,\alpha\beta}) \cdot \boldsymbol a_3 = - \boldsymbol v_{,\alpha}\vert_\beta \cdot \boldsymbol a_3
 \end{equation}
-in which $\Gamma^\gamma_{\alpha\beta} = \boldsymbol a_{\alpha,\beta} \cdot \boldsymbol a^\gamma$ is namely the Christoffel symbol of the second kind, and $\boldsymbol v_{,\alpha}\vert_\beta$ is the in-plane covariant derivative of $\boldsymbol v_{,\alpha}$, i.e. $\boldsymbol v_{,\alpha}\vert_\beta = \Gamma^\gamma_{\alpha\beta}\boldsymbol v_{,\gamma} - \boldsymbol v_{,\alpha\beta}$.
+in which $\Gamma^\gamma_{\alpha\beta} = \boldsymbol a_{\alpha,\beta} \cdot \boldsymbol a^\gamma$ is namely the Christoffel symbol of the second kind, and $\boldsymbol v_{,\alpha}\vert_\beta$ is the in-plane covariant derivative of $\boldsymbol v_{,\alpha}$, i.e. $\boldsymbol v_{,\alpha}\vert_\beta = \boldsymbol v_{,\alpha\beta} - \Gamma^\gamma_{\alpha\beta}\boldsymbol v_{,\gamma}$.
 
 \subsection{Galerkin weak form for Hu-Washizu principle of complementary energy}
 In this study, the Hu-Washizu variational principle of complementary energy \cite{dah-wei1985} was adopted for the development of the proposed analytical approach, the corresponding complementary functional, denoted by $\Pi_C$, is listed as follows:
@@ -106,9 +106,9 @@ M_{\boldsymbol{nn}} = M^{\alpha\beta}n_\alpha n_\beta
 \begin{equation}
 P = -[[M^{\alpha\beta}s_\alpha n_\beta]]
 \end{equation}
-where $\boldsymbol n = n^\alpha \boldsymbol a_\alpha = n_\alpha \boldsymbol a^\alpha$ and $\boldsymbol s = s^\alpha \boldsymbol a_\alpha = s_\alpha \boldsymbol a^\alpha$ are the outward normal and tangent directions on boundaries. $[[f]]$ is the jump operator defined by:
+where $\boldsymbol n = n^\alpha \boldsymbol a_\alpha = n_\alpha \boldsymbol a^\alpha$ and $\boldsymbol s = s^\alpha \boldsymbol a_\alpha = s_\alpha \boldsymbol a^\alpha$ are the outward normal and tangent directions on boundaries. $[[\bullet]]$ is the jump operator defined by:
 \begin{equation}
-[[f]]_{\boldsymbol x = \boldsymbol x_c} = \lim_{\boldsymbol \epsilon\rightarrow \boldsymbol 0+}(f(\boldsymbol x_c + \boldsymbol \epsilon) - f(\boldsymbol x_c - \boldsymbol \epsilon)), \boldsymbol x_c \in \Gamma
+[[f]]_{\boldsymbol x = \boldsymbol x_c} = \lim_{\boldsymbol \epsilon\rightarrow \boldsymbol 0+}(f(\boldsymbol x_c + \boldsymbol \epsilon) - f(\boldsymbol x_c - \boldsymbol \epsilon)),\quad \boldsymbol x_c \in \Gamma
 \end{equation}
 where $f$ is an arbitrary function on $\Gamma$.
 

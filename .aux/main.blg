@@ -1,0 +1,57 @@
+This is BibTeX, Version 0.99d (TeX Live 2023/Homebrew)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: elsarticle-num.bst
+A level-1 auxiliary file: frontmatter.aux
+A level-1 auxiliary file: introduction.aux
+A level-1 auxiliary file: kinematics.aux
+A level-1 auxiliary file: mix.aux
+A level-1 auxiliary file: boundary.aux
+A level-1 auxiliary file: examples.aux
+A level-1 auxiliary file: conclusion.aux
+A level-1 auxiliary file: derivative.aux
+A level-1 auxiliary file: derivation.aux
+Database file #1: references.bib
+Warning--can't use both author and editor fields in zhang2017a
+You've used 41 entries,
+            2952 wiz_defined-function locations,
+            916 strings with 12249 characters,
+and the built_in function-call counts, 11816 in all, are:
+= -- 1140
+> -- 383
+< -- 0
++ -- 155
+- -- 114
+* -- 823
+:= -- 1646
+add.period$ -- 41
+call.type$ -- 41
+change.case$ -- 37
+chr.to.int$ -- 0
+cite$ -- 42
+duplicate$ -- 323
+empty$ -- 1316
+format.name$ -- 150
+if$ -- 3007
+int.to.chr$ -- 0
+int.to.str$ -- 41
+missing$ -- 45
+newline$ -- 131
+num.names$ -- 41
+pop$ -- 231
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 728
+stack$ -- 0
+substring$ -- 865
+swap$ -- 38
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 1
+while$ -- 103
+width$ -- 43
+write$ -- 330
+(There was 1 warning)

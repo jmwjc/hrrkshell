@@ -9,7 +9,7 @@ H_e\text{-Error} &= \frac{\sqrt{\int_\Omega \left ((\varepsilon_{\alpha\beta} - 
 \end{equation}
 
 \subsection{Patch tests}
-The linear and quadratic patch tests for flat and curved thin shells are firstly studied to verify the variational consistency of the proposed method. As shown in Fig. \ref{ptf1}, the flat and curved models are depicted by an identical parametric domain $\Omega = (0,1)\otimes(0,1)$, where the cylindrical coordinate system with radius $R=1$, thickness $h=0.05$ is employed to describe the curved model, and the whole domain $\Omega$ is discretized by the $165$ meshfree nodes. The Young's modulus and Poisson's ratio of thin shell are set to $E=1$, $\nu=0$. The artificial parameters of $\alpha_v=10^5\times E$, $\alpha_\theta=10^3\times E$, $\alpha_C=10^5\times E$ and $\alpha_v=10^9\times E, \alpha_\theta=10^9\times E, \alpha_C=10^9\times E$ were adopted in Nitsche's- and penalty- method, respectively. All the boundaries are enforced as essential boundary conditions with the following manufactured exact solution:
+The linear and quadratic patch tests for flat and curved thin shells are firstly studied to verify the variational consistency of the proposed method. As shown in Fig. \ref{ptf1}, the flat and curved models are depicted by an identical parametric domain $\Omega = (0,1)\otimes(0,1)$, where the cylindrical coordinate system with radius $R=1$, thickness $h=0.05$ is employed to describe the curved model, and the whole domain $\Omega$ is discretized by the $165$ meshfree nodes. The Young's modulus and Poisson's ratio of thin shell are set to $E=1$, $\nu=0$. The artificial parameters of $\alpha_v=10^5$, $\alpha_\theta=10^3$, $\alpha_C=10^5$ and $\alpha_v=10^9, \alpha_\theta=10^9, \alpha_C=10^9$ were adopted in Nitsche's- and penalty- method, respectively. All the boundaries are enforced as essential boundary conditions with the following manufactured exact solution:
 \begin{equation}
 \boldsymbol v = \begin{Bmatrix}
 (\xi^1+2\xi^2)^n \\ (3\xi^1+4\xi^2)^n \\ (5\xi^1+6\xi^2)^n
@@ -47,7 +47,7 @@ Table \ref{ptt1} lists the $L_2$- and $H_e$-Error results of patch test with fla
 
 \begin{table}[!ht]
 \centering
-\caption{Results of patch test for cylindrical model.}\label{ptt2}
+\caption{Results of patch test for curved model.}\label{ptt2}
 \begin{tabular}{lcccc}
 \toprule
  & \multicolumn{2}{c}{Linear patch test} & \multicolumn{2}{c}{Quadratic patch test} \\ \cline{2-5}
@@ -68,7 +68,7 @@ Table \ref{ptt1} lists the $L_2$- and $H_e$-Error results of patch test with fla
 \caption{Contour plots of $M^{12}$ for curved shell patch test.}\label{ptf2}
 \end{figure}
 
-\subsection{Scordelis-Lo roof}
+\subsection{Scordelis--Lo roof}
 This example considers the classical Scordelis-Lo roof problem, as depicted in Fig. \ref{slf1}. The cylindrical roof has dimensions $R=25$, $L=50$, $h=0.25$, Young's modulus $E=4.32\times 10^8$ and Poisson's ratio $\nu=0.0$. The entire roof is subjected to a uniform body force of $b_z = -90$, with the straight edges remaining free and the curved edges are enforced by $v_x=v_z=0$.
 
 Due to the symmetry, only a quadrant of the model is considered for meshfree analysis, which is discretized by the $11\times 16$, $13\times 20$, $17\times 24$ and $19\times28$ meshfree nodes, as listed in Fig. \ref{slf2}. The comparison of the displacement in $z-$direction at node $A$, $v_{A3}$, is used as the investigated quantity, with the reference value -0.3006 given by \cite{kiendl2009}. Firstly, Fig. \ref{slf3} presents a sensitivity study for the artificial parameters of $\alpha_{vi}$'s and $\alpha_\theta$'s in the RKGSI meshfree formulations with the Nitsche's- and penalty- method, where all the parameters are scaled by the support size as, $\alpha_{v\alpha} = s^{-1}\bar \alpha_v$, $\alpha_{v3} = s^{-3} \bar \alpha_v$ and $\alpha_\theta = s^{-1}\bar \alpha_\theta$. For a better comparison, the result of the proposed RKGSI-HW is also listed in this figure. The results of Fig. \ref{slf3} revealed, that Nitsche's method observed less artificial sensitivity. However, both the methods cannot trivially determine the optimal values of the artificial parameters. The optimal artificial parameters from Fig. \ref{slf3} are adopted for the convergence study in Fig. \ref{slf4}. The convergence result showed that the RKGSI method get satisfactory results while the traditional Gauss methods demonstrated noticeable errors.
